@@ -7,21 +7,21 @@ if($USER->auth()){
 	if($USER->get('gid')==1){
 		$UI->pos['user2'].='<li class="dropdown">
 		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-		  '.\CORE::init()->lang('administration','Administration').'
+		  '.lang('administration','Administration').'
 		  <span class="caret"></span></a>
 		  <ul class="dropdown-menu" role="menu">
-		    <li><a href="./?c=user&act=manage">'.\CORE::init()->lang('users','Users').'</a></li>
-		    <li><a href="./?c=user&act=groups">'.\CORE::init()->lang('groups','Groups').'</a></li>
+		    <li><a href="./?c=user&act=manage">'.lang('users','Users').'</a></li>
+		    <li><a href="./?c=user&act=groups">'.lang('groups','Groups').'</a></li>
 		  </ul>
 		</li>
 		<!--<li><a href="#about">About</a></li>-->';
 	}
 	$UI->pos['user2'].='<li class="dropdown">
 	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-	  '.\CORE::init()->lang('modules','Modules').'
+	  '.lang('modules','Modules').'
 	  <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
-	    <li><a href="./?c=muassisaho">'.\CORE::init()->lang('facilities','Facilities').'</a></li>
+	    <li><a href="./?c=muassisaho">'.lang('facilities','Facilities').'</a></li>
 	  </ul>
 	</li>';
 }

@@ -8,7 +8,7 @@ define('PREFX',APPNAME.'_'); // prefix for sessions, etc.
 define('APPATH','./app'); // app path, url
 define('UIPATH','./ui'); // ui path, url
 define('NL_MODE',0); // 1 is maintenance on
-define('NL_DEBUG',1);
+define('NL_DEBUG',0);
 // database
 $conf['db_server']='localhost';
 $conf['db_port']='';

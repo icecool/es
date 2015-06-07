@@ -332,3 +332,6 @@ public function close(){
 }
 
 }
+function lang($alias,$dval=''){
+    return CORE::init()->lang($alias,$dval='');
+}

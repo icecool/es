@@ -9,7 +9,7 @@ public static function user_menu(){
 	if($USER->auth()){
 	/*
 	$UI->pos['user1']='<form class="navbar-form">
-		<a href="./?c=user&act=logout" class="btn btn-success">'.\CORE::init()->lang('signout','Sign out').'</a>
+		<a href="./?c=user&act=logout" class="btn btn-success">'.lang('signout','Sign out').'</a>
 	</form>';
 	*/
 	$UI->pos['user1'].='<form class="navbar-form">
@@ -21,20 +21,20 @@ public static function user_menu(){
 		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 		    <li role="usermenu">
 		    	<a role="menuitem" tabindex="-1" href="./?c=user&act=profile">
-		    		<small><i class="glyphicon glyphicon-user"></i>&nbsp;</small> <span class="text">'.\CORE::init()->lang('profile','Profile').'</span>
+		    		<small><i class="glyphicon glyphicon-user"></i>&nbsp;</small> <span class="text">'.lang('profile','Profile').'</span>
 		    	</a>
 		    </li>
 		    <!--
 		    <li role="usermenu">
 		    	<a role="menuitem" tabindex="-1" href="#">
-		    		<small><i class="glyphicon glyphicon-cog"></i>&nbsp;</small> <span class="text">'.\CORE::init()->lang('settings','Settings').'</span>
+		    		<small><i class="glyphicon glyphicon-cog"></i>&nbsp;</small> <span class="text">'.lang('settings','Settings').'</span>
 		    	</a>
 		    </li>
 		    -->
 		    <li role="usermenu" class="divider"></li>
 		    <li role="usermenu">
 		    	<a role="menuitem" tabindex="-1" href="./?c=user&act=logout">
-		    		<small><i class="glyphicon glyphicon-off"></i>&nbsp;</small> <span class="text">'.\CORE::init()->lang('signout','Sign out').'</span>
+		    		<small><i class="glyphicon glyphicon-off"></i>&nbsp;</small> <span class="text">'.lang('signout','Sign out').'</span>
 		    	</a>
 		    </li>
 		  </ul>
@@ -63,12 +63,12 @@ public static function user_menu(){
 			</div>
 		</div>
 	    <div class="form-group">
-	      <input type="text" name="login" placeholder="'.\CORE::init()->lang('login','Login').'" class="form-control">
+	      <input type="text" name="login" placeholder="'.lang('login','Login').'" class="form-control">
 	    </div>
 	    <div class="form-group">
-	      <input type="password" name="password" placeholder="'.\CORE::init()->lang('password','Password').'" class="form-control">
+	      <input type="password" name="password" placeholder="'.lang('password','Password').'" class="form-control">
 	    </div>
-	    <button type="submit" class="btn btn-success">'.\CORE::init()->lang('signin','Sign in').'</button>
+	    <button type="submit" class="btn btn-success">'.lang('signin','Sign in').'</button>
 	  </form>
 	';
 	}

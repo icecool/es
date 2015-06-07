@@ -8,13 +8,18 @@ class MUASSISAHO_V {
     	$muassisaho=$model->get_muassisaho();
     	$result.='<div class="btn-group" role="group" aria-label="...">
 			  <button id="new_group" type="button" class="btn btn-default"
-			  data-toggle="modal" data-target="#myModal">New</button>
-			</div>'.\CORE\BC\UI::init()->modal('myModal');
+			  data-toggle="modal" data-target="#myModal">'.lang('add','Add').'</button>
+			</div>
+			'.\CORE\BC\UI::init()->modal('myModal',lang('facilities','Facilities'));
     	if(count($muassisaho)){
     		// output table
 
+    		foreach($muassisaho as $k => $v){
+
+    		}
     	} else {    		
-			$result.='<h4 class="text-danger">No records found in the database</h4>';
+			$result.='<h4 class="text-danger">'.lang('nodbrecords','No records found in the database').'
+			</h4>';
     	}
 		return $result;
     }
