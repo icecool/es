@@ -53,7 +53,7 @@ class CORE {
 					include(CDIR.'/lng/'.$lang.'.php');
 					CORE::init()->lng=$lng;
 					CORE::init()->langfile=true;
-					CORE::msg('debug','language file loaded');
+					CORE::msg('debug','core language file loaded');
 				}
 			}
 			if(isset(CORE::init()->lng[$alias])){

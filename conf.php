@@ -20,3 +20,5 @@ $conf['db_con']=false;
 // user interface
 $langs=array('ru'=>'Русский','tj'=>'Тоҷикӣ');
 $conf['tpl']=UIPATH.'/tpl/es'; // template
+// app
+$appmods=array('muassisaho');

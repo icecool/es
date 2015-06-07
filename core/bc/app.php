@@ -80,26 +80,30 @@ class ROUTER {
 class APP {
 
     private static $inst;
-    private $modules=array(
-        'tb'=>1,
-        'es'=>1, 
-        );
+    private $modules=array();
 
     public static function init() {
         if(empty(self::$inst)) {
             self::$inst = new self();
-            if(is_readable(ADIR.'/main.php')){
-                include(ADIR.'/main.php'); // init
-            }
+            if(is_readable(ADIR.'/main.php')) include(ADIR.'/main.php');
         }
         return self::$inst;
     }
 
     private function __construct() {
+        $this->set_modules();
     	$modules=array_merge(\CORE::init()->get_modules(), $this->modules);
     	$REQUEST = new REQUEST();
         ROUTER::init($REQUEST,$modules); // check modules
         \CORE\MVC\V\USER_V::user_menu(); // shows sign in/out form
+    }
+
+    public function set_modules(){
+        global $appmods;
+        $count=count($appmods);
+        for($i=0;$i<$count;$i++){
+            $this->modules[$appmods[$i]]=1;
+        }
     }
 
 }
