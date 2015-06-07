@@ -7,7 +7,7 @@ class MUASSISAHO_C {
     	$UI=\CORE\BC\UI::init();
         switch($REQUEST->get('act')){
 			default:
-				$UI->pos['main'].=$view->main();
+				$UI->pos['main'].=$view->main($model);
 			break;
 		}
     }

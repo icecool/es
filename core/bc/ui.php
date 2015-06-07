@@ -66,7 +66,7 @@ class UI {
         }
     }
 
-    public static function modal($id='xModal',$btn=''){
+    public static function modal($id='xModal',$title='xModalTitle',$btn=''){
         $result='
     <!-- Modal -->
     <div class="modal fade" id="'.$id.'" tabindex="-1" role="dialog" aria-labelledby="'.$id.'Label" aria-hidden="true">
@@ -75,7 +75,7 @@ class UI {
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="'.$id.'Label">Modal title</h4>
+            <h4 class="modal-title" id="'.$id.'Label">'.$title.'</h4>
           </div>
           <div id="'.$id.'Body" class="modal-body">
             ...
