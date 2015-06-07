@@ -1,2 +1,2 @@
 # es
-Educational Services for Hackaton@2015
+Educational Services for Hackaton@Kyrgystan, 2015
