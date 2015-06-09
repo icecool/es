@@ -144,4 +144,34 @@ public function get_groups(){
 	return $groups;
 }
 
+public function group_add(){
+	$valid=true;
+	$groupname='';
+	if(isset($_POST['groupname'])) $groupname=trim($_POST['groupname']);
+	if($groupname=='') $valid=false;
+	if($valid){
+		$DB=\DB::init();
+		if($DB->connected()){
+			$sql = "SELECT * FROM `n-groups` WHERE `gp-group`=:groupname;";
+			$sth = $DB->dbh->prepare($sql);
+			$sth->execute(array('groupname'=>$groupname));
+			if($sth->rowCount()>0){
+				echo 'Похоже, что такая запись уже существует в БД';
+				// or system message
+			} else {
+				// add new facility here
+				$sql = "INSERT INTO `n-groups` SET `gp-group`=:groupname;";
+				$sth = $DB->dbh->prepare($sql);
+				$sth->execute(array('groupname'=>$groupname));
+				echo 'ok';
+			}
+		} else {
+			echo 'db connection err';
+		}
+	} else {
+		// \CORE::init()->msg('error','Проверьте корректность введенных данных');
+		echo 'Проверьте корректность введенных данных';
+	}
+}
+
 }

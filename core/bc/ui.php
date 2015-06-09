@@ -51,8 +51,9 @@ class UI {
     }
 
     public function static_page($alias=''){
+        if(isset($GLOBALS['langs'])) {$lang='_'.\CORE::init()->lang;} else {$lang='';}
         if(isset($this->pages[$alias])){
-            $path=ADIR.'/pages/'.$this->pages[$alias].'.php';
+            $path=ADIR.'/pages/'.$this->pages[$alias].$lang.'.php';
             if(is_readable($path)){
                 if(true){ // \SEC::init()->acl('page',$alias)
                     include($path);
@@ -67,29 +68,36 @@ class UI {
     }
 
     public static function lang_bar(){
+        global $langs;
         $result='';
-        $result.='
-        <div class="form-group">
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
-                <i></i>&nbsp;<small>Язык</small>
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
-                    <li role="usermenu">
-                        <a role="menuitem" tabindex="-1" href="./?lang=ru">
-                            <i class="langflag langflag-ru"></i>&nbsp;<small>Русский</small>
-                        </a>
-                    </li>
-                    <li role="usermenu">
-                    <a role="menuitem" tabindex="-1" href="./?lang=tj">
-                        <i class="langflag langflag-tj"></i>&nbsp;<small>Тоҷикӣ</small>
-                    </a>
-                </li>
-              </ul>
+        $lang=\CORE::init()->lang;
+        if(count($langs)>0){
+            $result.='
+            <div class="form-group">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                    <i class="langflag langflag-'.$lang.'"></i>&nbsp;<small>'.$langs[$lang].'</small>
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                        ';
+                        foreach ($langs as $key => $value) {
+                            if($key!=$lang){
+                                $result.='
+                        <li role="usermenu">
+                            <a role="menuitem" tabindex="-1" href="./?lang='.$key.'">
+                            <i class="langflag langflag-'.$key.'"></i>&nbsp;<small>'.$langs[$key].'</small>
+                            </a>
+                        </li>
+                        ';
+                            }
+                        }
+                        $result.='
+                  </ul>
+                </div>
             </div>
-        </div>
-        ';
+            ';
+        }
         return $result;
     }
 

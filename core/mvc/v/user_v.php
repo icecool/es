@@ -74,19 +74,79 @@ public function manage_users($model){
 }
 
 public function manage_groups($model){
+	$result='';
 	if($model!=null){
 		$UI=\CORE\BC\UI::init();
 		$groups=$model->get_groups();
 		$count=count($groups);
-		$UI->pos['main'].='<div class="btn-group" role="group" aria-label="...">
-		  <button id="new_group" type="button" class="btn btn-default"
-		  data-toggle="modal" data-target="#myModal">New</button>
-		</div>'.$UI::modal();
-		if($count>0){
-			//... show table
-		} else {
-			$UI->pos['main'].='<h4 class="text-danger">No records found in the database</h4>';
-		}
+    	$result.='<div class="btn-group" role="group" aria-label="...">
+			  <p><button id="new_group" type="button" class="btn btn-default"
+			  data-toggle="modal" data-target="#newGroup">'.lang('add','Добавить').'</button></p>
+			</div>
+			<!-- Modal -->
+		    <div class="modal fade" id="newGroup" tabindex="-1" role="dialog" aria-labelledby="newGroupLabel" aria-hidden="true">
+		      <div class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		            <span aria-hidden="true">&times;</span></button>
+		            <h4 class="modal-title" id="newGroupLabel">'.lang('newgroup','Новая группа').':</h4>
+		          </div>
+		          <form id="frm_new_group">
+		          <div id="newGroupBody" class="modal-body">
+					  <div class="form-group">
+					    <label for="groupname">'.lang('groupname','Название группы').'</label>
+					    <input type="text" class="form-control" id="groupname" placeholder="'.lang('group','группа').'">
+					  </div>
+
+		          </div>
+		          <div class="modal-footer">
+		            <button type="button" class="btn btn-default" data-dismiss="modal">
+		            '.lang('close','Close').'</button>
+		            <button type="button" id="group_add" class="btn btn-primary">'.lang('add','Add').'</button>
+		          </div>
+		          </form>
+		        </div>
+		      </div>
+		    </div>
+		    <!-- /Modal -->
+			';
+$UI->pos['js'].="\n".'<script src="'.UIPATH.'/js/groups.js"></script>';
+    	if(count($groups)>0){
+    		// output table
+    		$result.='
+    		<table class="table table-bordered table-hover" style="width:auto;">
+			<thead>
+			<tr>
+	          <th>id</th>
+	          <th>'.lang('groupname','Название группы').'</th>
+	          <th>'.lang('action','Действие').'</th>
+	        </tr>
+	        </thead>
+	        <tbody>
+	        ';
+    		foreach($groups as $id => $v){
+				$result.='<tr>
+				<td>'.$id.'</td>
+				<td>'.$v.'</td>
+				<td rel="'.$id.'" class="text-center">
+					<a role="menuitem" tabindex="-1" class="edit" href="#edit" title="'.lang('edit','Редактировать').'">
+			    		<i class="glyphicon glyphicon-edit"></i>
+			    	</a>
+			    	&nbsp;
+					<a role="menuitem" tabindex="-1" class="del" href="#del" title="'.lang('delete','Удалить').'">
+			    		<i class="glyphicon glyphicon-remove"></i>
+			    	</a>
+				</td>
+				</tr>';
+    		}
+    		$result.='</tbody>
+    		</table>
+    		';
+    	} else {
+			$result.='<h4 class="text-danger">'.lang('nodbrecords','No records found').'</h4>';
+    	}
+		return $result;
 	}
 }
 

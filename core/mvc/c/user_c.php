@@ -27,7 +27,17 @@ public function __construct($REQUEST,$model,$view){
 			$view->manage_users($model);
 		break;
 		case 'groups':
-			$view->manage_groups($model);
+			\CORE\BC\UI::init()->pos['main'].=$view->manage_groups($model);
+		break;
+		case 'ajax':
+			$do='';
+    		if(isset($_GET['do'])) $do=trim($_GET['do']);
+    		switch($do){
+    			case 'addgroup':
+    				$model->group_add();
+    			break;
+    		}
+    		exit;
 		break;
 	}	
 }
