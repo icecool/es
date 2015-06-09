@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 09 2015 г., 06:59
+-- Время создания: Июн 09 2015 г., 20:09
 -- Версия сервера: 5.6.17
 -- Версия PHP: 5.5.12
 
@@ -31,7 +31,18 @@ CREATE TABLE IF NOT EXISTS `geo` (
   `type` int(11) DEFAULT NULL COMMENT '1-gorod;2-oblast;3-rayon;4-jamoat',
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Дамп данных таблицы `geo`
+--
+
+INSERT INTO `geo` (`id`, `type`, `name`) VALUES
+(1, 1, 'Душанбе'),
+(2, 3, 'И. Сомони'),
+(3, 3, 'Сино'),
+(4, 3, 'Шохмансур'),
+(5, 3, 'Фирдавс');
 
 -- --------------------------------------------------------
 
@@ -137,15 +148,7 @@ CREATE TABLE IF NOT EXISTS `muassisaho` (
   PRIMARY KEY (`id`),
   KEY `fk_muassisaho_1_idx` (`geo_id`),
   KEY `fk_muassisaho_2_idx` (`namud`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Дамп данных таблицы `muassisaho`
---
-
-INSERT INTO `muassisaho` (`id`, `namud`, `name_ru`, `name_tj`, `director`, `address`, `geo_id`, `phone`, `cellphone`, `geo_lat`, `geo_lon`) VALUES
-(2, 4, 'Языковой центр "ЧакЧакНоррис"', 'Макркази чакчаки "акаи Норрис кати шухи наку"', 'Чак Норрис', 'Плаза 1', NULL, '372212121', '+992 92 777 7070', NULL, NULL),
-(3, 2, 'Школа №1', 'Мактаби миенаи №1', 'Ашурова М.И.', 'Исмоили С. 34', NULL, '2212324', '918 708090', NULL, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -180,7 +183,16 @@ CREATE TABLE IF NOT EXISTS `n-groups` (
   `gp-group` varchar(250) COLLATE utf8_bin NOT NULL,
   `gp-sort` int(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`gp-gid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `n-groups`
+--
+
+INSERT INTO `n-groups` (`gp-gid`, `gp-group`, `gp-sort`) VALUES
+(1, 'Администраторы', 0),
+(2, 'Управление образования города', 0),
+(3, 'Районные отделы образования', 0);
 
 -- --------------------------------------------------------
 
@@ -207,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `n-users` (
 --
 
 INSERT INTO `n-users` (`usr-uid`, `usr-gid`, `usr-pid`, `usr-login`, `usr-pwd`, `usr-salt`, `usr-hint`, `usr-status`, `usr-created`, `usr-lastlogin`) VALUES
-(1, 1, NULL, 'admin', '4e33559592d78056a7113ea23b92cc7d', 'j14', 'b3BlbmRhdGE=', 2, '2015-05-13 11:30:42', '2015-06-09 04:11:28');
+(1, 1, NULL, 'admin', '4e33559592d78056a7113ea23b92cc7d', 'j14', 'b3BlbmRhdGE=', 2, '2015-05-13 11:30:42', '2015-06-09 17:41:40');
 
 -- --------------------------------------------------------
 
