@@ -13,7 +13,7 @@ class MUASSISAHO_M {
 			$DB->query_count(); // for counting
 			if($sth->rowCount()>0){
 				while($r=$sth->fetch()){
-					$muassisaho[$r['id']]=$r;
+					$muassisaho[$r['m-id']]=$r;
 				}
 			}
     	}
@@ -31,7 +31,7 @@ class MUASSISAHO_M {
 			$DB->query_count(); // for counting
 			if($sth->rowCount()>0){
 				while($r=$sth->fetch()){
-					$namudi_muassisa[$r['id']]=$r['name_'.$lang];
+					$namudi_muassisa[$r['namud-id']]=$r['namud-name_'.$lang];
 				}
 			}
     	}
@@ -98,7 +98,7 @@ class MUASSISAHO_M {
 	if($id>0){
 		$DB=\DB::init();
 		if($DB->connected()){
-			$sql = "DELETE FROM `muassisaho` WHERE `id`=:id;";
+			$sql = "DELETE FROM `muassisaho` WHERE `m-id`=:id;";
 			$sth = $DB->dbh->prepare($sql);
 			$sth->execute(array('id'=>$id));
 			echo 'ok';

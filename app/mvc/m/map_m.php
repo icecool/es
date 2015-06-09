@@ -8,14 +8,14 @@ class MAP_M {
     	$DB=\DB::init();
     	if($DB->connected()){
     		$sql = "SELECT * FROM `muassisaho` LEFT OUTER JOIN `geo` 
-    		ON `muassisaho`.`geo_id`=`geo`.`id`
-    		LEFT OUTER JOIN `namudi_muassisa` ON `muassisaho`.`namud`=`namudi_muassisa`.`id`;";
+    		ON `geo_id`=`geo-id`
+    		LEFT OUTER JOIN `namudi_muassisa` ON `namud`=`namud-id`;";
 			$sth = $DB->dbh->prepare($sql);
 			$sth->execute();
 			$DB->query_count(); // for counting
 			if($sth->rowCount()>0){
 				while($r=$sth->fetch()){
-					$muassisaho[$r['id']]=$r;
+					$muassisaho[$r['m-id']]=$r;
 				}
 			}
     	}
@@ -33,7 +33,7 @@ class MAP_M {
 			$DB->query_count(); // for counting
 			if($sth->rowCount()>0){
 				while($r=$sth->fetch()){
-					$namudi_muassisa[$r['id']]=$r['name_'.$lang];
+					$namudi_muassisa[$r['namud-id']]=$r['namud-name_'.$lang];
 				}
 			}
     	}

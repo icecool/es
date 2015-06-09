@@ -94,3 +94,15 @@ body {
 .langflag-en {
 	background-position: 0px -32px;
 }
+
+#mysidebar {
+    border:1px solid silver;
+    background-color:white;
+    position: absolute;
+    z-index: 100px;
+    top:0px;
+    left:70px;
+}
+.xmg {
+    margin:8px;
+}
