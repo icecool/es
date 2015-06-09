@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 09, 2015 at 11:48 PM
+-- Generation Time: Jun 10, 2015 at 12:12 AM
 -- Server version: 5.5.38-0ubuntu0.12.04.1
 -- PHP Version: 5.3.10-1ubuntu3.15
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `muassisaho` (
   `cellphone` varchar(45) DEFAULT NULL,
   `geo_lat` varchar(12) DEFAULT NULL,
   `geo_lon` varchar(12) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=212 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=215 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `muassisaho`
@@ -255,7 +255,10 @@ INSERT INTO `muassisaho` (`id`, `namud`, `name_ru`, `name_tj`, `director`, `addr
 (208, 3, 'Мактаб интернати №3', 'Мактаб интернати №3', 'Кадамова Г.', 'Тахтагул 27', 1, '2-37-77-27', '95-138-04-55', '0', '0'),
 (209, 3, 'Мактаб интернати №4', 'Мактаб интернати №4', 'Муминов С.', 'Сана 5', 1, '2-40-03-48', '95-138-04-82', '0', '0'),
 (210, 3, 'Хонаи кўдакон', 'Хонаи кўдакон', 'Мегниева Р.', 'Борбад 72/3', 1, '2-31-36-02', '95-138-04-84', '0', '0'),
-(211, 3, 'Мактаб интернати нобиноён', 'Мактаб интернати нобиноён', 'Шоев Ғ.', '-------------', 1, '2-33-11-76', '95-163-63-58', '0', '0');
+(211, 3, 'Мактаб интернати нобиноён', 'Мактаб интернати нобиноён', 'Шоев Ғ.', '-------------', 1, '2-33-11-76', '95-163-63-58', '0', '0'),
+(212, 4, 'Маркази рушди истеъдодхо', 'Маркази рушди истеъдодхо', 'Сафаров Рустам Максудшоевич', 'Шотемур-28, 734002', 2, '47-444-73-74, 47-444-73-75', '', '0', '0'),
+(213, 4, 'Маркази кудакон ва наврасон', 'Маркази кудакон ва наврасон', 'Холов Комилчон Махмадрахимович', 'Шотемур', 2, '221-31-43   ', '47-444-78-05', '0', '0'),
+(214, 4, 'Маркази технологияи информатсионӣ ва коммуникатсиони', 'Маркази технологияи информатсионӣ ва коммуникатсиони', 'Норматов Шавкат Каримович', 'кучаи Мирзо Турсунзода 8/a ', 4, '227-31-43', '938-03-93-92', '0', '0');
 
 --
 -- Indexes for dumped tables
@@ -277,7 +280,7 @@ ALTER TABLE `muassisaho`
 -- AUTO_INCREMENT for table `muassisaho`
 --
 ALTER TABLE `muassisaho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=212;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=215;
 --
 -- Constraints for dumped tables
 --
