@@ -22,7 +22,7 @@ if($USER->auth()){
 	  <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
 	    <li><a href="./?c=muassisaho">'.lang('facilities','Facilities').'</a></li>
-	    <li><a href="./?c=xarita">'.lang('xarita','Xarita').'</a></li>
+	    <li><a href="./?c=map">'.lang('map','Карта').'</a></li>
 	  </ul>
 	</li>';
 }
