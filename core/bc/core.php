@@ -32,7 +32,7 @@ class CORE {
         // set current language
         $ln=SESSION::get('lang');
         if($ln!=''){
-            if(in_array($ln,$langs)){
+            if(isset($langs[$ln])){
                 CORE::init()->lang=$ln;
             }
         }

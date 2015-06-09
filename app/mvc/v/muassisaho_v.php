@@ -8,7 +8,7 @@ class MUASSISAHO_V {
     	$muassisaho=$model->get_muassisaho();
     	$namudi_muassisa=$model->get_namudi_muassisa();
     	$result.='<div class="btn-group" role="group" aria-label="...">
-			  <p><button id="new_group" type="button" class="btn btn-default"
+			  <p><button id="new_muassisa" type="button" class="btn btn-default"
 			  data-toggle="modal" data-target="#myModal1">'.lang('add','Add').'</button></p>
 			</div>
 			<!-- Modal -->
@@ -64,7 +64,7 @@ class MUASSISAHO_V {
 		    <!-- /Modal -->
 			';
 \CORE\BC\UI::init()->pos['js'].="\n".'<script src="'.UIPATH.'/js/muassisaho.js"></script>';
-    	if(count($muassisaho)){
+    	if(count($muassisaho)>0){
     		// output table
     		$result.='<!--<br><code>я думаю, может не стоит тут выводить все поля, а выводить их при 
     		редактировании, т.к. получается очень длинным, или все же лучше делать полным, 
