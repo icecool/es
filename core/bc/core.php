@@ -6,8 +6,8 @@ class CORE {
     private $modules=array('user'=>0);
     public $dbcon=false;
     public $lang='en';
-		public $langfile=false;
-		public $lng=array();
+	public $langfile=false;
+	public $lng=array();
 
     private function __construct() {
         spl_autoload_register('CORE::AutoLoader');
