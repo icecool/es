@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 07 2015 г., 15:13
+-- Время создания: Июн 09 2015 г., 06:59
 -- Версия сервера: 5.6.17
 -- Версия PHP: 5.5.12
 
@@ -124,20 +124,28 @@ CREATE TABLE IF NOT EXISTS `maktab_form2` (
 
 CREATE TABLE IF NOT EXISTS `muassisaho` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `namudi_muassisa_id` int(11) DEFAULT NULL,
+  `namud` int(11) DEFAULT NULL,
   `name_ru` varchar(255) DEFAULT NULL,
   `name_tj` varchar(255) DEFAULT NULL,
   `director` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
+  `geo_id` int(11) DEFAULT NULL,
   `phone` varchar(45) DEFAULT NULL,
   `cellphone` varchar(45) DEFAULT NULL,
-  `geo_id` int(11) DEFAULT NULL,
   `geo_lat` varchar(12) DEFAULT NULL,
   `geo_lon` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_muassisaho_1_idx` (`geo_id`),
-  KEY `fk_muassisaho_2_idx` (`namudi_muassisa_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  KEY `fk_muassisaho_2_idx` (`namud`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `muassisaho`
+--
+
+INSERT INTO `muassisaho` (`id`, `namud`, `name_ru`, `name_tj`, `director`, `address`, `geo_id`, `phone`, `cellphone`, `geo_lat`, `geo_lon`) VALUES
+(2, 4, 'Языковой центр "ЧакЧакНоррис"', 'Макркази чакчаки "акаи Норрис кати шухи наку"', 'Чак Норрис', 'Плаза 1', NULL, '372212121', '+992 92 777 7070', NULL, NULL),
+(3, 2, 'Школа №1', 'Мактаби миенаи №1', 'Ашурова М.И.', 'Исмоили С. 34', NULL, '2212324', '918 708090', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -199,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `n-users` (
 --
 
 INSERT INTO `n-users` (`usr-uid`, `usr-gid`, `usr-pid`, `usr-login`, `usr-pwd`, `usr-salt`, `usr-hint`, `usr-status`, `usr-created`, `usr-lastlogin`) VALUES
-(1, 1, NULL, 'admin', 'c55bfd3002033b16e0c78cfef98d15fc', 'x9l', 'YWRtaW5jaGVnMjAxNQ==', 1, '2015-05-13 11:30:42', '2015-06-07 11:24:33');
+(1, 1, NULL, 'admin', '4e33559592d78056a7113ea23b92cc7d', 'j14', 'b3BlbmRhdGE=', 2, '2015-05-13 11:30:42', '2015-06-09 04:11:28');
 
 -- --------------------------------------------------------
 
@@ -219,10 +227,10 @@ CREATE TABLE IF NOT EXISTS `namudi_muassisa` (
 --
 
 INSERT INTO `namudi_muassisa` (`id`, `name_ru`, `name_tj`) VALUES
-(1, 'Муассисахои тахсилоти то мактаби', NULL),
-(2, 'Мактабхои тахсилоти миёна умуми', NULL),
-(3, 'Мактаб интернатхо', NULL),
-(4, 'Иловаги', NULL);
+(1, 'Муассисахои тахсилоти то мактаби', 'Муассисахои тахсилоти то мактаби'),
+(2, 'Мактабхои тахсилоти миёна умуми', 'Мактабхои тахсилоти миёна умуми'),
+(3, 'Мактаб интернатхо', 'Мактаб интернатхо'),
+(4, 'Иловаги', 'Иловаги');
 
 -- --------------------------------------------------------
 
@@ -282,7 +290,7 @@ ALTER TABLE `maktab_form2`
 --
 ALTER TABLE `muassisaho`
   ADD CONSTRAINT `fk_muassisaho_1` FOREIGN KEY (`geo_id`) REFERENCES `geo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_muassisaho_2` FOREIGN KEY (`namudi_muassisa_id`) REFERENCES `namudi_muassisa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_muassisaho_2` FOREIGN KEY (`namud`) REFERENCES `namudi_muassisa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `registration_form`

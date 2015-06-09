@@ -20,12 +20,33 @@ $(document).ready(function(){
 				if(data=='ok'){
 					window.location='./?c=muassisaho';
 				} else {
-					$('#myModal1Body').html(data);
+					//$('#myModal1Body').html(data);
+					alert(data);
 				}
 		});
 	}
 
-	$('#add_new_muassisa').click(function(){
+	$('#muassisa_add').click(function(){
 		add_muassisa();
 	});
+
+	$('.muassisa_del').click(function(){
+		var xid = $(this).parent('td').attr('rel');
+		//alert('Заглушка для удаления элемента '+xid);
+		if(confirm('Вы действительно хотите удалить данный элемент?')){
+			$.post('./?c=muassisaho&act=ajax&do=del', { id: xid }, function(data){
+					if(data=='ok'){
+						window.location='./?c=muassisaho';
+					} else {
+						//alert(data);
+						alert('Возникла ошибка при удалении');
+					}
+			});
+		}
+	});
+
+	$('.muassisa_edit').click(function(){
+		alert('Заглушка для редактирования элемента');
+	});
+
 });

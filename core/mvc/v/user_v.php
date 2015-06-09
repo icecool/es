@@ -12,8 +12,10 @@ public static function user_menu(){
 		<a href="./?c=user&act=logout" class="btn btn-success">'.lang('signout','Sign out').'</a>
 	</form>';
 	*/
-	$UI->pos['user1'].='<form class="navbar-form">
-		<div class="dropdown">
+	$UI->pos['user1'].='
+		<form class="navbar-form">
+		'.$UI->lang_bar().'
+		<div class="dropdown form-group">
 		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 		    '.$USER->get('username').'
 		    <span class="caret"></span>
@@ -42,26 +44,7 @@ public static function user_menu(){
 	</form>';
 	} else {
 	$UI->pos['user1'].='<form action="./?c=user&act=login" method="post" class="navbar-form">
-		<div class="form-group">
-			<div class="dropdown">
-			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
-			    <i></i>&nbsp;<small>Язык</small>
-			    <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
-					<li role="usermenu">
-						<a role="menuitem" tabindex="-1" href="./?lang=ru">
-							<i class="langflag langflag-ru"></i>&nbsp;<small>Русский</small>
-						</a>
-					</li>
-					<li role="usermenu">
-			    	<a role="menuitem" tabindex="-1" href="./?lang=tj">
-			    		<i class="langflag langflag-tj"></i>&nbsp;<small>Тоҷикӣ</small>
-			    	</a>
-			    </li>
-			  </ul>
-			</div>
-		</div>
+		'.$UI->lang_bar().'
 	    <div class="form-group">
 	      <input type="text" name="login" placeholder="'.lang('login','Login').'" class="form-control">
 	    </div>
@@ -86,7 +69,7 @@ public function profile($model){
 public function manage_users($model){
 	if($model!=null){
 		//\CORE::init()->msg('debug','Managing users accounts');
-
+		//print_r($model->pwdGenerator('opendata'));
 	}
 }
 

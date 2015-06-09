@@ -13,6 +13,9 @@ class MUASSISAHO_C {
         			case 'add':
         				$model->add();
         			break;
+        			case 'del':
+        				$model->del();
+        			break;
         		}
         		exit;
         	break;

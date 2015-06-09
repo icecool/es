@@ -6,6 +6,7 @@ class MUASSISAHO_V {
     public function main($model){
     	$result='';
     	$muassisaho=$model->get_muassisaho();
+    	$namudi_muassisa=$model->get_namudi_muassisa();
     	$result.='<div class="btn-group" role="group" aria-label="...">
 			  <p><button id="new_group" type="button" class="btn btn-default"
 			  data-toggle="modal" data-target="#myModal1">'.lang('add','Add').'</button></p>
@@ -23,7 +24,7 @@ class MUASSISAHO_V {
 		          <div id="myModal1Body" class="modal-body">
 					  <div class="form-group">
 					    <label for="Namud">'.lang('factype','Тип учреждения').'</label>
-					    '.$this->namudho($model,"Namud").'
+					    '.$this->namudho($namudi_muassisa,"Namud").'
 					  </div>
 					  <div class="form-group">
 					    <label for="NameRu">'.lang('facname','Название учреждения').' (ru)</label>
@@ -54,7 +55,7 @@ class MUASSISAHO_V {
 		          <div class="modal-footer">
 		            <button type="button" class="btn btn-default" data-dismiss="modal">
 		            '.lang('close','Close').'</button>
-		            <button type="button" id="add_new_muassisa" class="btn btn-primary">'.lang('add','Add').'</button>
+		            <button type="button" id="muassisa_add" class="btn btn-primary">'.lang('add','Add').'</button>
 		          </div>
 		          </form>
 		        </div>
@@ -65,18 +66,20 @@ class MUASSISAHO_V {
 \CORE\BC\UI::init()->pos['js'].="\n".'<script src="'.UIPATH.'/js/muassisaho.js"></script>';
     	if(count($muassisaho)){
     		// output table
-    		$result.='
+    		$result.='<!--<br><code>я думаю, может не стоит тут выводить все поля, а выводить их при 
+    		редактировании, т.к. получается очень длинным, или все же лучше делать полным, 
+    		чтобы было все видно?</code>-->
     		<table class="table table-bordered table-hover" style="width:auto;">
 			<thead>
 			<tr>
 	          <th>id</th>
-	          <th>Namudi muassisa</th>
-	          <th>Muassisa</th>
-	          <th>Director</th>
-	          <th>Address</th>
-	          <th>Phone</th>
-	          <th>Cellphone</th>
-	          <th>action</th>
+	          <th>'.lang('facility','Учреждение').'</th>
+	          <th>'.lang('type','Тип').'</th>
+	          <th>'.lang('director','Директор').'</th>
+	          <th>'.lang('address','Адрес').'</th>
+	          <th>'.lang('phone','Телефон').'</th>
+	          <th>'.lang('cellphone','Мобильный').'</th>
+	          <th>'.lang('action','Действие').'</th>
 	        </tr>
 	        </thead>
 	        <tbody>
@@ -84,14 +87,20 @@ class MUASSISAHO_V {
     		foreach($muassisaho as $k => $v){
 				$result.='<tr>
 				<td>'.$k.'</td>
-				<td>'.$v['namud'].'</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>
-					edit, del
+				<td>'.$v['name_'.\CORE::init()->lang].'</td>
+				<td>'.$namudi_muassisa[$v['namud']].'</td>
+				<td>'.$v['director'].'</td>
+				<td>'.$v['address'].'</td>
+				<td>'.$v['phone'].'</td>
+				<td>'.$v['cellphone'].'</td>
+				<td rel="'.$k.'" class="text-center">
+					<a role="menuitem" tabindex="-1" class="muassisa_edit" href="#edit" title="'.lang('edit','Редактировать').'">
+			    		<i class="glyphicon glyphicon-edit"></i>
+			    	</a>
+			    	&nbsp;
+					<a role="menuitem" tabindex="-1" class="muassisa_del" href="#del" title="'.lang('delete','Удалить').'">
+			    		<i class="glyphicon glyphicon-remove"></i>
+			    	</a>
 				</td>
 				</tr>';
     		}
@@ -104,9 +113,8 @@ class MUASSISAHO_V {
 		return $result;
     }
 
-    public function namudho($model,$id,$sel=0){
+    public function namudho($namudi_muassisa,$id,$sel=0){
     	$result='';
-    	$namudi_muassisa=$model->get_namudi_muassisa();
     	if(count($namudi_muassisa)>0){
     		$result.='<select class="form-control" id="'.$id.'">'."\n";
     		foreach($namudi_muassisa as $id => $name){

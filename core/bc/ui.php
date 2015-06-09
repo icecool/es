@@ -66,6 +66,33 @@ class UI {
         }
     }
 
+    public static function lang_bar(){
+        $result='';
+        $result.='
+        <div class="form-group">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                <i></i>&nbsp;<small>Язык</small>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                    <li role="usermenu">
+                        <a role="menuitem" tabindex="-1" href="./?lang=ru">
+                            <i class="langflag langflag-ru"></i>&nbsp;<small>Русский</small>
+                        </a>
+                    </li>
+                    <li role="usermenu">
+                    <a role="menuitem" tabindex="-1" href="./?lang=tj">
+                        <i class="langflag langflag-tj"></i>&nbsp;<small>Тоҷикӣ</small>
+                    </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        ';
+        return $result;
+    }
+
     public static function modal($id='xModal',$title='xModalTitle',$btn=''){
         $result='
     <!-- Modal -->

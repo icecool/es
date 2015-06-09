@@ -93,6 +93,17 @@ class MUASSISAHO_M {
 		}
     }
 
-
+    public function del($id=0){
+	if($id==0 && isset($_POST['id'])){ $id=(int) $_POST['id']; }
+	if($id>0){
+		$DB=\DB::init();
+		if($DB->connected()){
+			$sql = "DELETE FROM `muassisaho` WHERE `id`=:id;";
+			$sth = $DB->dbh->prepare($sql);
+			$sth->execute(array('id'=>$id));
+			echo 'ok';
+		}
+	}
+}
 
 }

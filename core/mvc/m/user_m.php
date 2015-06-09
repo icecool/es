@@ -90,6 +90,44 @@ public function CheckPassword($password){
 	if($len>=8 && $len<255){ return true; } else { return false; }
 }
 
+public function GenerateSalt($n=3) {
+  $key='';
+  $pattern='1234567890abcdefghijklmnopqrstuvwxyz.,*_-=+';
+  $counter=strlen($pattern)-1;
+  for($i=0;$i<$n;$i++){$key.=$pattern{rand(0,$counter)};}
+  return $key;
+}
+
+public function randomPassword($len_min=8,$len_max=0) {
+	if($len_max>$len_min){
+		$len=rand($len_min,$len_max);
+	} else {
+		$len=(int) $len_min;
+	}
+    $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+    $pass = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < $len; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass); //turn the array into a string
+}
+
+public function pwdGenerator($pwd='',$min=8,$max=0){
+if($pwd=='') { $pwd=$this->randomPassword($min,$max); }
+$salt=$this->GenerateSalt();
+$pwd_hash=md5(md5($pwd).$salt);
+$hint=base64_encode($pwd);
+$pd=array(
+	'pwd' => $pwd,
+	'hash' => $pwd_hash,
+	'salt' => $salt,
+	'hint' => $hint,
+	);
+return $pd;
+}
+
 public function get_groups(){
 	$groups=array();
 	$DB=\DB::init();
