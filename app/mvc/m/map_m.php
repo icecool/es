@@ -9,7 +9,7 @@ class MAP_M {
     	if($DB->connected()){
     		$sql = "SELECT * FROM `muassisaho` LEFT OUTER JOIN `geo` 
     		ON `geo_id`=`geo-id`
-    		LEFT OUTER JOIN `namudi_muassisa` ON `namud`=`namud-id` ORDER BY `m-id`;";
+    		LEFT OUTER JOIN `namudi_muassisa` ON `namud`=`namud-id` ORDER BY `geo_id`,`name_ru`;";
 			$sth = $DB->dbh->prepare($sql);
 			$sth->execute();
 			$DB->query_count(); // for counting

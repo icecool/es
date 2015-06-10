@@ -5,6 +5,7 @@ class MUASSISAHO_V {
 
     public function main($model){
     	$result='';
+    	$lang=\CORE::init()->lang;
     	$muassisaho=$model->get_muassisaho();
     	$namudi_muassisa=$model->get_namudi_muassisa();
     	$result.='<div class="btn-group" role="group" aria-label="...">
@@ -85,10 +86,12 @@ class MUASSISAHO_V {
 	        <tbody>
 	        ';
     		foreach($muassisaho as $k => $v){
+    			$namud_title='';
+    			if(isset($namudi_muassisa[$v['namud']])) $namud_title=$namudi_muassisa[$v['namud']];
 				$result.='<tr>
 				<td>'.$k.'</td>
-				<td>'.$v['name_'.\CORE::init()->lang].'</td>
-				<td>'.$namudi_muassisa[$v['namud']].'</td>
+				<td>'.$v['name_'.$lang].'</td>
+				<td>'.$namud_title.'</td>
 				<td>'.$v['director'].'</td>
 				<td>'.$v['address'].'</td>
 				<td>'.$v['phone'].'</td>

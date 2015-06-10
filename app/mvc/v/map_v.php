@@ -19,7 +19,9 @@ class MAP_V {
     	if(count($muassisaho)>0){
     		$mlist.='<select id="xlist">'."\n";
     			foreach($muassisaho as $k=>$vl){
-    				$mlist.='<option value="'.$k.'">'.$vl['name_ru'].'</option>'."\n"; 
+    				$gc='';
+    				if($vl['geo_lat']!='') $gc=' *';
+    				$mlist.='<option value="'.$k.'">'.$vl['name_ru'].' ('.$vl['geo-name'].') '.$gc.'</option>'."\n"; 
     			}
     		$mlist.="</select>\n";    		
     	}
