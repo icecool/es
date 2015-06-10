@@ -22,4 +22,4 @@ $conf['db_con']=false;
 $langs=array('ru'=>'Русский','tj'=>'Тоҷикӣ');
 $conf['tpl']=UIPATH.'/tpl/es'; // template
 // app
-$appmods=array('muassisaho', 'map', 'reg');
+$appmods=array('muassisaho', 'map', 'reg', 'dv');

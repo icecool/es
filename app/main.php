@@ -24,6 +24,7 @@ if($USER->auth()){
 	    <li><a href="./?c=muassisaho">'.lang('facilities','Facilities').'</a></li>
 	    <li><a href="./?c=map">'.lang('map','Карта').'</a></li>
 	    <li><a href="./?c=reg">'.lang('registration','Регистрация').'</a></li>
+	    <li><a href="./?c=dv">'.lang('dv','Визуализации данных').'</a></li>
 	  </ul>
 	</li>';
 }

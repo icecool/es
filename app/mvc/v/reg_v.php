@@ -68,50 +68,81 @@ class REG_V {
 			*/
 			$result.='
 			<div id="regformbox">
-			<h4>'.lang('regform','Форма регистрации').'</h4>
+			<h3 class="text-center">'.lang('regform','Форма регистрации').'</h3>
 			<form id="frm_reg">
-	          <input type="hidden" id="frmhash" value="'.md5(time()).'">
-	          <div id="myRegBody" class="modal-body">
+				<input type="hidden" id="frmhash" value="'.md5(time()).'">
+				<div id="myRegBody" class="modal-body">
 
-				  <div class="form-group">
-				    <label for="name">'.lang('name','Имя').'</label>
-				    <input type="text" class="form-control" id="name" placeholder="'.lang('name','Имя').'">
-				  </div>
-				  <div class="form-group">
-				    <label for="name">'.lang('surname','Фамилия').'</label>
-				    <input type="text" class="form-control" id="name" placeholder="'.lang('surname','Фамилия').'">
-				  </div>
-				  <div class="form-group">
-				    <label for="name">'.lang('fathername','Отчество').'</label>
-				    <input type="text" class="form-control" id="name" placeholder="'.lang('fathername','Отчество').'">
-				  </div>
+				<h4 class="text-center">'.lang('choosefac','Выбор образовательного учреждения').'</h4>
+				<div class="form-group">
+					<label for="geoid">'.lang('rayon','Район').'</label>
+					<select class="form-control"><option>выбор района</option></select>
+				</div>
+				<div class="form-group">
+					<label for="namud">'.lang('factype','Тип учреждения').'</label>
+					<select class="form-control"><option>выбор типа</option></select>
+				</div>
+				<div class="form-group">
+					<label for="muassisa">'.lang('fac','Учреждение').'</label>
+					<select class="form-control"><option>выбор учреждения</option></select>
+				</div>
 
-				  <div class="form-group">
-				    <label for="Director">'.lang('director','Директор').'</label>
-				    <input type="text" class="form-control" id="Director" placeholder="'.lang('fio','Ф.И.О.').'">
-				  </div>
-				  <div class="form-group">
-				    <label for="Address">'.lang('address','Адрес').'</label>
-				    <input type="text" class="form-control" id="Address" placeholder="'.lang('address','адрес').'">
-				  </div>
-				  <div class="form-group">
-				    <label for="Phone">'.lang('phone','Телефон').'</label>
-				    <input type="text" class="form-control" id="Phone" placeholder="'.lang('number','номер').'">
-				  </div>
-				  <div class="form-group">
-				    <label for="Cellphone">'.lang('cellphone','Мобильный').'</label>
-				    <input type="text" class="form-control" id="Cellphone" placeholder="'.lang('number','номер').'">
-				  </div>
+				<div class="form-group">
+					<label for="childname">'.lang('name','Имя').'</label>
+					<input type="text" class="form-control" id="childname" placeholder="'.lang('name','Имя').'">
+				</div>
+				<div class="form-group">
+					<label for="childsurname">'.lang('surname','Фамилия').'</label>
+					<input type="text" class="form-control" id="childsurname" placeholder="'.lang('surname','Фамилия').'">
+				</div>
+				<div class="form-group">
+					<label for="childfathername">'.lang('fathername','Отчество').'</label>
+					<input type="text" class="form-control" id="childfathername" placeholder="'.lang('fathername','Отчество').'">
+				</div>
+				<div class="form-group">
+					<label for="birthday">'.lang('birthday','Дата рождения').'</label>
+					<select><option>1</option></select>
+					<select><option>май</option></select>
+					<select><option>2015</option></select>
+				</div>
+				<div class="form-group">
+					<label for="shahodatnoma">'.lang('shahodatnoma','Номер метрики ребенка').'</label>
+					<input type="text" class="form-control" id="shahodatnoma" placeholder="'.lang('number','номер').'">
+				</div>
 
-	          </div>
-	          <div class="modal-footer">
-	            <button type="button" class="btn btn-default" data-dismiss="modal">
-	            '.lang('close','Close').'</button>
-	            <button type="button" id="makereg" class="btn btn-primary">'.lang('add','Add').'</button>
-	          </div>
-	          </form>
-	          </div>
-	          ';
+				<div class="form-group">
+					<label for="vname">'.lang('name','Имя').'</label>
+					<input type="text" class="form-control" id="vname" placeholder="'.lang('name','Имя').'">
+				</div>
+				<div class="form-group">
+					<label for="vsurname">'.lang('surname','Фамилия').'</label>
+					<input type="text" class="form-control" id="vsurname" placeholder="'.lang('surname','Фамилия').'">
+				</div>
+				<div class="form-group">
+					<label for="vfathername">'.lang('fathername','Отчество').'</label>
+					<input type="text" class="form-control" id="vfathername" placeholder="'.lang('fathername','Отчество').'">
+				</div>
+				<div class="form-group">
+					<label for="address">'.lang('address','Адрес').'</label>
+					<input type="text" class="form-control" id="address" placeholder="'.lang('address','Адрес').'">
+				</div>
+				<div class="form-group">
+					<label for="email">'.lang('email','E-mail').'</label>
+					<input type="text" class="form-control" id="email" placeholder="'.lang('email','E-mail').'">
+				</div>
+				<div class="form-group">
+					<label for="phone">'.lang('phone','Телефон').'</label>
+					<input type="text" class="form-control" id="phone" placeholder="'.lang('phone','Телефон').'">
+				</div>
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="makereg" class="btn btn-primary">'.lang('send','Отправить заявку').'</button>
+				</div>
+			</form>
+			</div>
+			';
 		\CORE\BC\UI::init()->pos['js'].="\n".'<script src="'.UIPATH.'/js/reg.js"></script>';
 		return $result;
     }
