@@ -9,7 +9,7 @@ class MAP_M {
     	if($DB->connected()){
     		$sql = "SELECT * FROM `muassisaho` LEFT OUTER JOIN `geo` 
     		ON `geo_id`=`geo-id`
-    		LEFT OUTER JOIN `namudi_muassisa` ON `namud`=`namud-id`;";
+    		LEFT OUTER JOIN `namudi_muassisa` ON `namud`=`namud-id` ORDER BY `m-id`;";
 			$sth = $DB->dbh->prepare($sql);
 			$sth->execute();
 			$DB->query_count(); // for counting
@@ -38,6 +38,26 @@ class MAP_M {
 			}
     	}
     	return $namudi_muassisa;
+    }
+
+    public function set_coords(){
+    	$valid=true;
+    	$id=0; $lat=0; $lng=0;
+    	if(isset($_POST['id'])) $id=(int) $_POST['id'];
+    	if(isset($_POST['lat'])) $lat=trim($_POST['lat']);
+    	if(isset($_POST['lng'])) $lng=trim($_POST['lng']);
+    	if($id==0 && $lat=='' && $lng=='') $valid=false;
+    	if($valid){
+    		$DB=\DB::init();
+			if($DB->connected()){
+				$sql = "UPDATE `muassisaho` SET `geo_lat`=:lat, `geo_lng`=:lng WHERE `m-id`=:id;";
+				$sth = $DB->dbh->prepare($sql);
+				$sth->execute(array(':lat'=>$lat,':lng'=>$lng,':id'=>$id));
+				echo 'ok';
+			} else {
+				echo 'db connection err';
+			}
+    	}
     }
 
     public function add(){

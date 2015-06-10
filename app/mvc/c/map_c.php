@@ -10,11 +10,8 @@ class MAP_C {
         		$do='';
         		if(isset($_GET['do'])) $do=trim($_GET['do']);
         		switch($do){
-        			case 'add':
-        				//$model->add();
-        			break;
-        			case 'del':
-        				//$model->del();
+        			case 'marker':
+        				$model->set_coords();
         			break;
         		}
         		exit;
