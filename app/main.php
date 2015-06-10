@@ -23,6 +23,7 @@ if($USER->auth()){
 	  <ul class="dropdown-menu" role="menu">
 	    <li><a href="./?c=muassisaho">'.lang('facilities','Facilities').'</a></li>
 	    <li><a href="./?c=map">'.lang('map','Карта').'</a></li>
+	    <li><a href="./?c=reg">'.lang('registration','Регистрация').'</a></li>
 	  </ul>
 	</li>';
 }
