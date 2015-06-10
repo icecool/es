@@ -3,7 +3,8 @@ namespace APP\MVC\M;
 
 class DV_M {
 
-	public function db2json($table,$idfield,$fields,$sortfield=''){ // 'muassisaho', 'm-id', array('name_ru','namud','director'), 'name_ru'
+	public function db2json($table,$idfield,$fields,$sortfield=''){ 
+	// 'muassisaho', 'm-id', array('name_ru','namud','director'), 'name_ru'
     	$data=array();
     	$DB=\DB::init();
     	if($DB->connected()){
