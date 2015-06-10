@@ -6,6 +6,11 @@ class DV_V {
     public function main($model){
     	$result='';
     	//$result.='Data Visualization module';
+		return $result;
+    }
+
+    public function donut1($model){
+    	$result='';
     	$UI=\CORE\BC\UI::init();
     	$UI->pos['js'].='<script src="'.UIPATH.'/ext/js/Chart.min.js"></script>';
     	$UI->pos['js'].='<script>
@@ -16,13 +21,13 @@ class DV_V {
 				value: 300,
 				color: "#3581bf",
 				highlight: "#2072b5",
-				label: "Обработано"
+				label: "Мальчиков"
 			},
 			{
 				value: 120,
 				color:"#F7464A",
 				highlight: "#FF5A5E",
-				label: "Осталось"
+				label: "Девочек"
 			}
 
 		];
