@@ -283,7 +283,7 @@
 	height: 36px;
 	}
 .leaflet-retina .leaflet-control-layers-toggle {
-	background-image: url(images/layers-2x.png);
+        background-image: url(images/layers-2x.png);
 	background-size: 26px 26px;
 	}
 .leaflet-touch .leaflet-control-layers-toggle {
@@ -393,7 +393,7 @@
 	border-radius: 5px;
 	}
 .leaflet-popup-content {
-	margin: 13px 19px;
+	margin: 13px 5px;
 	line-height: 1.4;
 	}
 .leaflet-popup-content p {
@@ -476,3 +476,17 @@
 	background: #fff;
 	border: 1px solid #666;
 	}
+
+.mytable{
+    table-layout:fixed;
+    width: 270px;
+}
+.mytable td{
+    border-top: none;
+    vertical-align: top;
+    padding-left: 5px;
+}
+
+.mytable img{
+    margin-top: -8px;
+}

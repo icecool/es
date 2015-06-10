@@ -15,8 +15,8 @@ $conf['db_port']='';
 $conf['db_charset']='utf8';
 $conf['db_name']=APPNAME;
 $conf['db_user']='root';
-//$conf['db_pass']='linux1';
-$conf['db_pass']='';
+$conf['db_pass']='linux1';
+//$conf['db_pass']='';
 $conf['db_con']=false;
 // user interface
 $langs=array('ru'=>'Русский','tj'=>'Тоҷикӣ');

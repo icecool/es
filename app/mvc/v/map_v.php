@@ -11,7 +11,7 @@ class MAP_V {
     	foreach ($muassisaho as $key => $v) {
     		if($v['geo_lat']!=''){
     			if($fg) $mks.=",\n";
-    			$mks.='[ '.$v['geo_lng'].','.$v['geo_lat'].', "'.$v['name_ru'].'" ]';
+    			$mks.='[ '.$v['geo_lng'].','.$v['geo_lat'].', "'.$v['name_ru'].'", "'.$v['director'].'", "'.$v['address'].'", "'.$v['phone'].'" ]';
     			if(!$fg){$fg=true;}
     		}    		
     	}
@@ -63,19 +63,27 @@ class MAP_V {
 	            var markers = [
 	                '.$mks.'
 	            ];
-
+                //console.log("log: "+markers);
 	            //Loop through the markers array
 	            for (var i=0; i<markers.length; i++) {
+	            //for (var i=0; i<2; i++) {
 
 	                var lon = markers[i][0];
 	                var lat = markers[i][1];
-	                var popupText = markers[i][2];
+	                var popupText = \'<p><img style="padding-right: 5px; margin-top: -5px;" src="'.UIPATH.'/img/no-image.64.png" align="left"/> \\
+	                <strong>\'+markers[i][2]+\'</strong> \\
+	                <br/><strong>Директор: </strong>\'+markers[i][3]+\' \\
+	                <br/><strong>Адрес: </strong>\'+markers[i][4]+\' \\
+	                <br/><strong>Телефон: </strong>\'+markers[i][5]+\' \\
+	                <br/><strong class="pull-right"><a href="\'+markers[i][5]+\'">Подробнее</a></p> \';
 
 	                var markerLocation = new L.LatLng(lat, lon);
 	                var marker = new L.Marker(markerLocation);
 	                map.addLayer(marker);
 
-	                marker.bindPopup(popupText);
+	                marker.bindPopup(popupText,{
+	                    minWidth: 230
+	                });
 
 	            }
 
