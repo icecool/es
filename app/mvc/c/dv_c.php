@@ -16,6 +16,9 @@ class DV_C {
             case 'bar':
                 echo $view->bar($model);
             break;
+            case 'bar2':
+                echo $view->bar2($model);
+                break;
             case 'donut':
                 echo $view->donut2($model);
             break;

@@ -215,4 +215,59 @@ class DV_V {
 		return $result;
     }
 
+    public function bar2($model){
+        $result='';
+        $geoid=2;
+        $geo=array(
+            '2'=>'И. Сомони',
+            '3'=>'Сино',
+            '4'=>'Шохмансур',
+            '5'=>'Фирдавси',
+        );
+        if(isset($_GET['geoid'])){
+            if(isset($geo[$_GET['geoid']])){
+                $geoid=(int) $_GET['geoid'];
+            }
+        }
+        $UI=\CORE\BC\UI::init();
+        $geolist='<select id="geolist">';
+        foreach ($geo as $g => $gname) {
+            $sel='';
+            if($g==$geoid) $sel=' selected="selected"';
+            $geolist.='<option value="'.$g.'"'.$sel.'> '.$gname.' </option>';
+        }
+        $geolist.='</select>';
+
+        $UI->pos['js'].='<script src="'.UIPATH.'/ext/js/Chart.min.js"></script>';
+        $UI->pos['js'].='<script>
+    	$(document).ready(function(){
+
+	    	$.get("./?c=dv&act=shumora",function(data){
+	    		//var obj = jQuery.parseJSON( data );
+	    		//console.log(obj);
+
+				'.$model->shumora_maktab_rayon($geoid).'
+
+				var ctx = document.getElementById("chart-area3").getContext("2d");
+					window.myBar = new Chart(ctx).Bar(barChartData, {
+						responsive : true
+					});
+
+	    	});
+
+			$("#geolist").change(function(){
+				var xgeoid = $(this).val();
+				window.location.href = "./?c=dv&act=bar&geoid="+xgeoid;
+			});
+
+		});
+    	</script>';
+        $result.='<h4 style="text-align: center; font-weight: bold">Количество учащихся школ за 2013-2014 уч.год</h4>
+    	<div id="canvas-holder3_2">
+			<canvas id="chart-area3" width="900" height="500"/>
+		</div>
+		';
+        return $result;
+    }
+
 }
