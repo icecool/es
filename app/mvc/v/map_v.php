@@ -11,7 +11,7 @@ class MAP_V {
     	foreach ($muassisaho as $key => $v) {
     		if($v['geo_lat']!=''){
     			if($fg) $mks.=",\n";
-    			$mks.='[ '.$v['geo_lng'].','.$v['geo_lat'].', "'.$v['name_ru'].'", "'.$v['director'].'", "'.$v['address'].'", "'.$v['phone'].'" ]';
+    			$mks.='[ '.$v['geo_lng'].','.$v['geo_lat'].', "'.$v['name_ru'].'", "'.$v['director'].'", "'.$v['address'].'", "'.$v['phone'].'", "'.$v['namud'].'"]';
     			if(!$fg){$fg=true;}
     		}    		
     	}
@@ -64,6 +64,43 @@ class MAP_V {
 	                '.$mks.'
 	            ];
                 //console.log("log: "+markers);
+
+                var greenIcon = L.icon({
+                    iconUrl: "ui/ext/map/images/green.png",
+                    shadowUrl: "ui/ext/map/images/marker-shadow.png",
+                    iconSize:     [41, 41], // size of the icon
+                    shadowSize:   [41, 41], // size of the shadow
+                    iconAnchor:   [22, 40], // point of the icon which will correspond to marker\'s location
+                    shadowAnchor: [10, 40],  // the same for the shadow
+                    popupAnchor:  [-2, -35] // point from which the popup should open relative to the iconAnchor
+                });
+                var blueIcon = L.icon({
+                    iconUrl: "ui/ext/map/images/azure.png",
+                    shadowUrl: "ui/ext/map/images/marker-shadow.png",
+                    iconSize:     [41, 41], // size of the icon
+                    shadowSize:   [41, 41], // size of the shadow
+                    iconAnchor:   [22, 40], // point of the icon which will correspond to marker\'s location
+                    shadowAnchor: [10, 40],  // the same for the shadow
+                    popupAnchor:  [-2, -35] // point from which the popup should open relative to the iconAnchor
+                });
+                var pinkIcon = L.icon({
+                    iconUrl: "ui/ext/map/images/pink.png",
+                    shadowUrl: "ui/ext/map/images/marker-shadow.png",
+                    iconSize:     [41, 41], // size of the icon
+                    shadowSize:   [41, 41], // size of the shadow
+                    iconAnchor:   [22, 40], // point of the icon which will correspond to marker\'s location
+                    shadowAnchor: [10, 40],  // the same for the shadow
+                    popupAnchor:  [-2, -35] // point from which the popup should open relative to the iconAnchor
+                });
+                var yellowIcon = L.icon({
+                    iconUrl: "ui/ext/map/images/yellow.png",
+                    shadowUrl: "ui/ext/map/images/marker-shadow.png",
+                    iconSize:     [41, 41], // size of the icon
+                    shadowSize:   [41, 41], // size of the shadow
+                    iconAnchor:   [22, 40], // point of the icon which will correspond to marker\'s location
+                    shadowAnchor: [10, 40],  // the same for the shadow
+                    popupAnchor:  [-2, -35] // point from which the popup should open relative to the iconAnchor
+                });
 	            //Loop through the markers array
 	            for (var i=0; i<markers.length; i++) {
 	            //for (var i=0; i<2; i++) {
@@ -78,7 +115,16 @@ class MAP_V {
 	                <br/><strong class="pull-right"><a href="\'+markers[i][5]+\'">Подробнее</a></p> \';
 
 	                var markerLocation = new L.LatLng(lat, lon);
-	                var marker = new L.Marker(markerLocation);
+
+	                if (markers[i][6]==1)
+	                    var marker = new L.Marker(markerLocation, {icon: greenIcon});
+                    else if (markers[i][6]==2)
+                        var marker = new L.Marker(markerLocation, {icon: blueIcon});
+                    else if (markers[i][6]==3)
+                        var marker = new L.Marker(markerLocation, {icon: pinkIcon});
+                    else
+                        var marker = new L.Marker(markerLocation, {icon: yellowIcon});
+
 	                map.addLayer(marker);
 
 	                marker.bindPopup(popupText,{
