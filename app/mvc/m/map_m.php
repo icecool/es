@@ -60,5 +60,34 @@ class MAP_M {
     	}
     }
 
+    public function getCoords(){
+        $valid = true;
+        $coords = array();
+        if(isset($_POST['muassisa_id'])) $id=(int) $_POST['muassisa_id'];
+        //if(isset($_GET['muassisa_id'])) $id=(int) $_GET['muassisa_id'];
+        if($id==0) $valid=false;
+        if($valid){
+            $DB=\DB::init();
+            if($DB->connected()){
+                $sql = "Select geo_lat, geo_lng from muassisaho WHERE `m-id`=:id;";
+                //echo $sql;
+                $sth = $DB->dbh->prepare($sql);
+                $sth->execute(array(':id'=>$id));
+                $DB->query_count(); // for counting
+                if($sth->rowCount()>0){
+                    while($row=$sth->fetch()){
+                        $coords['lat']=$row['geo_lat'];
+                        $coords['lng']=$row['geo_lng'];
+                    }
+                    echo json_encode($coords);
+                }
+            } else {
+                echo 'db connection err';
+            }
+        }else {
+            echo 'not valid';
+        }
+    }
+
 
 }

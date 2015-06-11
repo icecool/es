@@ -1,6 +1,13 @@
 <?php
 namespace APP\MVC\V;
-
+/*
+ * те которые имеют фото
+Мактаби № 70
+Мактаби № 47
+Мактаб-интернати № 3
+Маркази рушди истеъдодхо
+Кўдакистони № 22
+*/
 class MAP_V {
 
     public function main($model){
@@ -30,7 +37,8 @@ class MAP_V {
     	<script src="'.UIPATH.'/ext/map/leaflet.js"></script>
     	<script src="'.UIPATH.'/ext/map/singleclick.js"></script>
 		<script language="javascript">
-
+            var map;
+            var all_markers = new Array();
 			function SaveCoords(xlat, xlng){
 				var xid = $("#xlist").val();
 				$.post("./?c=map&act=ajax&do=marker",{ id: xid, lat: xlat, lng: xlng }, function(data){
@@ -44,7 +52,7 @@ class MAP_V {
 
 	        function init() {
 
-	            var map = new L.Map(\'map\');
+	            map = new L.Map(\'map\');
 
 	            L.tileLayer(\'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\', {
 	                attribution: \'&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors\',
@@ -130,10 +138,11 @@ class MAP_V {
                         var marker = new L.Marker(markerLocation, {icon: yellowIcon});
 
 	                map.addLayer(marker);
-
+                    all_markers.push(marker);
 	                marker.bindPopup(popupText,{
 	                    minWidth: 230
 	                });
+
 
 	            }
 
@@ -162,19 +171,64 @@ class MAP_V {
 	        $(document).ready(function() {
 
 	        	init();
+                $("#xlist").change(function(){
+                    var muassisa_id = $(this).val();
 
+                    $.post("./?c=map&act=getcoords",{ muassisa_id: muassisa_id}, function(data){
+                        var data = jQuery.parseJSON(data);
+                        if (data.lat>0 && data.lng>0){
+                            jump(data.lng, data.lat);
+                        }else{
+                            console.log(\'xoli\');
+                        }
+                    });
+                });
+
+                $(".jump_to_location").click(function(){
+                    var data = $(this).attr("data");
+                    if (data.indexOf("~")!=-1){
+                        var lng = data.substr(0,data.indexOf("~"));
+                        var lat = data.substr(data.indexOf("~")+1);
+                        jump(lat, lng)
+                    }
+                });
 			});
+			function jump(lon,lat) {
+			   map.setView(new L.LatLng(lat, lon),18);
+			   for(i=0;i<all_markers.length;i++) {
+                    if (all_markers[i]._latlng.lat==lat && all_markers[i]._latlng.lng==lon){
+                        all_markers[i].openPopup();
+                    }
+			   }
+               var stuSplit = L.latLng(data.lat, data.lng);
+               var myMarker = L.circleMarker(stuSplit, { title: \'unselected\' }).addTo(map);
+
+            }
 	    </script>
     	';
-    	$result.='<div id="map" style="height: 540px"></div>
-    	<div id="mysidebar">
-    		<div id="xsidebar" class="xmg">'.$mlist.' <input type="checkbox" id="xflag"> 
-    		<label for="xflag">edit</label>
-    		</div>
-    	</div>
-    	';
+    	$result.='
+        <div class="row">
+            <div class="col-sm-10">
+                <div id="map" style="height: 540px"></div>
+                <div id="mysidebar">
+                    <div id="xsidebar" class="xmg">'.$mlist.' <input type="checkbox" id="xflag">
+                    <label for="xflag">edit</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <h4>Поиск по школам</h4>
+                <div style="height:540px; overflow: auto; max-height: 490px;">
+                <ul class="list-group">';
+                $muassisaho=$model->get_muassisaho();
+                foreach ($muassisaho as $key => $v) {
+                    $result.='<li class="list-group-item"><a class="jump_to_location" data="'.$v['geo_lat'].'~'.$v['geo_lng'].'" href="#">'.$v['name_ru'].'</a></li>';
+                }
+            $result.='
+                </ul></div>
+            </div>
+        </div>';
 		return $result;
     }
-
 
 }

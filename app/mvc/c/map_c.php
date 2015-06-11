@@ -16,6 +16,10 @@ class MAP_C {
         		}
         		exit;
         	break;
+            case 'getcoords':
+                $model->getCoords();
+                exit;
+                break;
 			default:
 				$UI->pos['main'].=$view->main($model);
 			break;
