@@ -51,6 +51,36 @@ class DV_M {
     	return $result;
     }
 
+    public function maktabho(){
+    	$result='';
+    	$DB=\DB::init();
+    	if($DB->connected()){
+    		$sql = "SELECT * FROM `maktab_form1` WHERE `soli_tahsil`=2013;";
+			$sth = $DB->dbh->prepare($sql);
+			$sth->execute();
+			$DB->query_count();
+			$total=0; $girls=0;
+			if($sth->rowCount()>0){
+				while($r=$sth->fetch()){
+					$total+=$r['shumorai_khonanda'];
+					$girls+=$r['duxtaron'];
+				}
+			}
+    	}
+    	$boys=$total-$girls;
+    	$boysp=round((100*$boys)/$total);
+    	$girlsp=100-$boysp;
+    	$dt=array(
+    		'total'=>$total,
+    		'girls'=>$girls,
+    		'boys'=>$boys,
+    		'boysp'=>$boysp,
+    		'girlsp'=>$girlsp
+    		);
+    	$result=json_encode($dt);
+    	return $result;
+    }
+
     public function lines(){
     	$result=''; $data=array();
     	$DB=\DB::init();
