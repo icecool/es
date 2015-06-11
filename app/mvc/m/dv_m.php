@@ -51,33 +51,63 @@ class DV_M {
     	return $result;
     }
 
-    public function maktabho(){
-    	$result='';
+    public function shumora_maktab_rayon($geoid=2){
+    	$result=''; $data=array();
     	$DB=\DB::init();
     	if($DB->connected()){
-    		$sql = "SELECT * FROM `maktab_form1` WHERE `soli_tahsil`=2013;";
+    		$sql = "SELECT `muassisa_id`,`shumorai_khonanda`,`name_ru`,`namud`,`geo_id`,`geo-name`
+    		FROM `maktab_form1`
+    		LEFT OUTER JOIN `muassisaho` ON `maktab_form1`.`muassisa_id`=`muassisaho`.`m-id`
+    		LEFT OUTER JOIN `geo` ON `muassisaho`.`geo_id`=`geo`.`geo-id`   		
+    		WHERE `namud`=2 AND `soli_tahsil`=2013 AND `geo_id`=".$geoid." ORDER BY `geo_id`,`name_ru`;";
 			$sth = $DB->dbh->prepare($sql);
 			$sth->execute();
 			$DB->query_count();
-			$total=0; $girls=0;
 			if($sth->rowCount()>0){
 				while($r=$sth->fetch()){
-					$total+=$r['shumorai_khonanda'];
-					$girls+=$r['duxtaron'];
+					if($r['geo-name']!='') $data[$r['geo-name']][$r['name_ru']]=$r['shumorai_khonanda'];
 				}
 			}
     	}
-    	$boys=$total-$girls;
-    	$boysp=round((100*$boys)/$total);
-    	$girlsp=100-$boysp;
-    	$dt=array(
-    		'total'=>$total,
-    		'girls'=>$girls,
-    		'boys'=>$boys,
-    		'boysp'=>$boysp,
-    		'girlsp'=>$girlsp
-    		);
-    	$result=json_encode($dt);
+    	//$result=json_encode($data);
+    	$result.='
+    	var barChartData = {
+		    labels: [';
+		    $fl=false;
+		    foreach ($data as $rayon => $maktabho) {
+		    	foreach ($maktabho as $maktab => $shumora) {
+		    		if($fl) $result.=',';
+			    	$result.='"'.$maktab.'"';
+			    	if(!$fl) $fl=true;
+		    	}		    	
+		    }
+		    $result.='],
+		    datasets: [
+		    ';
+		    $fl=false; $f2=false;
+		    foreach ($data as $rayon => $maktabho) {
+		    	if($f2) $result.=',';
+		    	$result.='
+		        {
+		            label: "'.$rayon.'",
+		            fillColor: "rgba(151,187,205,0.5)",
+		            strokeColor: "rgba(151,187,205,0.8)",
+		            highlightFill: "rgba(151,187,205,0.75)",
+		            highlightStroke: "rgba(151,187,205,1)",
+		            data: [';
+		            foreach ($maktabho as $maktab => $shumora) {
+			    		if($fl) $result.=',';
+				    	$result.=$shumora;
+				    	if(!$fl) $fl=true;
+			    	}
+		            $result.=']
+		        }';
+		        if(!$f2) $f2=true;
+		    }
+		    $result.='
+		    ]
+		};
+		';
     	return $result;
     }
 

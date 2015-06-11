@@ -123,6 +123,12 @@ body {
     border:0px solid #EEE;
     display:inline-block;
 }
+#canvas-holder3{
+    margin:18px;
+    width:900px;
+    border:0px solid #EEE;
+    display:inline-block;
+}
 #xgraph {
   width: 400px;
   height: 400px;

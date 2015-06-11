@@ -13,13 +13,20 @@ class DV_C {
             case 'lines':
                 echo $view->lines($model);
             break;
-            case 'boysgirls':
-                echo $model->boysgirls();
-                exit;
+            case 'bar':
+                echo $view->bar($model);
             break;
             case 'donut':
                 echo $view->donut2($model);
             break;
+            case 'boysgirls':
+                echo $model->boysgirls();
+                exit;
+            break;
+            case 'shumora':
+                echo $model->shumora_maktab_rayon();
+                exit;
+            break;            
 			default:
 				$UI->pos['main'].=$view->main($model);
 			break;
