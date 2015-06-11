@@ -98,7 +98,7 @@ class REG_M {
 				WHERE `reg-muassisa`=:muassisa AND `reg-nom`=:nom AND `reg-nasab`=:nasab AND `shahodatnoma`=:shahodatnoma;";
 				$sth = $DB->dbh->prepare($sql);
 				$sth->execute(array('muassisa'=>$val['muassisa'],'nom'=>$val['nom'],'nasab'=>$val['nasab'],'shahodatnoma'=>$val['shahodatnoma']));
-				if($sth->rowCount()>0 && false){
+				if($sth->rowCount()>0){
 					\CORE::init()->msg('error','Похоже, что такая запись уже существует в БД');
 				} else {
 					foreach($val as $k => $v){
