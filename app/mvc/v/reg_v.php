@@ -7,7 +7,7 @@ class REG_V {
 		$result='';
 		if(count($array)>0){
 			if($cl) {$c=' class="form-control"';} else {$c='';}
-			$result.='<select'.$c.' id="'.$id.'">'."\n";
+			$result.='<select'.$c.' id="'.$id.'" name="'.$id.'">'."\n";
 			foreach ($array as $k => $v) {
 				if($sel==$k) {$s=' selected="selected"';} else {$s='';}
 				$result.='<option value="'.$k.'"'.$s.'>'.$v."</option>\n";
@@ -44,7 +44,7 @@ class REG_V {
 		<div id="regformbox">
 		<h2 class="text-center form_sep_red">'.lang('regform','Форма регистрации').'</h2>
 		<form id="frm_reg" action="./?c=reg" method="post">
-			<input type="hidden" id="frmhash" value="'.md5(time()).'">
+			<input type="hidden" id="frmhash" name="frmhash" value="'.md5(time()).'">
 			<div id="myRegBody" class="modal-body">
 
 			<h4 class="text-center form_sep_blue">'.lang('choosefac','Выбор образовательного учреждения').'</h4><br>
@@ -64,15 +64,15 @@ class REG_V {
 			<br><h4 class="text-center form_sep_blue">'.lang('childinfo','Данные ребенка').'</h4><br>
 			<div class="form-group">
 				<label for="childname">'.lang('name','Имя').'</label>
-				<input type="text" class="form-control" id="childname" placeholder="'.lang('name','Имя').'">
+				<input type="text" class="form-control" id="nom" name="nom" placeholder="'.lang('name','Имя').'">
 			</div>
 			<div class="form-group">
 				<label for="childsurname">'.lang('surname','Фамилия').'</label>
-				<input type="text" class="form-control" id="childsurname" placeholder="'.lang('surname','Фамилия').'">
+				<input type="text" class="form-control" id="nasab" name="nasab" placeholder="'.lang('surname','Фамилия').'">
 			</div>
 			<div class="form-group">
 				<label for="childfathername">'.lang('fathername','Отчество').'</label>
-				<input type="text" class="form-control" id="childfathername" placeholder="'.lang('fathername','Отчество').'">
+				<input type="text" class="form-control" id="nomi_padar" name="nomi_padar" placeholder="'.lang('fathername','Отчество').'">
 			</div>
 			<div class="form-group">
 				<label for="birthday">'.lang('birthday','Дата рождения').': </label>
@@ -83,34 +83,26 @@ class REG_V {
 				'.$this->xlist($years,'year',$y,false).'
 			</div>
 			<div class="form-group">
-				<label for="shahodatnoma">'.lang('shahodatnoma','Номер метрики ребенка').'</label>
-				<input type="text" class="form-control" id="shahodatnoma" placeholder="'.lang('number','номер').'">
+				<label for="shahodatnoma">'.lang('shahodatnoma','Номер свидетельства о рождении (метрики)').'</label>
+				<input type="text" class="form-control" id="shahodatnoma" name="shahodatnoma" placeholder="'.lang('number','номер').'">
 			</div>
 
 			<br><h4 class="text-center form_sep_blue">'.lang('volidoninfo','Данные родителей (опекунов)').'</h4><br>
 			<div class="form-group">
-				<label for="vname">'.lang('name','Имя').'</label>
-				<input type="text" class="form-control" id="vname" placeholder="'.lang('name','Имя').'">
-			</div>
-			<div class="form-group">
-				<label for="vsurname">'.lang('surname','Фамилия').'</label>
-				<input type="text" class="form-control" id="vsurname" placeholder="'.lang('surname','Фамилия').'">
-			</div>
-			<div class="form-group">
-				<label for="vfathername">'.lang('fathername','Отчество').'</label>
-				<input type="text" class="form-control" id="vfathername" placeholder="'.lang('fathername','Отчество').'">
+				<label for="vname">'.lang('fio','ФИО').'</label>
+				<input type="text" class="form-control" id="nomi_volidon" name="nomi_volidon" placeholder="'.lang('fio','ФИО').'">
 			</div>
 			<div class="form-group">
 				<label for="address">'.lang('address','Адрес').'</label>
-				<input type="text" class="form-control" id="address" placeholder="'.lang('address','Адрес').'">
+				<input type="text" class="form-control" id="address" name="address" placeholder="'.lang('address','Адрес').'">
 			</div>
 			<div class="form-group">
 				<label for="email">'.lang('email','E-mail').'</label>
-				<input type="text" class="form-control" id="email" placeholder="'.lang('email','E-mail').'">
+				<input type="text" class="form-control" id="email" name="email" placeholder="'.lang('email','E-mail').'">
 			</div>
 			<div class="form-group">
 				<label for="phone">'.lang('phone','Телефон').'</label>
-				<input type="text" class="form-control" id="phone" placeholder="'.lang('phone','Телефон').'">
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="'.lang('phone','Телефон').'">
 			</div>
 
 			</div>
@@ -122,6 +114,19 @@ class REG_V {
 		';
 		\CORE\BC\UI::init()->pos['js'].="\n".'<script src="'.UIPATH.'/js/reg.js"></script>';
 		return $result;
+    }
+
+    public static function afteradd(){
+    	$result='';
+    	if(isset($GLOBALS['didreg'])){
+    		$result.='<div class="text-center"><hr>
+    		<h3><span class="form_sep_red">Заявка принята на обработку.<br><br> 
+    		Ваш код для отслеживания:</span> 
+    			<span class="label label-primary" style="font-size:22px;">'.$GLOBALS['uniqid'].'</span>
+	    	</h3><hr><br>
+    		</div>';
+    	}
+    	return $result;
     }
 
     public static function monthdays($month=0,$year=0){

@@ -22,11 +22,13 @@ class REG_C {
         		}
         		exit;
         	break;
-            case 'add':
-                $model->add();
-            break;
 			default:
-				$UI->pos['main'].=$view->main($model);
+                if(isset($_POST['frmhash'])) {
+                    $model->add();
+                    $UI->pos['main'].=$view->afteradd($model);
+                } else {
+                    $UI->pos['main'].=$view->main($model);
+                }				
 			break;
 		}
     }
