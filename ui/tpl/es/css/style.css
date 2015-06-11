@@ -112,7 +112,13 @@ body {
     margin-right:auto;
 }
 #canvas-holder{
+    margin:8px;
     width:300px;
     border:0px solid #EEE;
     display:inline-block;
+}
+#xgraph {
+  width: 400px;
+  height: 400px;
+  margin: 20px auto 0 auto;
 }

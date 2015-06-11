@@ -10,9 +10,15 @@ class DV_C {
                 $view->x($model);
                 exit;              
             break;
-            case 'donut1':
-                $view->donut1($model);
-                exit;              
+            case 'lines':
+                echo $view->lines($model);
+            break;
+            case 'boysgirls':
+                echo $model->boysgirls();
+                exit;
+            break;
+            case 'donut':
+                echo $view->donut2($model);
             break;
 			default:
 				$UI->pos['main'].=$view->main($model);
