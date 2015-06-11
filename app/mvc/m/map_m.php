@@ -22,6 +22,50 @@ class MAP_M {
     	return $muassisaho;
     }
 
+    public function get_muassisaho_by_type($namud){
+        $muassisaho=array();
+        $DB=\DB::init();
+        if($DB->connected()){
+            $sql = "SELECT * FROM `muassisaho` LEFT OUTER JOIN `geo`
+    		ON `geo_id`=`geo-id`
+    		LEFT OUTER JOIN `namudi_muassisa` ON `namud`=`namud-id`
+    		where namud=:namud
+    		ORDER BY `geo_id`,`name_ru`;";
+            $sth = $DB->dbh->prepare($sql);
+            $sth->execute(array(':namud'=>$namud));
+            $DB->query_count(); // for counting
+            if($sth->rowCount()>0){
+                while($r=$sth->fetch()){
+                    $muassisaho[$r['m-id']]=$r;
+                }
+            }
+        }
+        return $muassisaho;
+    }
+
+    public function get_muassisaho_by_type_json($namud){
+        $muassisaho=array();
+        $DB=\DB::init();
+        if($DB->connected()){
+            $sql = "SELECT * FROM `muassisaho` LEFT OUTER JOIN `geo`
+    		ON `geo_id`=`geo-id`
+    		LEFT OUTER JOIN `namudi_muassisa` ON `namud`=`namud-id`
+    		where namud=:namud
+    		ORDER BY `geo_id`,`name_ru`;";
+            $sth = $DB->dbh->prepare($sql);
+            $sth->execute(array(':namud'=>$namud));
+            $DB->query_count(); // for counting
+            if($sth->rowCount()>0){
+                while($r=$sth->fetch()){
+                    $muassisaho['lat'][]=$r['geo_lat'];
+                    $muassisaho['lng'][]=$r['geo_lng'];
+                    $muassisaho['name'][]=$r['name_ru'];
+                }
+            }
+        }
+        echo json_encode($muassisaho);
+    }
+
     public function get_namudi_muassisa(){
     	$lang=\CORE::init()->lang;
     	$namudi_muassisa=array();

@@ -33,6 +33,7 @@ class MAP_V {
     		$mlist.="</select>\n";    		
     	}
     	\CORE\BC\UI::init()->pos['link'].='<link rel="stylesheet" href="'.UIPATH.'/ext/map/leaflet.css" />';
+        \CORE\BC\UI::init()->pos['js'].="<script src='ui/js/muassisaho.js'></script>";
     	\CORE\BC\UI::init()->pos['js'].='
     	<script src="'.UIPATH.'/ext/map/leaflet.js"></script>
     	<script src="'.UIPATH.'/ext/map/singleclick.js"></script>
@@ -183,24 +184,16 @@ class MAP_V {
                         }
                     });
                 });
-
-                $(".jump_to_location").click(function(){
-                    var data = $(this).attr("data");
-                    if (data.indexOf("~")!=-1){
-                        var lng = data.substr(0,data.indexOf("~"));
-                        var lat = data.substr(data.indexOf("~")+1);
-                        jump(lat, lng)
-                    }
-                });
 			});
 			function jump(lon,lat) {
+                console.log("jumping ...lon"+lon+", lat="+lat);
 			   map.setView(new L.LatLng(lat, lon),18);
 			   for(i=0;i<all_markers.length;i++) {
                     if (all_markers[i]._latlng.lat==lat && all_markers[i]._latlng.lng==lon){
                         all_markers[i].openPopup();
                     }
 			   }
-               var stuSplit = L.latLng(data.lat, data.lng);
+               var stuSplit = L.latLng(lat, lon);
                var myMarker = L.circleMarker(stuSplit, { title: \'unselected\' }).addTo(map);
 
             }
@@ -219,8 +212,20 @@ class MAP_V {
             <div class="col-sm-2">
                 <h4>Поиск по школам</h4>
                 <div style="height:540px; overflow: auto; max-height: 490px;">
-                <ul class="list-group">';
-                $muassisaho=$model->get_muassisaho();
+                <p>Фильтр по учереждениям</p>
+                <select id="namudi_muassisa" class="form-control">';
+                      $namudho = $model->get_namudi_muassisa();
+                      foreach($namudho as $key=>$v){
+                          if ($key==2){
+                              $result .='<option selected value='.$key.'>'.$v.'</option>';
+                          }else{
+                              $result .='<option value='.$key.'>'.$v.'</option>';
+                          }
+                      }
+                $result.='</select>
+                <p>Учереждения</p>
+                <ul class="list-group" id="muassisa_list">';
+                $muassisaho=$model->get_muassisaho_by_type(2);
                 foreach ($muassisaho as $key => $v) {
                     $result.='<li class="list-group-item"><a class="jump_to_location" data="'.$v['geo_lat'].'~'.$v['geo_lng'].'" href="#">'.$v['name_ru'].'</a></li>';
                 }

@@ -49,4 +49,29 @@ $(document).ready(function(){
 		alert('Заглушка для редактирования элемента');
 	});
 
+    $("#namudi_muassisa").change(function(){
+        var namud=$(this).val();
+        $.post("./?c=map&act=getmuassisabynamud",{ namud: namud}, function(data){
+            var data = jQuery.parseJSON(data);
+            $("#muassisa_list").empty();
+            var html="";
+            for(i=0;i<data.lat.length;i++) {
+                //console.log("name="+data.name[i]);
+                html=html+'<li class="list-group-item"><a class="jump_to_location" data='+data.lat[i]+'~'+data.lng[i]+' href="#">'+data.name[i]+'</a></li>';
+            }
+            $("#muassisa_list").html(html);
+        });
+
+    });
+
+    $("#muassisa_list").on("click",".jump_to_location",function(){
+        var data = $(this).attr("data");
+        console.log("clicked="+data);
+        if (data.indexOf("~")!=-1){
+            var lng = data.substr(0,data.indexOf("~"));
+            var lat = data.substr(data.indexOf("~")+1);
+            jump(lat, lng)
+        }
+    });
+
 });

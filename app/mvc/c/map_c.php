@@ -20,6 +20,11 @@ class MAP_C {
                 $model->getCoords();
                 exit;
                 break;
+            case 'getmuassisabynamud':
+                $namud = $_POST['namud'];
+                $model->get_muassisaho_by_type_json($namud);
+                exit;
+                break;
 			default:
 				$UI->pos['main'].=$view->main($model);
 			break;
