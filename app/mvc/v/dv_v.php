@@ -4,11 +4,10 @@ namespace APP\MVC\V;
 class DV_V {
 
     public function main($model){
-    	$result='';
-    	$result.='<h2>Data Visualization module</h2>
+    	$result='<h3>'.lang('dvmodule','Модуль визуализации данных').'</h3>
     	<ul>
-    		<li><a href="./?c=dv&act=donut">Donut</a></li>
-    		<li><a href="./?c=dv&act=bar">Bar</a></li>
+    		<li><a href="./?c=dv&act=donut">Соотношение мальчиков и девочек в школах (2013г.)</a></li>
+    		<li><a href="./?c=dv&act=bar">Количество учащихся в школах по районам г. Душанбе</a></li>
     	</ul>
     	';
 		return $result;
@@ -175,6 +174,14 @@ class DV_V {
     		}
     	}
     	$UI=\CORE\BC\UI::init();
+    	$geolist='<select id="geolist">';
+    	foreach ($geo as $g => $gname) {
+    		$sel='';
+    		if($g==$geoid) $sel=' selected="selected"';
+    		$geolist.='<option value="'.$g.'"'.$sel.'> '.$gname.' </option>';
+    	}
+    	$geolist.='</select>';
+
     	$UI->pos['js'].='<script src="'.UIPATH.'/ext/js/Chart.min.js"></script>';
     	$UI->pos['js'].='<script>
     	$(document).ready(function(){
@@ -190,12 +197,16 @@ class DV_V {
 						responsive : true
 					});
 
+	    	});
 
-	    	});	    	
+			$("#geolist").change(function(){
+				var xgeoid = $(this).val();
+				window.location.href = "./?c=dv&act=bar&geoid="+xgeoid;
+			});
 			
 		});
     	</script>';
-    	$result.='<h3 class="text-center">Количество учащихся школ района '.$geo[(string) $geoid].' г.
+    	$result.='<h3 class="text-center">Количество учащихся школ района '.$geolist.' г.
     	Душанбе за 2013-2014 уч. год:</h3>
     	<div id="canvas-holder3">
 			<canvas id="chart-area3" width="900" height="500"/>

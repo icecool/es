@@ -5,6 +5,7 @@ $APP=\CORE\BC\APP::init();
 $APP->set_modules(array('fcs','test'));
 if($USER->auth()){
 	if($USER->get('gid')==1){
+		/*
 		$UI->pos['user2'].='<li class="dropdown">
 		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
 		  '.lang('administration','Administration').'
@@ -15,6 +16,7 @@ if($USER->auth()){
 		  </ul>
 		</li>
 		<!--<li><a href="#about">About</a></li>-->';
+		*/
 	}
 	$UI->pos['user2'].='<li class="dropdown">
 	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
