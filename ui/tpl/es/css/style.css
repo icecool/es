@@ -134,3 +134,9 @@ body {
   height: 400px;
   margin: 20px auto 0 auto;
 }
+.form_sep_blue {
+    color:#286090;
+}
+.form_sep_red {
+    color:#d9534f;
+}
