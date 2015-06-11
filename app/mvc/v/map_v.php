@@ -11,7 +11,7 @@ class MAP_V {
     	foreach ($muassisaho as $key => $v) {
     		if($v['geo_lat']!=''){
     			if($fg) $mks.=",\n";
-    			$mks.='[ '.$v['geo_lng'].','.$v['geo_lat'].', "'.$v['name_ru'].'", "'.$v['director'].'", "'.$v['address'].'", "'.$v['phone'].'", "'.$v['namud'].'"]';
+    			$mks.='[ '.$v['geo_lng'].','.$v['geo_lat'].', "'.$v['name_ru'].'", "'.$v['director'].'", "'.$v['address'].'", "'.$v['phone'].'", "'.$v['namud'].'", "'.$v['muassisa_photo'].'"]';
     			if(!$fg){$fg=true;}
     		}    		
     	}
@@ -107,7 +107,11 @@ class MAP_V {
 
 	                var lon = markers[i][0];
 	                var lat = markers[i][1];
-	                var popupText = \'<p><img style="padding-right: 5px; margin-top: -5px;" src="'.UIPATH.'/img/no-image.64.png" align="left"/> \\
+	                var photo = \'ui/img/no-image.64.png\';
+	                if (markers[i][7].length>0){
+	                    photo = \'ui/img/muassisaho_photos/\'+markers[i][7];
+	                }
+	                var popupText = \'<p><img style="padding-right: 5px;" src="\'+photo+\'" align="left" /> \\
 	                <strong>\'+markers[i][2]+\'</strong> \\
 	                <br/><strong>Директор: </strong>\'+markers[i][3]+\' \\
 	                <br/><strong>Адрес: </strong>\'+markers[i][4]+\' \\
