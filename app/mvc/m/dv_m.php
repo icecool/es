@@ -55,7 +55,7 @@ class DV_M {
     	$result=''; $data=array();
     	$DB=\DB::init();
     	if($DB->connected()){
-    		$sql = "SELECT `muassisa_id`,`muassisa` FROM `maktab_form1` WHERE `soli_tahsil`=2013;";
+    		$sql = "SELECT `muassisa_id`,`muassisa_name` FROM `maktab_form1` WHERE `soli_tahsil`=2013;";
 			$sth = $DB->dbh->prepare($sql);
 			$sth->execute();
 			$DB->query_count();
