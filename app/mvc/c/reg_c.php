@@ -10,15 +10,21 @@ class REG_C {
         		$do='';
         		if(isset($_GET['do'])) $do=trim($_GET['do']);
         		switch($do){
-        			case 'add':
-        				//$model->add();
+        			case 'muassisalist':
+                        $rayon=0; $namud=0;
+                        if(isset($_GET['rayon'])) $rayon=(int) $_GET['rayon'];
+                        if(isset($_GET['namud'])) $namud=(int) $_GET['namud'];
+                        echo $view->xlist($model->muassisaho($rayon,$namud),'rayon');
         			break;
-        			case 'del':
-        				//$model->del();
-        			break;
+                    case 'monthdays':
+                        echo $view->xlist($view->monthdays(),'day',0,false);
+                    break;
         		}
         		exit;
         	break;
+            case 'add':
+                $model->add();
+            break;
 			default:
 				$UI->pos['main'].=$view->main($model);
 			break;

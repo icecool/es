@@ -9,8 +9,10 @@ class MUASSISAHO_V {
     	$muassisaho=$model->get_muassisaho();
     	$namudi_muassisa=$model->get_namudi_muassisa();
     	$result.='<div class="btn-group" role="group" aria-label="...">
+    		<h3>Список образовательных учреждений:</h3>
 			  <p><button id="new_muassisa" type="button" class="btn btn-default"
-			  data-toggle="modal" data-target="#myModal1">'.lang('add','Add').'</button></p>
+			  data-toggle="modal" data-target="#myModal1">'.lang('add','Add').'</button>
+			  </p>
 			</div>
 			<!-- Modal -->
 		    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1Label" aria-hidden="true">
