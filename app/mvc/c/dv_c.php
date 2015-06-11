@@ -11,8 +11,7 @@ class DV_C {
                 exit;              
             break;
             case 'lines':
-                echo $model->lines();
-                exit;
+                echo $view->lines($model);
             break;
             case 'boysgirls':
                 echo $model->boysgirls();

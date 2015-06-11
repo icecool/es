@@ -9,7 +9,10 @@ class DV_V {
 		return $result;
     }
 
-
+    public function x($model){
+    	$array=$model->db2json('muassisaho','m-id',array(),'');
+    	echo json_encode($array);
+    }
 
     public function donut($model){
     	$result='';
@@ -94,9 +97,41 @@ class DV_V {
 		return $result;
     }
 
-    public function x($model){
-    	$array=$model->db2json('muassisaho','m-id',array(),'');
-    	echo json_encode($array);
+    public function lines($model){
+    	$result='';
+    	$UI=\CORE\BC\UI::init();
+    	$UI->pos['link'].='<link href="./ui/css/morris.css" rel="stylesheet">';
+    	$UI->pos['js'].='<script src="'.UIPATH.'/js/raphael-min.js"></script>';
+    	$UI->pos['js'].='<script src="'.UIPATH.'/js/morris.min.js"></script>';
+    	$UI->pos['js'].='<script>
+    	$(document).ready(function(){
+
+	    	$.get("./?c=dv&act=boysgirls",function(data){
+	    		var obj = jQuery.parseJSON( data );
+
+				Morris.Donut({
+				  element: "xgraph",
+				  data: [
+				    {value: obj.boys, label: "Мальчики"},
+				    {value: obj.girls, label: "Девочки"}
+				  ],
+				  colors: [
+				    "#0b62a4",
+				    "#ce4844"
+				  ]
+				  //, formatter: function (x) { return x + "%"}
+				}).on("click", function(i, row){
+				  console.log(i, row);
+				});
+
+	    	});	    	
+			
+		});
+    	</script>';
+    	$result.='<h3 class="text-center">Количество девочек и мальчиков в школах г.
+    	Душанбе за 2013-2014 уч. год:</h3>
+    	<div id="xgraph"></div>';
+		return $result;
     }
 
 }
