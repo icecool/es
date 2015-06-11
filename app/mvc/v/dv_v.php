@@ -5,7 +5,12 @@ class DV_V {
 
     public function main($model){
     	$result='';
-    	//$result.='Data Visualization module';
+    	$result.='<h2>Data Visualization module</h2>
+    	<ul>
+    		<li><a href="./?c=dv&act=donut">Donut</a></li>
+    		<li><a href="./?c=dv&act=lines">Lines</a></li>
+    	</ul>
+    	';
 		return $result;
     }
 
@@ -64,8 +69,8 @@ class DV_V {
     	$result='';
     	$UI=\CORE\BC\UI::init();
     	$UI->pos['link'].='<link href="./ui/css/morris.css" rel="stylesheet">';
-    	$UI->pos['js'].='<script src="'.UIPATH.'/js/raphael-min.js"></script>';
-    	$UI->pos['js'].='<script src="'.UIPATH.'/js/morris.min.js"></script>';
+    	$UI->pos['js'].='<script src="'.UIPATH.'/ext/js/raphael-min.js"></script>';
+    	$UI->pos['js'].='<script src="'.UIPATH.'/ext/js/morris.min.js"></script>';
     	$UI->pos['js'].='<script>
     	$(document).ready(function(){
 
@@ -101,36 +106,58 @@ class DV_V {
     	$result='';
     	$UI=\CORE\BC\UI::init();
     	$UI->pos['link'].='<link href="./ui/css/morris.css" rel="stylesheet">';
-    	$UI->pos['js'].='<script src="'.UIPATH.'/js/raphael-min.js"></script>';
-    	$UI->pos['js'].='<script src="'.UIPATH.'/js/morris.min.js"></script>';
+    	$UI->pos['js'].='<script src="'.UIPATH.'/ext/js/Chart.min.js"></script>';
     	$UI->pos['js'].='<script>
     	$(document).ready(function(){
 
 	    	$.get("./?c=dv&act=boysgirls",function(data){
 	    		var obj = jQuery.parseJSON( data );
 
-				Morris.Donut({
-				  element: "xgraph",
-				  data: [
-				    {value: obj.boys, label: "Мальчики"},
-				    {value: obj.girls, label: "Девочки"}
-				  ],
-				  colors: [
-				    "#0b62a4",
-				    "#ce4844"
-				  ]
-				  //, formatter: function (x) { return x + "%"}
-				}).on("click", function(i, row){
-				  console.log(i, row);
-				});
+var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+var lineChartData = {
+	labels : ["January","February","March","April","May","June","July"],
+	datasets : [
+		{
+		label: "My First dataset",
+		fillColor : "rgba(220,220,220,0.2)",
+		strokeColor : "rgba(220,220,220,1)",
+		pointColor : "rgba(220,220,220,1)",
+		pointStrokeColor : "#fff",
+		pointHighlightFill : "#fff",
+		pointHighlightStroke : "rgba(220,220,220,1)",
+		data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+		},
+		{
+		label: "My Second dataset",
+		fillColor : "rgba(151,187,205,0.2)",
+		strokeColor : "rgba(151,187,205,1)",
+		pointColor : "rgba(151,187,205,1)",
+		pointStrokeColor : "#fff",
+		pointHighlightFill : "#fff",
+		pointHighlightStroke : "rgba(151,187,205,1)",
+		data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+		}
+	]
+
+}
+
+
+	var ctx = document.getElementById("chart-area2").getContext("2d");
+		window.myLine = new Chart(ctx).Line(lineChartData, {
+			responsive: true
+		});
+
 
 	    	});	    	
 			
 		});
     	</script>';
-    	$result.='<h3 class="text-center">Количество девочек и мальчиков в школах г.
+    	$result.='<h3 class="text-center">Количество учащихся по районам в школах г.
     	Душанбе за 2013-2014 уч. год:</h3>
-    	<div id="xgraph"></div>';
+    	<div id="canvas-holder2">
+			<canvas id="chart-area2" width="800" height="400"/>
+		</div>
+		';
 		return $result;
     }
 
