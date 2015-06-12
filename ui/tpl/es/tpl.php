@@ -22,7 +22,7 @@
 
   <body role="document">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -44,6 +44,17 @@
       </div>
     </nav>
 
+    <?php if(!isset($_GET['c'])) { ?><div class="shapka">
+        <div class="intro">
+            <div class="dtable hw100">
+                <div class="dtable-cell hw100">
+                    <div class="container text-center">
+                        <h1 class="intro-title animated fadeInDown"> Открытые данные общеобразовательных учреждений г.Душанбе</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div><?php } ?>
     <div id="xcontent" class="container-fluid">
 
       <div class="row">
@@ -65,7 +76,17 @@
       <hr>
 
       <footer>
-        <p class="text-center text-muted"><small>ES &#169; 2015 :: <?php echo microtime(true)-$start;; ?></small></p>
+          <div class="row">
+              <div class="col-md-3">
+                  <p class="text-center text-muted"><small>ES &#169; 2015 :: <?php echo microtime(true)-$start;; ?></small></p>
+              </div>
+              <div class="col-md-6"></div>
+              <div class="col-md-3">
+                  <a href="http://opendata.tj/" target="_blank"> <img src="/ui/img/od_tj.png" /> OPENDATA.TJ</a>
+                  &nbsp;<a href="http://www.opendata-hackathon.com/" target="_blank"> <img src="/ui/img/logo_small.png" /></a>
+              </div>
+          </div>
+
       </footer>
     </div> <!-- /container -->
 

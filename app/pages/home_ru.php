@@ -1,23 +1,28 @@
 <?php
-$this->pos['main']='<div class="col-md-4">
-            <h2>Онлайн карта учреждений</h2>
-            <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
-            ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. 
-            Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+$map_m=new \APP\MVC\M\MAP_M;
+$map_v=new \APP\MVC\V\MAP_V;
+
+$dv_m=new \APP\MVC\M\DV_M;
+$dv_v=new \APP\MVC\V\DV_V;
+
+$this->pos['main']='
+<div class="col-md-4" style="text-align: center">
+            <img src="/ui/img/reg_img.300.png"/>
           </div>
-          <div class="col-md-4">
-            <h2>Регистрация граждан</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. 
-            Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, 
-            tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <div class="col-md-4" style="text-align: center">
+            <img src="/ui/img/map_img.300.png"/>
           </div>
-          <div class="col-md-4">
-            <h2>Визуализация ОД</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, 
-            tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. 
-            Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <div class="col-md-4" style="text-align: center">
+            <img src="/ui/img/od_img.300.png"/>
          </div>
+<p>&nbsp;</p>
+<div class="row">
+<div class="col-md-6"><h4 style="text-align: center; font-weight: bold">Карта покрытыя образовательных учреждений</h4>'.$map_v->main($map_m,false).'</div>
+<div class="col-md-6">'.$dv_v->bar2($dv_m).'</div>
+</div>
 ';
+// '.$map_v->main($map_m).'
+/*<div class="col-md-1">
+<button type="button" class="btn btn-default btn-lg btn-success">Подать заявку <span class="glyphicon glyphicon-menu-right"></span> </button><br/><br/>
+<button type="button" class="btn btn-default btn-lg btn-success">Проверить заявку <span class="glyphicon glyphicon-check"></span> </button>
+</div>*/
