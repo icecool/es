@@ -19,7 +19,7 @@ $this->pos['main']='<br>
 <br><br>
 <div class="row">
 <div class="col-md-12">
-<h3 class="text-center form_sep_blue"><strong>Карта покрытыя образовательных учреждений</strong></h3>
+<h3 class="text-center form_sep_blue"><strong>Карта покрытия образовательных учреждений г. Душанбе</strong></h3>
 '.$map_v->main($map_m,false).'
 </div>
 </div>
@@ -27,8 +27,8 @@ $this->pos['main']='<br>
 <h3 class="text-center form_sep_red"><strong>Визуализация данных</strong></h3>
 <br>
 <div class="row">
-<div class="col-md-6">'.$dv_v->bar2($dv_m,2).'</div>
-<div class="col-md-6"></div>
+<div class="col-md-6">'.$dv_v->lines($dv_m,1).'</div>
+<div class="col-md-6">'.$dv_v->dbar($dv_m,1).'</div>
 </div>
 ';
 // '.$map_v->main($map_m).'

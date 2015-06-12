@@ -7,10 +7,12 @@ class DV_V {
     	$result='<h3>'.lang('dvmodule','Модуль визуализации данных').':</h3>
     	<br>
     	<ul class="list-group">
-		    <li class="list-group-item"><a href="./?c=dv&act=donut">Соотношение мальчиков и девочек в школах (2013г.)</a></li>
-		    <li class="list-group-item"><a href="./?c=dv&act=bar">Количество учащихся в школах по районам г. Душанбе</a></li>        
+		    <li class="list-group-item"><a href="./?c=dv&act=donut">Соотношение количества девочек и мальчиков 
+		    в школах г. Душанбе на 2013-2014 уч. год</a></li>
+		    <li class="list-group-item"><a href="./?c=dv&act=bar">Количество учащихся в средних школах, по районам города Душанбе</a></li>        
 		    <li class="list-group-item"><a href="./?c=dv&act=lines">Динамика изменения количества мальчиков и девочек в школах г. Душанбе в период 2006-2013 гг.</a></li>        
 		    <li class="list-group-item"><a href="./?c=dv&act=lnfrm4">Динамика изменения кол-ва образовательных учреждений г. Душанбе в период с 2006 по 2013 гг.</a></li>        
+		    <li class="list-group-item"><a href="./?c=dv&act=dbar">Показатели общего количества учащихся школ по районам г. Душанбе (2010-2013гг.)</a></li>        
 		</ul>
     	';
 		return $result;
@@ -98,13 +100,13 @@ class DV_V {
 			
 		});
     	</script>';
-    	$result.='<h3 class="text-center">Количество девочек и мальчиков в школах г.
-    	Душанбе за 2013-2014 уч. год:</h3>
+    	$result.='<h3 class="text-center">Соотношение количества девочек и мальчиков в школах г.
+    	Душанбе на 2013-2014 уч. год:</h3>
     	<div id="xgraph"></div>';
 		return $result;
     }
 
-    public function lines($model){
+    public function lines($model,$ver=0){
     	$result='';
     	$UI=\CORE\BC\UI::init();
     	$UI->pos['js'].='<script src="'.UIPATH.'/ext/js/Chart.min.js"></script>';
@@ -143,7 +145,7 @@ class DV_V {
 			}
 
 
-			var ctx = document.getElementById("chart-area2").getContext("2d");
+			var ctx = document.getElementById("chart-area2'.$ver.'").getContext("2d");
 				window.myLine = new Chart(ctx).Line(lineChartData, {
 					responsive: true
 				});
@@ -154,11 +156,33 @@ class DV_V {
 		});
     	</script>';
     	// style="margin-left:auto;margin-right:auto;"
-    	$result.='<h3 class="text-center form_sep_blue">
+    	if($ver>0){
+    		$result.='<h4 class="text-center" style="color:#555;">
+    	Динамика изменения кол-ва мальчиков и девочек 
+    	в школах г. Душанбе (2006-2013 гг.):</h4>
+    	<div id="canvas-holder2'.$ver.'" style="margin-left:50px;">
+			<canvas id="chart-area2'.$ver.'" width="520" height="280"/>
+		</div>
+		<table align="center">
+		<tr>
+		<td>
+			<div style="border:1px solid #97bbcd;background-color:#eaf1f5;width:20px;height:15px;display:inline-block;"></div>
+			<small>- кол-во мальчиков;</small>
+		</td>
+		<td width="100"></td>
+		<td>
+			<div style="border:1px solid #cd4b4f;background-color:#e4d0d4;width:20px;height:15px;display:inline-block;"></div>
+			<small>- кол-во девочек;</small>
+		</td>
+		</tr>
+		</table>
+		';
+    	} else {
+    		$result.='<h4 class="text-center form_sep_blue">
     	Динамика изменения количества мальчиков и девочек 
-    	в школах г. Душанбе в период 2006-2013 гг.:</h3>
-    	<div id="canvas-holder2" style="margin-left:50px;">
-			<canvas id="chart-area2" width="900" height="400"/>
+    	в школах г. Душанбе в период 2006-2013 гг.:</h4>
+    	<div id="canvas-holder2'.$ver.'" style="margin-left:50px;">
+			<canvas id="chart-area2'.$ver.'" width="900" height="400"/>
 		</div>
 		<table style="margin-left:240px;margin-top:20px;">
 		<tr>
@@ -174,7 +198,8 @@ class DV_V {
 		</tr>
 		</table>
 		';
-		return $result;
+    	}
+    	return $result;
     }
 
     public function bar($model){
@@ -281,14 +306,14 @@ class DV_V {
     	</script>';
     	if($geoid==0){
     	$result.='<h4 class="text-center" style="color:#555;">
-        Количество учащихся в школах г. Душанбе за 2013-2014 уч. год</h4>
+        Количество учащихся в школах г. Душанбе за 2013-2014 уч. год:</h4>
     	<div id="canvas-holder3_22">
 			<canvas id="chart-area3" width="100%" height="500"/>
 		</div>
 		';
     	} else {
         $result.='<h4 class="text-center" style="color:#555;">
-        Количество учащихся в школах г. Душанбе за 2013-2014 уч. год</h4>
+        Количество учащихся в школах г. Душанбе за 2013-2014 уч. год:</h4>
     	<div id="canvas-holder3_2">
 			<canvas id="chart-area3" width="900" height="500"/>
 		</div>
@@ -336,7 +361,7 @@ class DV_V {
 		return $result;
     }
 
-    public function dbar($model){
+    public function dbar($model,$ver=0){
     	$result='';
     	$UI=\CORE\BC\UI::init();
     	$data=$model->dbar();
@@ -420,18 +445,75 @@ class DV_V {
 				};
 
 
-				var ctx = document.getElementById("xdbar").getContext("2d");
+				var ctx = document.getElementById("xdbar'.$ver.'").getContext("2d");
 					window.myBar = new Chart(ctx).Bar(barChartData, {
+						legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
 						responsive : true
 					});
-   				
+					window.myBar.generateLegend();
 
 		});
     	</script>';
-    	$result.='<h3 class="text-center">****:</h3>
-    	<div id="xdbar-holder" style="margin-left:50px;">
-			<canvas id="xdbar" width="1000" height="480"/>
-		</div>';
+    	if($ver>0){
+    		$result.='<h4 class="text-center" style="color:#555;">
+    		Кол-во учащихся ср. школ по районам г. Душанбе (2010-2013гг.):</h4>
+	    	<div id="xdbar'.$ver.'-holder" style="margin-left:50px;">
+				<canvas id="xdbar'.$ver.'" width="480" height="300"/>
+			</div>';
+			$result.='<table align="center">
+		<tr>
+		<td>
+			<div style="border:1px solid #97bbcd;background-color:#97bbcd;width:20px;height:15px;display:inline-block;"></div>
+			<small> - 2010;</small>
+		</td>
+		<td width="20"></td>
+		<td>
+			<div style="border:1px solid #e2d331;background-color:#e6d94c;width:20px;height:15px;display:inline-block;"></div>
+			<small> - 2011;</small>
+		</td>
+		<td width="20"></td>
+		<td>
+			<div style="border:1px solid #31e248;background-color:#4ce660;width:20px;height:15px;display:inline-block;"></div>
+			<small> - 2012;</small>
+		</td>
+		<td width="20"></td>
+		<td>
+			<div style="border:1px solid #cd4b4f;background-color:#dc3300;width:20px;height:15px;display:inline-block;"></div>
+			<small> - 2013;</small>
+		</td>
+		</tr>
+		</table>
+		';
+    	} else {
+    		$result.='<h3 class="text-center">Показатели общего количества учащихся школ по районам г. Душанбе (2010-2013гг.):</h3>
+	    	<div id="xdbar'.$ver.'-holder" style="margin-left:50px;">
+				<canvas id="xdbar'.$ver.'" width="1000" height="480"/>
+			</div>';
+			$result.='<table style="margin-left:340px;margin-top:20px;">
+		<tr>
+		<td>
+			<div style="border:1px solid #97bbcd;background-color:#97bbcd;width:20px;height:15px;display:inline-block;"></div>
+			<small> - 2010;</small>
+		</td>
+		<td width="20"></td>
+		<td>
+			<div style="border:1px solid #e2d331;background-color:#e6d94c;width:20px;height:15px;display:inline-block;"></div>
+			<small> - 2011;</small>
+		</td>
+		<td width="20"></td>
+		<td>
+			<div style="border:1px solid #31e248;background-color:#4ce660;width:20px;height:15px;display:inline-block;"></div>
+			<small> - 2012;</small>
+		</td>
+		<td width="20"></td>
+		<td>
+			<div style="border:1px solid #cd4b4f;background-color:#dc3300;width:20px;height:15px;display:inline-block;"></div>
+			<small> - 2013;</small>
+		</td>
+		</tr>
+		</table>
+		';
+    	}
 		return $result;
     }
 

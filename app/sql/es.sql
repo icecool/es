@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 12 2015 г., 05:44
+-- Время создания: Июн 12 2015 г., 11:41
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -1086,7 +1086,7 @@ CREATE TABLE IF NOT EXISTS `n-users` (
 --
 
 INSERT INTO `n-users` (`usr-uid`, `usr-gid`, `usr-pid`, `usr-login`, `usr-pwd`, `usr-salt`, `usr-hint`, `usr-status`, `usr-created`, `usr-lastlogin`) VALUES
-(1, 1, NULL, 'admin', '4e33559592d78056a7113ea23b92cc7d', 'j14', 'b3BlbmRhdGE=', 2, '2015-05-13 11:30:42', '2015-06-12 08:50:14');
+(1, 1, NULL, 'admin', '4e33559592d78056a7113ea23b92cc7d', 'j14', 'b3BlbmRhdGE=', 2, '2015-05-13 11:30:42', '2015-06-12 14:01:20');
 
 -- --------------------------------------------------------
 
@@ -1136,7 +1136,7 @@ CREATE TABLE IF NOT EXISTS `registration_form` (
   `reg-cmt-status` text,
   `reg-time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`reg-id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
 -- Дамп данных таблицы `registration_form`
@@ -1144,7 +1144,36 @@ CREATE TABLE IF NOT EXISTS `registration_form` (
 
 INSERT INTO `registration_form` (`reg-id`, `reg-muassisa`, `reg-nom`, `reg-nasab`, `reg-nomi_padar`, `zodruz`, `shahodatnoma`, `yatim`, `nomi_volidon`, `reg-address`, `reg-email`, `reg-phone`, `reg-code`, `reg-status`, `reg-cmt`, `reg-cmt-status`, `reg-time`) VALUES
 (1, 165, 'Мухаммад', 'Бахритидинов', 'Бахтиёрович', '2010-09-01', '123456', NULL, 'Бахритидинов', 'проспект Рудаки, 4А', 'bakhtiyor.bahriddinov@gmail.com', '927078414', '5579bdad8f2bc', NULL, NULL, NULL, '2015-06-01 13:00:00'),
-(2, NULL, 'Ava', 'Niyozova', 'Suhrobovich', '2011-09-01', 'E28992940', NULL, 'Suhrob Niyozov', 'Akademiki Rajabovikh', 'jsniyazov@gmail.com', '+992928842777', '557a99fd259ad', NULL, NULL, NULL, '2015-06-11 22:00:00');
+(2, NULL, 'Ava', 'Niyozova', 'Suhrobovich', '2011-09-01', 'E28992940', NULL, 'Suhrob Niyozov', 'Akademiki Rajabovikh', 'jsniyazov@gmail.com', '+992928842777', '557a99fd259ad', NULL, NULL, NULL, '2015-06-11 22:00:00'),
+(3, 165, 'Умаров', 'Шерали', 'Максудович', '2010-06-01', '12358', NULL, 'Умаров', 'Максуд', 'umarov.maksud@gmail.com', '928526549', '557aecda60751', NULL, NULL, NULL, '2015-06-12 14:29:46'),
+(4, NULL, 'Далер', 'Раджабов', 'Расулович', '2012-05-05', '№495823', NULL, NULL, 'ш. Душанбе, куч. А.Навои 13', 'fifa@mail.ru', '1234567', '557aecf3bcfda', NULL, NULL, NULL, '2015-06-12 14:30:11'),
+(5, 157, 'Shahnoza', 'Karimova', 'Dalerovich', '2012-06-01', '21223456', NULL, 'Karimov Daler', 'Akademiki Rajabovikh 4/1 h.13', NULL, '919 294435', '557aed267935d', NULL, NULL, NULL, '2015-06-12 14:31:02'),
+(6, NULL, 'Алишер', 'Максимов', 'Сергеевич', '2009-06-01', '9255', NULL, 'Максимов Сергей', 'ул. Ленина, 3а', 'alex@gmail.com', '928565634', '557aed6231981', NULL, NULL, NULL, '2015-06-12 14:32:02'),
+(7, NULL, 'Равшан', 'Каримов', 'Шерозович', '2012-04-01', '3232', NULL, 'Каримов Шероз', 'ул. Рудаки, 34/3', NULL, '918989889', '557aed9de1fe2', NULL, NULL, NULL, '2015-06-12 14:33:01'),
+(8, 152, 'Halimai', 'Said', 'karimovich', '2012-07-01', '4544367', NULL, 'Akbarov Said Halimovich', 'Ayni 2/3 h.5', NULL, '918567765', '557aeddfaeba2', NULL, NULL, NULL, '2015-06-12 14:34:07'),
+(9, NULL, 'Шариф', 'Каримов', 'Шухратович', '2010-04-01', '32323', NULL, 'Каримов Шухрат', 'ул. Сино 34/34', NULL, '918989892', '557aee1212b82', NULL, NULL, NULL, '2015-06-12 14:34:58'),
+(10, 164, 'Daler', 'Sharipov', 'Tolibovich', '2013-01-01', '345678', NULL, 'Sharipov Tolib', 'Rudaki 23', NULL, '988743456', '557aee3bee99d', NULL, NULL, NULL, '2015-06-12 14:35:39'),
+(11, NULL, 'Абдумалик', 'Шафиев', 'Шералиевич', '2012-04-01', '23234', NULL, 'Шафиев Шерали', 'ул. М. Турсунзода 3', NULL, '918989898', '557aee793cb3b', NULL, NULL, NULL, '2015-06-12 14:36:41'),
+(12, 152, 'Расул', 'Джабаров', 'Джамшедович', '2013-06-13', '№876543', NULL, 'Раджалали П.М', 'ш. Душанбе, куч. Бохтар 10', 'wer@mail.ru', '142536', '557aee945c8ea', NULL, NULL, NULL, '2015-06-12 14:37:08'),
+(13, NULL, 'Asom', 'Sherali', 'Sheralievich', '2012-04-01', '3456789', NULL, 'Sheraliev Sherali', 'Savdo 38/1 h.2', NULL, NULL, '557aee99b4bfe', NULL, NULL, NULL, '2015-06-12 14:37:13'),
+(14, 164, 'Razzakov', 'Zoir', 'Habibovich', '2013-12-01', '09876', NULL, 'Razzakov Habib', 'Titova 23', NULL, NULL, '557aeedc264c8', NULL, NULL, NULL, '2015-06-12 14:38:20'),
+(15, 165, 'Ekaterina', 'Davlyatova', 'Aleksandrovna', '2013-03-01', '89765', NULL, 'Davlyatov Aleksandr', 'Sherozi 45/2', NULL, NULL, '557aef2ed61fa', NULL, NULL, NULL, '2015-06-12 14:39:42'),
+(16, 167, 'Джамшед', 'Шакаров', 'Раджабович', '2010-09-19', '№908576', NULL, 'Таварали И.Н.', 'ш. Душанбе, куч. Ковалевская 2', 'ert@mail.ru', '465768', '557aef3d44290', NULL, NULL, NULL, '2015-06-12 14:39:57'),
+(17, NULL, 'Maksim', 'Ashurov', 'Sharifjonovich', '2013-05-01', '23456', NULL, 'Ashurov Sharif', 'Fedina 11/10 - 45', NULL, NULL, '557aef84570dc', NULL, NULL, NULL, '2015-06-12 14:41:08'),
+(18, NULL, 'Akmal', 'Amindjanov', NULL, '2013-11-01', '78654', NULL, 'Amindjanov Sheroz', 'Hisor 23/1 - 7', NULL, NULL, '557aefbfe7827', NULL, NULL, NULL, '2015-06-12 14:42:07'),
+(19, NULL, 'Abdurashid', 'Radjabov', NULL, '2013-09-01', '765432', NULL, 'Radjabov Hakim', 'Muhammadiev 34-5', NULL, NULL, '557af0037c75e', NULL, NULL, NULL, '2015-06-12 14:43:15'),
+(20, NULL, 'Нина', 'Бондарева', 'Михайловна', '2013-10-26', '№687543', NULL, 'Рахматали К.Е.', 'ш.Душанбе, куч.Титов 3', 'rty@mail.ru', '687980', '557af0087046b', NULL, NULL, NULL, '2015-06-12 14:43:20'),
+(21, NULL, 'Yasminai', 'Abduholik', NULL, '2013-06-01', '56789', NULL, 'Abdukholik Gadoev', 'Shamsi 23', NULL, NULL, '557af0c2a89c3', NULL, NULL, NULL, '2015-06-12 14:46:26'),
+(22, NULL, 'Алена', 'Никитина', 'Сергеевна', '2008-06-18', '2546578', NULL, 'Сергеев С.В, Копатова Н.Н', 'ш. Душанбе, куч. Федин 13', 'tyu@mail.ru', '132435', '557af0dbe1bad', NULL, NULL, NULL, '2015-06-12 14:46:51'),
+(23, NULL, 'Мадина', 'Раджабова', 'Алиевна', '2012-06-01', '№876987', NULL, 'Тошев А.Е., Махкамова И.И.', 'ш. Душанбе, куч. Расулов 2', 'asd@mail.ru', '796857', '557af14dbf4e8', NULL, NULL, NULL, '2015-06-12 14:48:45'),
+(24, NULL, 'Рафика', 'Самирова', 'Расуловна', '2012-01-28', '№867594', NULL, 'Кешев Р. А., Кешева П.И', 'ш. Душанбе, куч. Косимова 3', 'sdf@mail.ru', '564636', '557af21134689', NULL, NULL, NULL, '2015-06-12 14:52:01'),
+(25, NULL, 'Федя', 'Федоров', 'Федорович', '2013-09-29', '№0987654', NULL, 'Федоров Ф.Ф., Федорова Ф.М', 'ш. Душанбе, куч. Федин 2', 'dfg@mail.ru', '234567', '557af298817a8', NULL, NULL, NULL, '2015-06-12 14:54:16'),
+(26, NULL, 'Mastona', 'Ergasheva', NULL, '2013-11-01', '98453', NULL, 'Ergashev Karomat', 'A.Navoi 23', NULL, NULL, '557af3555fa52', NULL, NULL, NULL, '2015-06-12 14:57:25'),
+(27, NULL, 'Albina', 'Eshkuatova', NULL, '2014-04-01', NULL, NULL, 'Eshkuatov Viktor', 'B.Gafurov 24/1', NULL, NULL, '557af39380cb7', NULL, NULL, NULL, '2015-06-12 14:58:27'),
+(28, NULL, 'Gulov', 'Abdulhamid', NULL, '2013-05-01', '453678', NULL, 'Gulov Abdujabbor', 'Kahorova 14 / 6', NULL, NULL, '557af3d27bc01', NULL, NULL, NULL, '2015-06-12 14:59:30'),
+(29, NULL, 'Sabohat', 'Horkasheva', NULL, '2014-10-01', '234567', NULL, 'Horkashev Dona', 'Hatlon 2', NULL, NULL, '557af40e67490', NULL, NULL, NULL, '2015-06-12 15:00:30'),
+(30, NULL, 'Azizai', 'Abdulhamidzoda', NULL, '2014-02-01', '987654', NULL, 'Abdulhamid Gulov', 'Hosilot 234', NULL, NULL, '557af4503e172', NULL, NULL, NULL, '2015-06-12 15:01:36'),
+(31, NULL, 'Suman', 'Holmurodov', NULL, '2014-09-01', '564356', NULL, 'Holmurodov Hasan', 'N.Karaboev 5/34', NULL, NULL, '557af49820a9a', NULL, NULL, NULL, '2015-06-12 15:02:48');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

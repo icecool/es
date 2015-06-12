@@ -118,9 +118,15 @@ body {
     border:0px solid #EEE;
     display:inline-block;
 }
-#canvas-holder2{
+#canvas-holder20{
     margin:8px;
     width:900px;
+    border:0px solid #EEE;
+    display:inline-block;
+}
+#canvas-holder21{
+    margin:8px;
+    width:520px;
     border:0px solid #EEE;
     display:inline-block;
 }
@@ -143,9 +149,15 @@ body {
     border:0px solid #EEE;
     display:inline-block;
 }
-#xdbar-holder{
+#xdbar0-holder{
     margin:8px;
     width:1000px;
+    border:0px solid #EEE;
+    display:inline-block;
+}
+#xdbar1-holder{
+    margin:8px;
+    width:480px;
     border:0px solid #EEE;
     display:inline-block;
 }
@@ -156,8 +168,8 @@ body {
   margin: 20px auto 0 auto;
 }
 #xlnfrm4 {
-  width: 800px;
-  height: 400px;
+  width: 900px;
+  height: 450px;
   margin: 20px auto 0 auto;
 }
 .form_sep_blue {
