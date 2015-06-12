@@ -60,6 +60,44 @@ class DV_M {
         return $data;
     }
 
+    public function db2arraygen($table,$idfields=array()){
+        // 'muassisaho', 'm-id', array('name_ru','namud','director'), 'name_ru'
+        $data=array();
+        $DB=\DB::init();
+        if($DB->connected()){
+            if (count($idfields)==0){
+                $sql = "SHOW COLUMNS FROM `".$table."`;";
+                $sth = $DB->dbh->prepare($sql);
+                $sth->execute();
+                $DB->query_count();
+                if($sth->rowCount()>0){
+                    $idfields = array();
+                    while($r=$sth->fetch()){
+                        $idfields[] = $r['Field'];
+                    }
+                }
+            }
+            //print_r($idfields);
+            //die();
+            $sql = "SELECT * FROM `".$table."`;";
+            $sth = $DB->dbh->prepare($sql);
+            $sth->execute();
+            $DB->query_count();
+            if($sth->rowCount()>0){
+                while($r=$sth->fetch()){
+                    //$data[] = $r;
+                    //$data[$r[$idfield]]=$r;
+                    $res = array();
+                    foreach($idfields as $idfield) {
+                        $res[$idfield] = $r[$idfield];
+                    }
+                    $data[] = $res;
+                }
+            }
+        }
+        return $data;
+    }
+
     public function db2csvgen($table,$idfields=array()){
         // 'muassisaho', 'm-id', array('name_ru','namud','director'), 'name_ru'
         $data=array();
