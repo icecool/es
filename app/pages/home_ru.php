@@ -7,6 +7,7 @@ $dv_v=new \APP\MVC\V\DV_V;
 
 $this->pos['main']='
 <div class="col-md-4" style="text-align: center">
+test
             <img src="/ui/img/reg_img.300.png"/>
           </div>
           <div class="col-md-4" style="text-align: center">

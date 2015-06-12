@@ -129,12 +129,14 @@ body {
     border:0px solid #EEE;
     display:inline-block;
 }
+
 #canvas-holder3_2{
     margin:18px;
     width:600px;
     border:0px solid #EEE;
     display:inline-block;
 }
+
 #xgraph {
   width: 400px;
   height: 200px;
