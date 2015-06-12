@@ -48,7 +48,7 @@ if($USER->auth()){
 	$UI->pos['user2'].='
     <li><a href="./?c=map">'.lang('map','Карта').'</a></li>
     <li><a href="./?c=od">'.lang('od','Открытые данные').'</a></li>
-    <li><a href="./?c=dv">'.lang('dv','Визуализация данных').'</a></li>
+    <li><a href="./?c=dv">'.lang('dv','Визуализация').'</a></li>
 
     <li class="dropdown">
 	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
