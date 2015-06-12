@@ -31,7 +31,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./"><?php echo lang('es','Education Services'); ?></a>
+          <a class="navbar-brand" href="./">
+          <?php echo lang('es','Education Services'); ?></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -49,7 +50,8 @@
             <div class="dtable hw100">
                 <div class="dtable-cell hw100">
                     <div class="container text-center">
-                        <h1 class="intro-title animated fadeInDown"> Открытые данные общеобразовательных учреждений г.Душанбе</h1>
+                        <h1 class="intro-title animated fadeInDown"> 
+                        Открытые данные общеобразовательных учреждений г. Душанбе</h1>
                     </div>
                 </div>
             </div>

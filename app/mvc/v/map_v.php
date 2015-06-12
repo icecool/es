@@ -212,7 +212,8 @@ class MAP_V {
                 if ($show_bar) {
                     $result.='<div class="col-sm-10"><div id="map" style="height: 540px"></div>';
                 }else{
-                    $result.='<div class="col-sm-12"><div id="map" style="height: 340px"></div>';
+                    $result.='<div class="col-sm-12">
+                    <div id="map" class="mapx" style="height: 340px"></div>';
                 }
                 /*<div id="mysidebar">
                     <div id="xsidebar" class="xmg">'.$mlist.' <input type="checkbox" id="xflag">

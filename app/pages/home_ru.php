@@ -16,9 +16,16 @@ $this->pos['main']='
             <img src="'.UIPATH.'/img/od_img.300.png"/>
          </div>
 <p>&nbsp;</p>
+<br><br>
 <div class="row">
-<div class="col-md-6"><h4 style="text-align: center; font-weight: bold">Карта покрытыя образовательных учреждений</h4>'.$map_v->main($map_m,false).'</div>
+<div class="col-md-12">
+<h4 style="text-align: center; font-weight: bold;">Карта покрытыя образовательных учреждений</h4>'.$map_v->main($map_m,false).'
+</div>
+</div>
+<br><br>
+<div class="row">
 <div class="col-md-6">'.$dv_v->bar2($dv_m).'</div>
+<div class="col-md-6">-</div>
 </div>
 ';
 // '.$map_v->main($map_m).'
