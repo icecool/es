@@ -27,8 +27,8 @@ $this->pos['main']='<br>
 <h3 class="text-center form_sep_red"><strong>Визуализация данных</strong></h3>
 <br>
 <div class="row">
-<div class="col-md-6">'.$dv_v->bar2($dv_m).'</div>
-<div class="col-md-6">-</div>
+<div class="col-md-6">'.$dv_v->bar2($dv_m,2).'</div>
+<div class="col-md-6"></div>
 </div>
 ';
 // '.$map_v->main($map_m).'

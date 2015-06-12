@@ -232,9 +232,8 @@ class DV_V {
 		return $result;
     }
 
-    public function bar2($model){
+    public function bar2($model,$geoid=2){
         $result='';
-        $geoid=2;
         $geo=array(
             '2'=>'И. Сомони',
             '3'=>'Сино',
@@ -279,11 +278,21 @@ class DV_V {
 
 		});
     	</script>';
-        $result.='<h4 class="text-center" style="color:#555;">Количество учащихся школ за 2013-2014 уч.год</h4>
+    	if($geoid==0){
+    	$result.='<h4 class="text-center" style="color:#555;">
+        Количество учащихся в школах г. Душанбе за 2013-2014 уч. год</h4>
+    	<div id="canvas-holder3_22">
+			<canvas id="chart-area3" width="100%" height="500"/>
+		</div>
+		';
+    	} else {
+        $result.='<h4 class="text-center" style="color:#555;">
+        Количество учащихся в школах г. Душанбе за 2013-2014 уч. год</h4>
     	<div id="canvas-holder3_2">
 			<canvas id="chart-area3" width="900" height="500"/>
 		</div>
 		';
+		}
         return $result;
     }
 
