@@ -46,10 +46,10 @@ public static function user_menu(){
 	$UI->pos['user1'].='<form action="./?c=user&act=login" method="post" class="navbar-form">
 		'.$UI->lang_bar().'
 	    <div class="form-group">
-	      <input type="text" name="login" placeholder="'.lang('login','Login').'" class="form-control">
+	      <input type="text" name="login" placeholder="'.lang('login','Login').'" style="width:150px;" class="form-control">
 	    </div>
 	    <div class="form-group">
-	      <input type="password" name="password" placeholder="'.lang('password','Password').'" class="form-control">
+	      <input type="password" name="password" placeholder="'.lang('password','Password').'" style="width:150px;" class="form-control">
 	    </div>
 	    <button type="submit" class="btn btn-success">'.lang('signin','Sign in').'</button>
 	  </form>
