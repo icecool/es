@@ -19,6 +19,5 @@ $this->pos['main']='<div class="col-md-4">
             tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. 
             Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-         </div> 
-          
+         </div>
 ';

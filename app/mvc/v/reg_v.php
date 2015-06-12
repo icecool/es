@@ -139,4 +139,21 @@ class REG_V {
         return $result;
     }
 
+    public static function checkform(){
+    	$result='';
+		$result.='
+		<form class="form-inline">
+		  <div class="form-group">
+		    <label class="sr-only" for="yourID">ID (hash)</label>
+		    <div class="input-group">
+		      <div class="input-group-addon">ID:</div>
+		      <input type="text" class="form-control" id="yourID" placeholder="">
+		    </div>
+		  </div>
+		  <button type="button" class="btn btn-primary">'.lang('check','Проверить статус').'</button>
+		</form>
+		';
+    	return $result;
+    }
+
 }

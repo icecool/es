@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 11 2015 г., 12:42
+-- Время создания: Июн 11 2015 г., 13:05
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -979,7 +979,7 @@ CREATE TABLE IF NOT EXISTS `n-users` (
 --
 
 INSERT INTO `n-users` (`usr-uid`, `usr-gid`, `usr-pid`, `usr-login`, `usr-pwd`, `usr-salt`, `usr-hint`, `usr-status`, `usr-created`, `usr-lastlogin`) VALUES
-(1, 1, NULL, 'admin', '4e33559592d78056a7113ea23b92cc7d', 'j14', 'b3BlbmRhdGE=', 2, '2015-05-13 11:30:42', '2015-06-11 15:46:05');
+(1, 1, NULL, 'admin', '4e33559592d78056a7113ea23b92cc7d', 'j14', 'b3BlbmRhdGE=', 2, '2015-05-13 11:30:42', '2015-06-11 16:59:28');
 
 -- --------------------------------------------------------
 
@@ -1024,8 +1024,18 @@ CREATE TABLE IF NOT EXISTS `registration_form` (
   `reg-email` varchar(255) DEFAULT NULL,
   `reg-phone` varchar(255) DEFAULT NULL,
   `reg-code` text,
+  `reg-status` tinyint(1) DEFAULT NULL,
+  `reg-cmt` text,
+  `reg-cmt-status` text,
   PRIMARY KEY (`reg-id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `registration_form`
+--
+
+INSERT INTO `registration_form` (`reg-id`, `reg-muassisa`, `reg-nom`, `reg-nasab`, `reg-nomi_padar`, `zodruz`, `shahodatnoma`, `yatim`, `nomi_volidon`, `reg-address`, `reg-email`, `reg-phone`, `reg-code`, `reg-status`, `reg-cmt`, `reg-cmt-status`) VALUES
+(1, 165, 'Мухаммад', 'Бахритидинов', 'Бахтиёрович', '2010-09-01', '123456', NULL, 'Бахритидинов', 'проспект Рудаки, 4А', 'bakhtiyor.bahriddinov@gmail.com', '927078414', '5579bdad8f2bc', NULL, NULL, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

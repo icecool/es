@@ -22,6 +22,10 @@ class REG_C {
         		}
         		exit;
         	break;
+            case 'check':
+                $UI->pos['main'].=$view->checkform();
+
+            break;
 			default:
                 if(isset($_POST['frmhash'])) {
                     $model->add();
