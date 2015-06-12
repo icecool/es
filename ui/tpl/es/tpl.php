@@ -82,8 +82,8 @@
               </div>
               <div class="col-md-6"></div>
               <div class="col-md-3">
-                  <a href="http://opendata.tj/" target="_blank"> <img src="/ui/img/od_tj.png" /> OPENDATA.TJ</a>
-                  &nbsp;<a href="http://www.opendata-hackathon.com/" target="_blank"> <img src="/ui/img/logo_small.png" /></a>
+                  <a href="http://opendata.tj/" target="_blank"> <img src="<?php echo UIPATH; ?>/img/od_tj.png" /> OPENDATA.TJ</a>
+                  &nbsp;<a href="http://www.opendata-hackathon.com/" target="_blank"> <img src="<?php echo UIPATH; ?>/img/logo_small.png" /></a>
               </div>
           </div>
 
