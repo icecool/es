@@ -132,7 +132,7 @@ class MAP_V {
 	                <br/><strong>Директор: </strong>\'+markers[i][3]+\' \\
 	                <br/><strong>Адрес: </strong>\'+markers[i][4]+\' \\
 	                <br/><strong>Телефон: </strong>\'+markers[i][5]+\' \\
-	                <br/><strong class="pull-right"><a href="\'+markers[i][5]+\'">Подробнее</a></p> \';
+	                <br/><strong class="pull-right"><a href="#\'+markers[i][5]+\'">Подробнее</a></p> \';
 
 	                var markerLocation = new L.LatLng(lat, lon);
 

@@ -14,11 +14,92 @@ class DV_M {
 			$DB->query_count();
 			if($sth->rowCount()>0){
 				while($r=$sth->fetch()){
-					$data[$r[$idfield]]=$r;
+					//$data[$r[$idfield]]=$r;
+                    $data[$r[$idfield]]=$r;
 				}
 			}
     	}
     	return $data;
+    }
+
+    public function db2jsongen($table,$idfields=array()){
+        // 'muassisaho', 'm-id', array('name_ru','namud','director'), 'name_ru'
+        $data=array();
+        $DB=\DB::init();
+        if($DB->connected()){
+            if (count($idfields)==0){
+                $sql = "SHOW COLUMNS FROM `".$table."`;";
+                $sth = $DB->dbh->prepare($sql);
+                $sth->execute();
+                $DB->query_count();
+                if($sth->rowCount()>0){
+                    $idfields = array();
+                    while($r=$sth->fetch()){
+                        $idfields[] = $r['Field'];
+                    }
+                }
+            }
+            //print_r($idfields);
+            //die();
+            $sql = "SELECT * FROM `".$table."`;";
+            $sth = $DB->dbh->prepare($sql);
+            $sth->execute();
+            $DB->query_count();
+            if($sth->rowCount()>0){
+                while($r=$sth->fetch()){
+                    //$data[] = $r;
+                    //$data[$r[$idfield]]=$r;
+                    $res = array();
+                    foreach($idfields as $idfield) {
+                        $res[$idfield] = $r[$idfield];
+                    }
+                    $data[] = $res;
+                }
+            }
+        }
+        return $data;
+    }
+
+    public function db2csvgen($table,$idfields=array()){
+        // 'muassisaho', 'm-id', array('name_ru','namud','director'), 'name_ru'
+        $data=array();
+        $DB=\DB::init();
+        if($DB->connected()){
+            if (count($idfields)==0){
+                $sql = "SHOW COLUMNS FROM `".$table."`;";
+                $sth = $DB->dbh->prepare($sql);
+                $sth->execute();
+                $DB->query_count();
+                if($sth->rowCount()>0){
+                    $idfields = array();
+                    while($r=$sth->fetch()){
+                        $idfields[] = $r['Field'];
+                    }
+                }
+            }
+            // output headers so that the file is downloaded rather than displayed
+            header('Content-Type: text/csv; charset=utf-8');
+            header('Content-Disposition: attachment; filename=data.csv');
+            // create a file pointer connected to the output stream
+            $output = fopen('php://output', 'w');
+            // output the column headings
+            fputcsv($output, $idfields);
+
+            $sql = "SELECT * FROM `".$table."`;";
+            $sth = $DB->dbh->prepare($sql);
+            $sth->execute();
+            $DB->query_count();
+            if($sth->rowCount()>0){
+                while($r=$sth->fetch()){
+                    $res = array();
+                    foreach($idfields as $idfield) {
+                        $res[$idfield] = $r[$idfield];
+                    }
+                    // loop over the rows, outputting them
+                    fputcsv($output, $res);
+                }
+            }
+        }
     }
 
     public function boysgirls(){

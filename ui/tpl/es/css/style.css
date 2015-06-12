@@ -220,5 +220,6 @@ ul.unstyled, ol.unstyled {
 }
 
 .dataset-resources img{
-    height: 30px;
+    height: 45px;
+    padding: 5px;
 }
