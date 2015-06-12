@@ -129,5 +129,31 @@ class REG_M {
 		}
     }
 
+    public static function check_status($code=''){
+    	$code=trim($code);
+    	$status=0; // '' - uncorrect, 1 - in progress, 2 - no, 3 - yes
+    	$cmt='';
+    	$result=array($status,$cmt);
+    	if($code!=''){
+    		$DB=\DB::init();
+			if($DB->connected()){
+				$sql = "SELECT `reg-status`,`reg-cmt-status` FROM `registration_form` 
+				WHERE `reg-code`=:code;";
+				$sth = $DB->dbh->prepare($sql);
+				$sth->execute(array('code'=>$code));
+				if($sth->rowCount()==1){
+					while($r=$sth->fetch()){
+						if($r['reg-status']!='') {
+							$status=(int) $r['reg-status'];
+						} else { $status=1; }
+						$cmt=$r['reg-cmt-status'];
+
+						$result=array($status,$cmt);
+					}
+				}
+			}
+    	}
+    	return $result;
+    }
 
 }

@@ -19,6 +19,10 @@ class REG_C {
                     case 'monthdays':
                         echo $view->xlist($view->monthdays(),'day',0,false);
                     break;
+                    case 'status':
+                        echo $view->status($model);
+                    break;
+
         		}
         		exit;
         	break;
