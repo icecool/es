@@ -149,7 +149,7 @@ class REG_V {
 		  <div class="form-group">
 		    <label class="sr-only" for="yourID">ID (hash)</label>
 		    <div class="input-group">
-		      <div class="input-group-addon">Ваш код:</div>
+		      <div class="input-group-addon">Ваш код:</div><!-- example: 5579bdad8f2bc -->
 		      <input type="text" class="form-control" id="yourID" placeholder="" style="font-size:20px;width:170px;">
 		    </div>
 		  </div>
