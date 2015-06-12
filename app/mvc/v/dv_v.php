@@ -7,12 +7,12 @@ class DV_V {
     	$result='<h3>'.lang('dvmodule','Модуль визуализации данных').':</h3>
     	<br>
     	<ul class="list-group">
-		    <li class="list-group-item"><a href="./?c=dv&act=donut">Соотношение количества девочек и мальчиков 
-		    в школах г. Душанбе на 2013-2014 уч. год</a></li>
-		    <li class="list-group-item"><a href="./?c=dv&act=bar">Количество учащихся в средних школах, по районам города Душанбе</a></li>        
-		    <li class="list-group-item"><a href="./?c=dv&act=lines">Динамика изменения количества мальчиков и девочек в школах г. Душанбе в период 2006-2013 гг.</a></li>        
-		    <li class="list-group-item"><a href="./?c=dv&act=lnfrm4">Динамика изменения кол-ва образовательных учреждений г. Душанбе в период с 2006 по 2013 гг.</a></li>        
-		    <li class="list-group-item"><a href="./?c=dv&act=dbar">Показатели общего количества учащихся школ по районам г. Душанбе (2010-2013гг.)</a></li>        
+		    <li class="list-group-item"><a href="./?c=dv&act=donut">'.lang("report1","Соотношение количества девочек и мальчиков
+		    в школах г. Душанбе на 2013-2014 уч. год").'</a></li>
+		    <li class="list-group-item"><a href="./?c=dv&act=bar">'.lang("report2","Количество учащихся в средних школах, по районам города Душанбе").'</a></li>
+		    <li class="list-group-item"><a href="./?c=dv&act=lines">'.lang("report3","Динамика изменения количества мальчиков и девочек в школах г. Душанбе в период 2006-2013 гг.").'</a></li>
+		    <li class="list-group-item"><a href="./?c=dv&act=lnfrm4">'.lang("report4","Динамика изменения кол-ва образовательных учреждений г. Душанбе в период с 2006 по 2013 гг.").'</a></li>
+		    <li class="list-group-item"><a href="./?c=dv&act=dbar">'.lang("report5","Показатели общего количества учащихся школ по районам г. Душанбе (2010-2013гг.)").'</a></li>
 		</ul>
     	';
 		return $result;
@@ -37,13 +37,13 @@ class DV_V {
 					value: obj.boys,
 					color: "#3581bf",
 					highlight: "#2072b5",
-					label: "Мальчиков"
+					label: "'.lang("boys","Мальчиков").'"
 				},
 				{
 					value: obj.girls,
 					color:"#F7464A",
 					highlight: "#FF5A5E",
-					label: "Девочек"
+					label: "'.lang("girls","Девочек").'"
 				}
 
 			];
@@ -84,8 +84,8 @@ class DV_V {
 				Morris.Donut({
 				  element: "xgraph",
 				  data: [
-				    {value: obj.boys, label: "Мальчики"},
-				    {value: obj.girls, label: "Девочки"}
+				    {value: obj.boys, label: "'.lang("boys","Мальчиков").'"},
+				    {value: obj.girls, label: "'.lang("girls","Девочек").'"}
 				  ],
 				  colors: [
 				    "#0b62a4",
@@ -100,8 +100,7 @@ class DV_V {
 			
 		});
     	</script>';
-    	$result.='<h3 class="text-center">Соотношение количества девочек и мальчиков в школах г.
-    	Душанбе на 2013-2014 уч. год:</h3>
+    	$result.='<h3 class="text-center">'.lang("report1","Соотношение количества девочек и мальчиков в школах г. Душанбе на 2013-2014 уч. год").':</h3>
     	<div id="xgraph"></div>';
 		return $result;
     }
@@ -121,7 +120,7 @@ class DV_V {
 				labels : [obj[0]["year"],obj[1]["year"],obj[2]["year"],obj[3]["year"],obj[4]["year"],obj[5]["year"],obj[6]["year"],obj[7]["year"]],
 				datasets : [
 					{
-					label: "Девочки",
+					label: "'.lang("girls","Девочек").'",
 					fillColor : "rgba(219,48,48,0.2)",
 					strokeColor : "rgba(219,48,48,1)",
 					pointColor : "rgba(219,48,48,1)",
@@ -131,7 +130,7 @@ class DV_V {
 					data : [obj[0]["girls"],obj[1]["girls"],obj[2]["girls"],obj[3]["girls"],obj[4]["girls"],obj[5]["girls"],obj[6]["girls"],obj[7]["girls"]]
 					},
 					{
-					label: "Мальчики",
+					label: "'.lang("boys","Мальчиков").'",
 					fillColor : "rgba(151,187,205,0.2)",
 					strokeColor : "rgba(151,187,205,1)",
 					pointColor : "rgba(151,187,205,1)",

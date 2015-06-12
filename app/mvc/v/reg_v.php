@@ -57,7 +57,7 @@ class REG_V {
 				'.$this->xlist($model->namudho(),'namud').'
 			</div>
 			<div class="form-group">
-				<label for="muassisa">'.lang('fac','Учреждение').':</label><br>
+				<label for="muassisa">'.lang('facility','Учреждение').':</label><br>
 				<span id="xmuassisalist">'.$this->xlist($muassisaho,'muassisa').'</span>
 			</div>
 
@@ -93,16 +93,16 @@ class REG_V {
 				<input type="text" class="form-control" id="nomi_volidon" name="nomi_volidon" placeholder="'.lang('fio','ФИО').'">
 			</div>
 			<div class="form-group">
-				<label for="address">'.lang('address','Адрес').'</label>
-				<input type="text" class="form-control" id="address" name="address" placeholder="'.lang('address','Адрес').'">
+				<label for="address">'.lang('adres','Адрес').'</label>
+				<input type="text" class="form-control" id="address" name="address" placeholder="'.lang('adres','Адрес').'">
 			</div>
 			<div class="form-group">
 				<label for="email">'.lang('email','E-mail').'</label>
 				<input type="text" class="form-control" id="email" name="email" placeholder="'.lang('email','E-mail').'">
 			</div>
 			<div class="form-group">
-				<label for="phone">'.lang('phone','Телефон').'</label>
-				<input type="text" class="form-control" id="phone" name="phone" placeholder="'.lang('phone','Телефон').'">
+				<label for="phone">'.lang('telefon','Телефон').'</label>
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="'.lang('telefon','Телефон').'">
 			</div>
 
 			</div>
@@ -120,8 +120,8 @@ class REG_V {
     	$result='';
     	if(isset($GLOBALS['didreg'])){
     		$result.='<div class="text-center"><hr>
-    		<h3><span class="form_sep_red">Заявка принята на обработку.<br><br> 
-    		Ваш код для отслеживания:</span> 
+    		<h3><span class="form_sep_red">'.lang("zayavka_prinyata","Заявка принята на обработку.").'<br><br>
+    		'.lang("vash_kod","Ваш код для отслеживания:").'</span>
     			<span class="label label-primary" style="font-size:22px;">'.$GLOBALS['uniqid'].'</span>
 	    	</h3><hr><br>
     		</div>';
@@ -142,14 +142,14 @@ class REG_V {
     public static function checkform(){
     	$result='';
     	\CORE\BC\UI::init()->pos['js'].="\n".'<script src="'.UIPATH.'/js/reg.js"></script>';
-		$result.='<h3 class="text-center form_sep_blue">Проверка статуса Вашей заявки по трекинг-коду:</h3>
+		$result.='<h3 class="text-center form_sep_blue">'.lang("proverka_statusa","Проверка статуса Вашей заявки по трекинг-коду:").'</h3>
 		<div id="xstatuscheck" class="text-center" style="width:500px;margin:auto;margin-top:30px;margin-bottom:100px;">
 		<form id="checkfrm" class="form-inline" action="./?c=reg&act=check">
 		<br><br><br>
 		  <div class="form-group">
 		    <label class="sr-only" for="yourID">ID (hash)</label>
 		    <div class="input-group">
-		      <div class="input-group-addon">Ваш код:</div><!-- example: 5579bdad8f2bc -->
+		      <div class="input-group-addon">'.lang("vash_kod","Ваш код:").'</div><!-- example: 5579bdad8f2bc -->
 		      <input type="text" class="form-control" id="yourID" placeholder="" style="font-size:20px;width:170px;">
 		    </div>
 		  </div>
@@ -168,22 +168,21 @@ class REG_V {
     	$status_array=$model->check_status($code);
     	switch($status_array[0]){
     		case 0:
-    			$msg='<h3 class="text-danger">Введен некорректный код</h3>
-    			<a href="./?c=reg&act=check">Попробовать еще раз?</a>';
+    			$msg='<h3 class="text-danger">'.lang("wrong_kod","Введен некорректный код").'</h3>
+    			<a href="./?c=reg&act=check">'.lang("try_again","Попробовать еще раз?").'</a>';
     		break;
     		case 1:
-    			$msg='<h3 class="text-primary">Заявка находится в процессе обработки ...</h3>';
+    			$msg='<h3 class="text-primary">'.lang("zayavka_in_process","Заявка находится в процессе обработки ...").'</h3>';
     		break;
     		case 2:
-    			$msg='<h3 class="text-danger">Ваша заявка не принята (отказано)</h3>';
+    			$msg='<h3 class="text-danger">'.lang("zayavka_canceled","Ваша заявка не принята (отказано)").'</h3>';
     			$cmt=htmlspecialchars($status_array[1]);
-    			$cmt='<code>Причина отказа: в данном учреждении колличество заявок превысило количество мест.
-    			Вы можете оформить заявку в другое уреждение.</code>';
+    			$cmt='<code>'.lang("cancelation_reason","Причина отказа: в данном учреждении колличество заявок превысило количество мест. Вы можете оформить заявку в другое уреждение.").'</code>';
     		break;
     		case 3:
-    			$msg='<h3 class="text-success">Ваша заявка принята (с Вами свяжутся)</h3>';
+    			$msg='<h3 class="text-success">'.lang("zayavka_accepted","Ваша заявка принята (с Вами свяжутся)").'</h3>';
     			$cmt=htmlspecialchars($status_array[1]);
-    			$cmt='<code>С Вами должны связаться за месяц до начала процесса обучения/посещения</code>';
+    			$cmt='<code>'.lang("s_vami_svyajutsya","С Вами должны связаться за месяц до начала процесса обучения/посещения").'</code>';
     		break;
     	}
 		$result.='
