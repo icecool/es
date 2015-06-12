@@ -373,6 +373,36 @@ class DV_V {
 				        },
 				        {
 				            label: "2011",
+				            fillColor: "rgba(219,201,0,0.7)",
+				            strokeColor: "rgba(219,201,0,0.7)",
+				            highlightFill: "rgba(219,201,0,0.5)",
+				            highlightStroke: "rgba(219,201,0,1)",
+				            data: [';
+				    $f=false;
+				    foreach($data as $rayon=>$sol) {
+				    	if($f) $UI->pos['js'].=', ';
+				    	$UI->pos['js'].='"'.$sol['2011'].'"';
+				    	if(!$f) $f=true;
+				    }
+				    $UI->pos['js'].=']
+				        },
+				        {
+				            label: "2012",
+				            fillColor: "rgba(0,219,29,0.7)",
+				            strokeColor: "rgba(0,219,29,0.7)",
+				            highlightFill: "rgba(0,219,29,0.5)",
+				            highlightStroke: "rgba(0,219,29,1)",
+				            data: [';
+				    $f=false;
+				    foreach($data as $rayon=>$sol) {
+				    	if($f) $UI->pos['js'].=', ';
+				    	$UI->pos['js'].='"'.$sol['2012'].'"';
+				    	if(!$f) $f=true;
+				    }
+				    $UI->pos['js'].=']
+				        },
+				        {
+				            label: "2013",
 				            fillColor: "rgba(220,51,0,0.7)",
 				            strokeColor: "rgba(220,51,0,0.7)",
 				            highlightFill: "rgba(220,51,0,0.5)",
@@ -381,7 +411,7 @@ class DV_V {
 				    $f=false;
 				    foreach($data as $rayon=>$sol) {
 				    	if($f) $UI->pos['js'].=', ';
-				    	$UI->pos['js'].='"'.$sol['2011'].'"';
+				    	$UI->pos['js'].='"'.$sol['2013'].'"';
 				    	if(!$f) $f=true;
 				    }
 				    $UI->pos['js'].=']
@@ -394,8 +424,8 @@ class DV_V {
 					window.myBar = new Chart(ctx).Bar(barChartData, {
 						responsive : true
 					});
-   	
-			
+   				
+
 		});
     	</script>';
     	$result.='<h3 class="text-center">****:</h3>

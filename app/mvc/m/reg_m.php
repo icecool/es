@@ -90,7 +90,6 @@ class REG_M {
     	// here should be some data validation
     	if($val['nom']=='') $valid=false;
     	if($val['nasab']=='') $valid=false;
-    	if($val['nomi_padar']=='') $valid=false;
 		if($valid){
 			$DB=\DB::init();
 			if($DB->connected()){
