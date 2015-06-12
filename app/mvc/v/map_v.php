@@ -159,7 +159,7 @@ class MAP_V {
 	            var zmarker = null;
 
 	            map.on("singleclick",function ( e ) {
-	                    console.log(e.latlng.lat + \' : \' + e.latlng.lng);
+	                    //console.log(e.latlng.lat + \' : \' + e.latlng.lng);
 		                if ($("#xflag").is(":checked")) {
 		                		if(zmarker!=null) map.removeLayer(zmarker);
 		                    var markerLocation = new L.LatLng(e.latlng.lat, e.latlng.lng);
@@ -215,17 +215,17 @@ class MAP_V {
                     $result.='<div class="col-sm-12">
                     <div id="map" class="mapx" style="height: 340px"></div>';
                 }
-                /*<div id="mysidebar">
+                /*$result.='<div id="mysidebar">
                     <div id="xsidebar" class="xmg">'.$mlist.' <input type="checkbox" id="xflag">
                     <label for="xflag">edit</label>
                     </div>
-                </div>*/
+                </div>';*/
             $result.='</div>';
             if ($show_bar) {
                 $result .= '<div class="col-sm-2">
-                <h4>Поиск по школам</h4>
+                <h4>Поиск по учреждениям</h4>
                 <div style="height:540px; overflow: auto; max-height: 490px;">
-                <p>Фильтр по учереждениям</p>
+                <p>Фильтр по учреждениям</p>
                 <select id="namudi_muassisa" class="form-control">';
                 $namudho = $model->get_namudi_muassisa();
                 foreach ($namudho as $key => $v) {

@@ -6204,3 +6204,13 @@
 [Fri Jun 12 12:09:48 2015] [error] [client 127.0.0.1] PHP   6. CORE\\BC\\ROUTER->__construct() /datos/www/es/core/bc/app.php:37
 [Fri Jun 12 12:09:48 2015] [error] [client 127.0.0.1] PHP   7. class_exists() /datos/www/es/core/bc/app.php:65
 [Fri Jun 12 12:09:48 2015] [error] [client 127.0.0.1] PHP   8. CORE::AutoLoader() /datos/www/es/core/bc/core.php:0
+[Fri Jun 12 12:58:09 2015] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '<' in /datos/www/es/app/mvc/v/map_v.php on line 218, referer: http://es/?c=dv
+[Fri Jun 12 12:58:09 2015] [error] [client 127.0.0.1] PHP Stack trace:, referer: http://es/?c=dv
+[Fri Jun 12 12:58:09 2015] [error] [client 127.0.0.1] PHP   1. {main}() /datos/www/es/index.php:0, referer: http://es/?c=dv
+[Fri Jun 12 12:58:09 2015] [error] [client 127.0.0.1] PHP   2. require() /datos/www/es/index.php:4, referer: http://es/?c=dv
+[Fri Jun 12 12:58:09 2015] [error] [client 127.0.0.1] PHP   3. CORE\\BC\\APP::init() /datos/www/es/core/main.php:9, referer: http://es/?c=dv
+[Fri Jun 12 12:58:09 2015] [error] [client 127.0.0.1] PHP   4. CORE\\BC\\APP->__construct() /datos/www/es/core/bc/app.php:87, referer: http://es/?c=dv
+[Fri Jun 12 12:58:09 2015] [error] [client 127.0.0.1] PHP   5. CORE\\BC\\ROUTER::init() /datos/www/es/core/bc/app.php:97, referer: http://es/?c=dv
+[Fri Jun 12 12:58:09 2015] [error] [client 127.0.0.1] PHP   6. CORE\\BC\\ROUTER->__construct() /datos/www/es/core/bc/app.php:37, referer: http://es/?c=dv
+[Fri Jun 12 12:58:09 2015] [error] [client 127.0.0.1] PHP   7. class_exists() /datos/www/es/core/bc/app.php:65, referer: http://es/?c=dv
+[Fri Jun 12 12:58:09 2015] [error] [client 127.0.0.1] PHP   8. CORE::AutoLoader() /datos/www/es/core/bc/core.php:0, referer: http://es/?c=dv

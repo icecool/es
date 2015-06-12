@@ -3,13 +3,18 @@ namespace APP\MVC\V;
 
 class OD_V {
 
+/*
+ *
 
+
+
+ * */
 public function main($model){
     $result='
     <h4><strong>Список открытых данных для использования в приложениях третей стороны</strong></h4>
     <table class="table table-bordered table-striped table-hover">
         <thead>
-            <tr><th>Название</th><th>Форматы данных</th></tr>
+            <tr><th>Название данных</th><th>Формат данных</th></tr>
         </thead>
         <tbody>
             <tr>
@@ -24,7 +29,7 @@ public function main($model){
             </tr>
             <tr>
                 <td>
-                    <h4>Таксимоти синфхои таълими  ва хонандагон аз руи забон</h4></td>
+                    <h4>Распределение классов и учеников по языку обучения</h4></td>
                 <td>
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="/?c=od&act=maktabformodin&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
@@ -34,7 +39,7 @@ public function main($model){
             </tr>
             <tr>
                 <td>
-                    <h4>Маълумоти чамъбасти оид ба хайати хонандагон</h4>
+                    <h4>Суммарная информация о составе учеников</h4>
                 <td>
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="/?c=od&act=maktabformdva&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
@@ -44,7 +49,7 @@ public function main($model){
             </tr>
             <tr>
                 <td>
-                    <h4>Шумораи хонандагон вобаста ба зинаи тахсилот</h4>
+                    <h4>Число учащихся в зависимости от уровня обучения</h4>
                 <td>
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="/?c=od&act=maktabformtri&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
@@ -54,7 +59,7 @@ public function main($model){
             </tr>
             <tr>
                 <td>
-                    <h4>Микдори муассисахои тахсилоти миёнаи умумии таълимашон рузона ва шумораи хонандагон</h4>
+                    <h4>Общее количество средних дневных учебных заведений и число учащихся</h4>
                 <td>
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="/?c=od&act=maktabformchetiri&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
@@ -64,7 +69,7 @@ public function main($model){
             </tr>
             <tr>
                 <td>
-                    <h4>Хатмкунандагони синфхои 11 дар чанд соли охир</h4>
+                    <h4>Выпускники 11 классов за последние несколько лет</h4>
                 <td>
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="/?c=od&act=maktabformpyat&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
@@ -74,7 +79,7 @@ public function main($model){
             </tr>
             <tr>
                 <td>
-                    <h4>Маълумот оид  ба муассисахои томактабии ш. Душанбе</h4></td>
+                    <h4>Общая информация о дошкольных учреждениях г. Душанбе</h4></td>
                 <td>
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="/?c=od&act=kudakistonformodin&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
