@@ -141,17 +141,20 @@ class REG_V {
 
     public static function checkform(){
     	$result='';
-		$result.='
+		$result.='<h3 class="text-center form_sep_blue">Проверка статуса Вашей заявки по трекинг-коду:</h3>
+		<div class="text-center" style="width:500px;margin:auto;margin-top:100px;margin-bottom:100px;">
 		<form class="form-inline">
 		  <div class="form-group">
 		    <label class="sr-only" for="yourID">ID (hash)</label>
 		    <div class="input-group">
-		      <div class="input-group-addon">ID:</div>
-		      <input type="text" class="form-control" id="yourID" placeholder="">
+		      <div class="input-group-addon">Ваш код:</div>
+		      <input type="text" class="form-control" id="yourID" placeholder="" style="font-size:20px;width:170px;">
 		    </div>
 		  </div>
 		  <button type="button" class="btn btn-primary">'.lang('check','Проверить статус').'</button>
 		</form>
+		</div>
+		<br><br><br>
 		';
     	return $result;
     }

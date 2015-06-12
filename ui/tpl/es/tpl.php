@@ -79,11 +79,13 @@
 
       <footer>
           <div class="row">
-              <div class="col-md-3">
-                  <p class="text-center text-muted"><small>ES &#169; 2015 :: <?php echo microtime(true)-$start;; ?></small></p>
+              <div class="col-md-4 text-left">
+                  <p class="text-muted"><small><a href="http://opendefinition.org/"><img src="<?php echo UIPATH; ?>/img/od.png" alt="This material is Open Data"/></a>
+                  &nbsp;
+                   ES &#169; 2015 :: <?php echo microtime(true)-$start; ?></small></p>
               </div>
-              <div class="col-md-6"></div>
-              <div class="col-md-3">
+              <div class="col-md-4 text-center"><p class="text-muted"><small>Powered by <strong>NIHOL</strong></small></p></div>
+              <div class="col-md-4 text-right">
                   <a href="http://opendata.tj/" target="_blank"> <img src="<?php echo UIPATH; ?>/img/od_tj.png" /> OPENDATA.TJ</a>
                   &nbsp;<a href="http://www.opendata-hackathon.com/" target="_blank"> <img src="<?php echo UIPATH; ?>/img/logo_small.png" /></a>
               </div>

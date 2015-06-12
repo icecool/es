@@ -241,11 +241,16 @@ class SEC {
         $USER=\CORE\BC\USER::init();
         $uid=$USER->get('uid');
         $gid=$USER->get('gid');
+        /* Open Data Hackathon */
+        if($c=='dv' || $c=='map' || $c=='dv' || $c='od' || $c='reg'){
+             $result=true;
+        }
         //dafault acl settings
             $group_acl[',']=1;
             if($gid==0) {$group_acl['user,login']=1;} else {
                 $group_acl['user,logout']=1;
                 $group_acl['user,profile']=1;
+                
             }
             if($gid==1) {$group_acl['*,*']=1;}
         // loading acl
