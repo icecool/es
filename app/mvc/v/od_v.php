@@ -33,7 +33,7 @@ public function main($model){
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="./?c=od&act=muassisaho&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
                         <li><a title="Скачать в формате JSON" href="./?c=od&act=muassisaho&format=json"><img src="'.UIPATH.'/img/json.png" /> </a></li>
-                        <li><a class="odnavail" title="Скачать в формате XML" href="#./?c=od&act=muassisaho&format=xml"><img src="'.UIPATH.'/img/xml2.png" /> </a></li>
+                        <li><a title="Скачать в формате XML" href="./?c=od&act=muassisaho&format=xml"><img src="'.UIPATH.'/img/xml.png" /> </a></li>
                     </ul>
                 </td>
             </tr>
@@ -45,7 +45,7 @@ public function main($model){
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="./?c=od&act=maktabformodin&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
                         <li><a title="Скачать в формате JSON" href="./?c=od&act=maktabformodin&format=json"><img src="'.UIPATH.'/img/json.png" /> </a></li>
-                        <li><a class="odnavail" title="Скачать в формате XML" href="#./?c=od&act=muassisaho&format=xml"><img src="'.UIPATH.'/img/xml2.png" /> </a></li>
+                        <li><a  title="Скачать в формате XML" href="./?c=od&act=maktabformodin&format=xml"><img src="'.UIPATH.'/img/xml.png" /> </a></li>
                     </ul>
                 </td>
             </tr>
@@ -57,7 +57,7 @@ public function main($model){
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="./?c=od&act=maktabformdva&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
                         <li><a title="Скачать в формате JSON" href="./?c=od&act=maktabformdva&format=json"><img src="'.UIPATH.'/img/json.png" /> </a></li>
-                        <li><a class="odnavail" title="Скачать в формате XML" href="#./?c=od&act=muassisaho&format=xml"><img src="'.UIPATH.'/img/xml2.png" /> </a></li>
+                        <li><a  title="Скачать в формате XML" href="./?c=od&act=maktabformdva&format=xml"><img src="'.UIPATH.'/img/xml.png" /> </a></li>
                     </ul>
                 </td>
             </tr>
@@ -69,7 +69,7 @@ public function main($model){
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="./?c=od&act=maktabformtri&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
                         <li><a title="Скачать в формате JSON" href="./?c=od&act=maktabformtri&format=json"><img src="'.UIPATH.'/img/json.png" /> </a></li>
-                        <li><a class="odnavail" title="Скачать в формате XML" href="#./?c=od&act=muassisaho&format=xml"><img src="'.UIPATH.'/img/xml2.png" /> </a></li>
+                        <li><a  title="Скачать в формате XML" href="./?c=od&act=maktabformtri&format=xml"><img src="'.UIPATH.'/img/xml.png" /> </a></li>
                     </ul>
                 </td>
             </tr>
@@ -81,7 +81,7 @@ public function main($model){
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="./?c=od&act=maktabformchetiri&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
                         <li><a title="Скачать в формате JSON" href="./?c=od&act=maktabformchetiri&format=json"><img src="'.UIPATH.'/img/json.png" /> </a></li>
-                        <li><a class="odnavail" title="Скачать в формате XML" href="#./?c=od&act=muassisaho&format=xml"><img src="'.UIPATH.'/img/xml2.png" /> </a></li>
+                        <li><a  title="Скачать в формате XML" href="./?c=od&act=maktabformchetiri&format=xml"><img src="'.UIPATH.'/img/xml.png" /> </a></li>
                     </ul>
                 </td>
             </tr>
@@ -93,7 +93,7 @@ public function main($model){
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="./?c=od&act=maktabformpyat&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
                         <li><a title="Скачать в формате JSON" href="./?c=od&act=maktabformpyat&format=json"><img src="'.UIPATH.'/img/json.png" /> </a></li>
-                        <li><a class="odnavail" title="Скачать в формате XML" href="#./?c=od&act=muassisaho&format=xml"><img src="'.UIPATH.'/img/xml2.png" /> </a></li>
+                        <li><a  title="Скачать в формате XML" href="./?c=od&act=maktabformpyat&format=xml"><img src="'.UIPATH.'/img/xml.png" /> </a></li>
                     </ul>
                 </td>
             </tr>
@@ -105,7 +105,7 @@ public function main($model){
                     <ul class="dataset-resources unstyled">
                         <li><a title="Скачать в формате CSV" href="./?c=od&act=kudakistonformodin&format=csv"><img src="'.UIPATH.'/img/csv.png" /> </a></li>
                         <li><a title="Скачать в формате JSON" href="./?c=od&act=kudakistonformodin&format=json"><img src="'.UIPATH.'/img/json.png" /> </a></li>
-                        <li><a class="odnavail" title="Скачать в формате XML" href="#./?c=od&act=muassisaho&format=xml"><img src="'.UIPATH.'/img/xml2.png" /> </a></li>
+                        <li><a  title="Скачать в формате XML" href="./?c=od&act=kudakistonformodin&format=xml"><img src="'.UIPATH.'/img/xml.png" /> </a></li>
                     </ul>
                 </td>
             </tr>

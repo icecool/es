@@ -60,7 +60,7 @@ class DV_M {
         return $data;
     }
 
-    public function db2arraygen($table,$idfields=array()){
+    public function db2xmlgen($table,$idfields=array()){
         // 'muassisaho', 'm-id', array('name_ru','namud','director'), 'name_ru'
         $data=array();
         $DB=\DB::init();
@@ -84,18 +84,22 @@ class DV_M {
             $sth->execute();
             $DB->query_count();
             if($sth->rowCount()>0){
+                $xml = "<?xml version='1.0' encoding='utf-8'?>\n<data>";
                 while($r=$sth->fetch()){
-                    //$data[] = $r;
-                    //$data[$r[$idfield]]=$r;
-                    $res = array();
+                    $res = array(); $sub_xml="";
                     foreach($idfields as $idfield) {
                         $res[$idfield] = $r[$idfield];
+                        $sub_xml.="<$idfield>".$r[$idfield]."</$idfield>\n";
                     }
-                    $data[] = $res;
+                    $xml .="<item>\n$sub_xml</item>\n";
                 }
+                $xml .= "</data>";
             }
         }
-        return $data;
+        // output headers so that the file is downloaded rather than displayed
+        header('Content-Type: text/xml; charset=utf-8');
+        header('Content-Disposition: attachment; filename=data.xml');
+        echo $xml;
     }
 
     public function db2csvgen($table,$idfields=array()){
