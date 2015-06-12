@@ -7,13 +7,13 @@ $dv_v=new \APP\MVC\V\DV_V;
 
 $this->pos['main']='<br>
 <div class="col-md-4" style="text-align: center">
-            <a href="./?c=reg"><img border="0" src="'.UIPATH.'/img/reg_img.300.png"/></a>
+            <a href="./?c=reg"><img border="0" src="'.UIPATH.'/img/online_reg_tj.300.png"/></a>
           </div>
           <div class="col-md-4" style="text-align: center">
-            <a href="./?c=map"><img border="0" src="'.UIPATH.'/img/map_img.300.png"/></a>
+            <a href="./?c=map"><img border="0" src="'.UIPATH.'/img/map_tj.300.png"/></a>
           </div>
           <div class="col-md-4" style="text-align: center">
-            <a href="./?c=od"><img border="0" src="'.UIPATH.'/img/od_img.300.png"/></a>
+            <a href="./?c=od"><img border="0" src="'.UIPATH.'/img/od__tj.300.png"/></a>
          </div>
 <p>&nbsp;</p>
 <br><br>
