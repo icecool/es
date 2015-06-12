@@ -20,18 +20,32 @@ if($USER->auth()){
 	}
 	$UI->pos['user2'].='
 	<li><a href="./?c=muassisaho">'.lang('facilities','Facilities').'</a></li>
-	<li><a href="./?c=reg">'.lang('registration','Регистрация').'</a></li>
     <li><a href="./?c=map">'.lang('map','Карта').'</a></li>
     <li><a href="./?c=od">'.lang('od','Открытые данные').'</a></li>
-    <li><a href="./?c=dv">'.lang('dv','Визуализации данных').'</a></li>
-
+    <li><a href="./?c=dv">'.lang('dv','Визуализация данных').'</a></li>
 
     <li class="dropdown">
 	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-	  '.lang('registration','Регистрация').'
+	  '.lang('onlineapp','Онлайн заявление').'
 	  <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
-	    li><a href="./?c=reg">'.lang('regform','Форма регистрации').'</a></li>
+	    <li><a href="./?c=reg">'.lang('regform','Форма регистрации').'</a></li>
+	    <li><a href="./?c=reg&act=check">'.lang('checkreg','Проверить статус заявки').'</a></li>
+	  </ul>
+	</li>
+	';
+} else {
+	$UI->pos['user2'].='
+    <li><a href="./?c=map">'.lang('map','Карта').'</a></li>
+    <li><a href="./?c=od">'.lang('od','Открытые данные').'</a></li>
+    <li><a href="./?c=dv">'.lang('dv','Визуализация данных').'</a></li>
+
+    <li class="dropdown">
+	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+	  '.lang('onlineapp','Онлайн заявление').'
+	  <span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	    <li><a href="./?c=reg">'.lang('regform','Форма регистрации').'</a></li>
 	    <li><a href="./?c=reg&act=check">'.lang('checkreg','Проверить статус заявки').'</a></li>
 	  </ul>
 	</li>
