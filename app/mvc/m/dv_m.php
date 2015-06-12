@@ -300,4 +300,25 @@ class DV_M {
         return $result;
     }
 
+    public function dbar(){
+        $data=array();
+        $DB=\DB::init();
+        if($DB->connected()){
+            $sql = "SELECT * FROM `maktab_form5` 
+            LEFT OUTER JOIN `geo` ON `geo_id`=`geo-id`
+            WHERE `geo_id`>1
+            ORDER BY `soli_tahsil`,`geo_id`;";
+            $sth = $DB->dbh->prepare($sql);
+            $sth->execute();
+            $DB->query_count();
+            if($sth->rowCount()>0){
+                while($r=$sth->fetch()){
+                    $umumi=$r['xatmkunandagon_umumi'];       
+                    $data[$r['geo-name']][$r['soli_tahsil']]=$umumi;
+                }
+            }
+        }
+        return $data;
+    }
+
 }

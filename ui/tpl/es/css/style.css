@@ -143,6 +143,12 @@ body {
     border:0px solid #EEE;
     display:inline-block;
 }
+#xdbar-holder{
+    margin:8px;
+    width:1000px;
+    border:0px solid #EEE;
+    display:inline-block;
+}
 
 #xgraph {
   width: 480px;

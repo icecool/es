@@ -336,4 +336,73 @@ class DV_V {
 		return $result;
     }
 
+    public function dbar($model){
+    	$result='';
+    	$UI=\CORE\BC\UI::init();
+    	$data=$model->dbar();
+    	//print_r($data);exit;
+		$UI->pos['js'].='<script src="'.UIPATH.'/ext/js/Chart.min.js"></script>';
+    	$UI->pos['js'].='<script>
+    	$(document).ready(function(){
+
+
+				var barChartData = {
+				    labels: [';
+				    $f=false;
+				    foreach($data as $rayon=>$sol) {
+				    	if($f) $UI->pos['js'].=', ';
+				    	$UI->pos['js'].='"'.$rayon.'"';
+				    	if(!$f) $f=true;
+				    }
+				    $UI->pos['js'].='],
+				    datasets: [
+				        {
+				            label: "2010",
+				            fillColor: "rgba(151,187,205,0.7)",
+				            strokeColor: "rgba(151,187,205,0.7)",
+				            highlightFill: "rgba(151,187,205,0.5)",
+				            highlightStroke: "rgba(151,187,205,1)",
+				            data: [';
+				    $f=false;
+				    foreach($data as $rayon=>$sol) {
+				    	if($f) $UI->pos['js'].=', ';
+				    	$UI->pos['js'].='"'.$sol['2010'].'"';
+				    	if(!$f) $f=true;
+				    }
+				    $UI->pos['js'].=']
+				        },
+				        {
+				            label: "2011",
+				            fillColor: "rgba(220,51,0,0.7)",
+				            strokeColor: "rgba(220,51,0,0.7)",
+				            highlightFill: "rgba(220,51,0,0.5)",
+				            highlightStroke: "rgba(220,51,0,1)",
+				            data: [';
+				    $f=false;
+				    foreach($data as $rayon=>$sol) {
+				    	if($f) $UI->pos['js'].=', ';
+				    	$UI->pos['js'].='"'.$sol['2011'].'"';
+				    	if(!$f) $f=true;
+				    }
+				    $UI->pos['js'].=']
+				        }
+				    ]
+				};
+
+
+				var ctx = document.getElementById("xdbar").getContext("2d");
+					window.myBar = new Chart(ctx).Bar(barChartData, {
+						responsive : true
+					});
+   	
+			
+		});
+    	</script>';
+    	$result.='<h3 class="text-center">****:</h3>
+    	<div id="xdbar-holder" style="margin-left:50px;">
+			<canvas id="xdbar" width="1000" height="480"/>
+		</div>';
+		return $result;
+    }
+
 }
