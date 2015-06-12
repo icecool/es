@@ -178,11 +178,15 @@ class DV_M {
     	$result=''; $data=array();
     	$DB=\DB::init();
     	if($DB->connected()){
+            $gdw=" AND `geo_id`=".$geoid;
+            if($geoid==0){
+                $gdw=" AND `geo_id`=2 OR `geo_id`=3 OR `geo_id`=4 OR `geo_id`=5";
+            }
     		$sql = "SELECT `muassisa_id`,`shumorai_khonanda`,`name_ru`,`namud`,`geo_id`,`geo-name`
     		FROM `maktab_form1`
     		LEFT OUTER JOIN `muassisaho` ON `maktab_form1`.`muassisa_id`=`muassisaho`.`m-id`
     		LEFT OUTER JOIN `geo` ON `muassisaho`.`geo_id`=`geo`.`geo-id`   		
-    		WHERE `namud`=2 AND `soli_tahsil`=2013 AND `geo_id`=".$geoid." ORDER BY `geo_id`,`name_ru`;";
+    		WHERE `namud`=2 AND `soli_tahsil`=2013".$gdw." ORDER BY `geo_id`,`name_ru`;";
 			$sth = $DB->dbh->prepare($sql);
 			$sth->execute();
 			$DB->query_count();
@@ -267,6 +271,28 @@ class DV_M {
                     $girls=$r['xonandagon_duxtar'];
                     $sol=$r['soli_tahsil'];
                     $data[]=array('year'=>$sol.'г.','girls'=>$girls,'boys'=>$boys);
+                }
+            }
+        }
+        $result=json_encode($data);
+        return $result;
+    }
+
+    public function lnfrm4(){
+        $result=''; $data=array();
+        $DB=\DB::init();
+        if($DB->connected()){
+            $sql = "SELECT * FROM `maktab_form4` ORDER BY `soli_tahsil`;";
+            $sth = $DB->dbh->prepare($sql);
+            $sth->execute();
+            $DB->query_count();
+            if($sth->rowCount()>0){
+                while($r=$sth->fetch()){
+                    $sol=$r['soli_tahsil'];
+                    $umumi=$r['miqdori_muassisaho_umumi'];
+                    $ruzona=$r['miqdori_muassisaho_ruzona'];
+                    $goibona=$r['miqdori_muassisaho_ghoibona'];
+                    $data[]=array('sol'=>$sol.'г.','umumi'=>$umumi,'ruzona'=>$ruzona,'goibona'=>$goibona);
                 }
             }
         }

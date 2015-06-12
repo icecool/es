@@ -137,10 +137,21 @@ body {
     border:0px solid #EEE;
     display:inline-block;
 }
+#canvas-holder3_22{
+    margin:18px;
+    width:100%;
+    border:0px solid #EEE;
+    display:inline-block;
+}
 
 #xgraph {
   width: 480px;
   height: 340px;
+  margin: 20px auto 0 auto;
+}
+#xlnfrm4 {
+  width: 800px;
+  height: 400px;
   margin: 20px auto 0 auto;
 }
 .form_sep_blue {
