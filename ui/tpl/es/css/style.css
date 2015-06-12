@@ -197,3 +197,28 @@ body {
    -webkit-box-shadow: inset 0 0 10px #000000;
     box-shadow:         inset 0 0 10px #000000;
 }
+ul.unstyled, ol.unstyled {
+    margin-left: 0;
+    list-style: none;
+}
+
+.dataset-item {
+    border-bottom: 1px dotted #dddddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.dataset-resources{
+    padding-left: 0px;
+}
+.dataset-resources ul{
+    margin-left: 0;
+}
+
+.dataset-resources li {
+    display: inline;
+}
+
+.dataset-resources img{
+    height: 30px;
+}
