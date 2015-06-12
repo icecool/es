@@ -24,4 +24,19 @@ $(document).ready(function(){
 
 	$('#year').change(function(){ show_days(); });
 
+	$('#checkfrm').submit(function(e){
+		e.preventDefault();
+	});
+
+	$('#xcheck').click(function(){
+		var xcode = $('#yourID').val().trim();
+		if(xcode!=''){
+			$.post('./?c=reg&act=ajax&do=status', {code: xcode}, function(data){
+				$('#xstatuscheck').html(data);
+			});
+		} else {
+			alert('Введите корректный код!');
+		}
+	});
+
 });

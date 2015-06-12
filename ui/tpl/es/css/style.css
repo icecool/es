@@ -120,7 +120,7 @@ body {
 }
 #canvas-holder2{
     margin:8px;
-    width:800px;
+    width:900px;
     border:0px solid #EEE;
     display:inline-block;
 }
@@ -157,9 +157,17 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 350px;
-    transition: all 400ms cubic-bezier(0.25,0.1,0.25,1) 0s;
-    -webkit-transition: all 400ms cubic-bezier(0.25,0.1,0.25,1) 0s;
+    transition:all 0.8s ;
+    -webkit-transition:all 0.8s ;
+    -o-transition:all 0.8s ;
+    -moz-transition:all 0.8s ;
 }
+/*
+.intro:hover {
+    background-size: 140%;
+    background-position: center -10px;
+}
+*/
 .dtable {
     display: table;
 }

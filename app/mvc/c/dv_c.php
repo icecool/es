@@ -10,6 +10,10 @@ class DV_C {
                 $view->x($model);
                 exit;              
             break;
+            case 'lines1':
+                echo $model->lines1($model);
+                exit;
+            break;
             case 'lines':
                 echo $view->lines($model);
             break;

@@ -109,32 +109,32 @@ class DV_V {
     	$UI->pos['js'].='<script>
     	$(document).ready(function(){
 
-	    	$.get("./?c=dv&act=boysgirls",function(data){
-	    		var obj = jQuery.parseJSON( data );
-
+	    	$.get("./?c=dv&act=linesx",function(data){
+	    		//var obj = jQuery.parseJSON( data );
+	    		console.log(data);
 			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
 			var lineChartData = {
-				labels : ["January","February","March","April","May","June","July"],
+				labels : ["2006","2007","2008","2009","2010","2011","2012","2013"],
 				datasets : [
 					{
-					label: "My First dataset",
-					fillColor : "rgba(220,220,220,0.2)",
-					strokeColor : "rgba(220,220,220,1)",
-					pointColor : "rgba(220,220,220,1)",
+					label: "Девочки",
+					fillColor : "rgba(219,48,48,0.2)",
+					strokeColor : "rgba(219,48,48,1)",
+					pointColor : "rgba(219,48,48,1)",
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(220,220,220,1)",
-					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
 					},
 					{
-					label: "My Second dataset",
+					label: "Мальчики",
 					fillColor : "rgba(151,187,205,0.2)",
 					strokeColor : "rgba(151,187,205,1)",
 					pointColor : "rgba(151,187,205,1)",
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(151,187,205,1)",
-					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
 					}
 				]
 
@@ -151,10 +151,12 @@ class DV_V {
 			
 		});
     	</script>';
-    	$result.='<h3 class="text-center">Количество учащихся по районам в школах г.
-    	Душанбе за 2013-2014 уч. год:</h3>
-    	<div id="canvas-holder2">
-			<canvas id="chart-area2" width="800" height="400"/>
+    	// style="margin-left:auto;margin-right:auto;"
+    	$result.='<h3 class="text-center form_sep_blue">
+    	Динамика изменения количества мальчиков и девочек 
+    	в школах г. Душанбе в период 2006-2013 гг.:</h3>
+    	<div id="canvas-holder2" style="margin-left:50px;">
+			<canvas id="chart-area2" width="900" height="400"/>
 		</div>
 		';
 		return $result;

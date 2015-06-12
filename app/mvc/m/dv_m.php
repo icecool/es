@@ -211,5 +211,23 @@ class DV_M {
     	return $result;
     }
 
+    public function lines1(){
+        $result=''; $data=array();
+        $DB=\DB::init();
+        if($DB->connected()){
+            $sql = "SELECT * FROM `maktab_form3` ORDER BY `soli_tahsil`;";
+            $sth = $DB->dbh->prepare($sql);
+            $sth->execute();
+            $DB->query_count();
+            if($sth->rowCount()>0){
+                while($r=$sth->fetch()){
+                    $boys=$r['xonandagon_umumi']-$r['xonandagon_duxtar'];
+                    $data[$r['soli_tahsil']]=array($r['xonandagon_duxtar'],$boys);
+                }
+            }
+        }
+        $result=json_encode($data);
+        return $result;
+    }
 
 }

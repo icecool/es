@@ -141,20 +141,55 @@ class REG_V {
 
     public static function checkform(){
     	$result='';
+    	\CORE\BC\UI::init()->pos['js'].="\n".'<script src="'.UIPATH.'/js/reg.js"></script>';
 		$result.='<h3 class="text-center form_sep_blue">Проверка статуса Вашей заявки по трекинг-коду:</h3>
-		<div class="text-center" style="width:500px;margin:auto;margin-top:100px;margin-bottom:100px;">
-		<form class="form-inline">
+		<div id="xstatuscheck" class="text-center" style="width:500px;margin:auto;margin-top:30px;margin-bottom:100px;">
+		<form id="checkfrm" class="form-inline" action="./?c=reg&act=check">
+		<br><br><br>
 		  <div class="form-group">
 		    <label class="sr-only" for="yourID">ID (hash)</label>
 		    <div class="input-group">
-		      <div class="input-group-addon">Ваш код:</div>
+		      <div class="input-group-addon">Ваш код:</div><!-- example: 5579bdad8f2bc -->
 		      <input type="text" class="form-control" id="yourID" placeholder="" style="font-size:20px;width:170px;">
 		    </div>
 		  </div>
-		  <button type="button" class="btn btn-primary">'.lang('check','Проверить статус').'</button>
+		  <button id="xcheck" type="button" class="btn btn-primary">'.lang('check','Проверить статус').'</button>
 		</form>
 		</div>
 		<br><br><br>
+		';
+    	return $result;
+    }
+
+    public static function status($model){
+    	$result='';
+    	$code=''; $cmt=''; $msg='undefined status...';
+    	if(isset($_POST['code'])) {$code=trim($_POST['code']);}
+    	$status_array=$model->check_status($code);
+    	switch($status_array[0]){
+    		case 0:
+    			$msg='<h3 class="text-danger">Введен некорректный код</h3>
+    			<a href="./?c=reg&act=check">Попробовать еще раз?</a>';
+    		break;
+    		case 1:
+    			$msg='<h3 class="text-primary">Заявка находится в процессе обработки ...</h3>';
+    		break;
+    		case 2:
+    			$msg='<h3 class="text-danger">Ваша заявка не принята (отказано)</h3>';
+    			$cmt=htmlspecialchars($status_array[1]);
+    			$cmt='Причина отказа: в данном учреждении колличество заявок превысило количество мест.
+    			Вы можете оформить заявку в другое уреждение.';
+    		break;
+    		case 3:
+    			$msg='<h3 class="text-success">Ваша заявка принята (с Вами свяжутся)</h3>';
+    			$cmt=htmlspecialchars($status_array[1]);
+    			$cmt='С Вами должны связаться за месяц до начала процесса обучения/посещения';
+    		break;
+    	}
+		$result.='
+		<div><img src="'.UIPATH.'/img/status'.$status_array[0].'.gif" border="0"></div>
+		'.$msg.'<br><br>
+		<code>'.$cmt.'</code>
 		';
     	return $result;
     }
