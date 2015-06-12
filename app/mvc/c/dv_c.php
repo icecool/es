@@ -10,6 +10,13 @@ class DV_C {
                 $view->x($model);
                 exit;              
             break;
+            case 'lnfrm4data':
+                echo $model->lnfrm4($model);
+                exit;
+            break;
+            case 'lnfrm4':
+                echo $view->lnfrm4($model);
+            break;
             case 'lines1':
                 echo $model->lines1($model);
                 exit;

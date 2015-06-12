@@ -10,6 +10,7 @@ class DV_V {
 		    <li class="list-group-item"><a href="./?c=dv&act=donut">Соотношение мальчиков и девочек в школах (2013г.)</a></li>
 		    <li class="list-group-item"><a href="./?c=dv&act=bar">Количество учащихся в школах по районам г. Душанбе</a></li>        
 		    <li class="list-group-item"><a href="./?c=dv&act=lines">Динамика изменения количества мальчиков и девочек в школах г. Душанбе в период 2006-2013 гг.</a></li>        
+		    <li class="list-group-item"><a href="./?c=dv&act=lnfrm4">Динамика изменения кол-ва образовательных учреждений г. Душанбе в период с 2006 по 2013 гг.</a></li>        
 		</ul>
     	';
 		return $result;
@@ -294,6 +295,45 @@ class DV_V {
 		';
 		}
         return $result;
+    }
+
+    public function lnfrm4($model){
+    	$result='';
+    	$UI=\CORE\BC\UI::init();
+    	$UI->pos['link'].='<link href="./ui/css/morris.css" rel="stylesheet">';
+    	$UI->pos['js'].='<script src="'.UIPATH.'/ext/js/raphael-min.js"></script>';
+    	$UI->pos['js'].='<script src="'.UIPATH.'/ext/js/morris.min.js"></script>';
+    	$UI->pos['js'].='<script>
+    	$(document).ready(function(){
+
+	    	$.get("./?c=dv&act=lnfrm4data",function(data){
+	    		var obj = jQuery.parseJSON( data );
+	    		//console.log(obj);
+				Morris.Area({
+				  element: "xlnfrm4",
+				  data: [
+				    { y: obj[0]["sol"], a: obj[0]["goibona"], b: obj[0]["ruzona"], c: obj[0]["umumi"] },
+				    { y: obj[1]["sol"], a: obj[1]["goibona"],  b: obj[1]["ruzona"], c: obj[1]["umumi"] },
+				    { y: obj[2]["sol"], a: obj[2]["goibona"],  b: obj[2]["ruzona"], c: obj[2]["umumi"] },
+				    { y: obj[3]["sol"], a: obj[3]["goibona"],  b: obj[3]["ruzona"], c: obj[3]["umumi"] },
+				    { y: obj[4]["sol"], a: obj[4]["goibona"],  b: obj[4]["ruzona"], c: obj[4]["umumi"] },
+				    { y: obj[5]["sol"], a: obj[5]["goibona"],  b: obj[5]["ruzona"], c: obj[5]["umumi"] },
+				    { y: obj[6]["sol"], a: obj[6]["goibona"], b: obj[6]["ruzona"], c: obj[6]["umumi"] },
+				    { y: obj[7]["sol"], a: obj[7]["goibona"], b: obj[7]["ruzona"], c: obj[7]["umumi"] }
+				  ],
+				  xkey: "y",
+				  ykeys: ["a", "b", "c"],
+				  labels: ["Заочные учреждения", "Очные учреждения", "Общее количество учреждений"]
+				});
+
+	    	});	    	
+			
+		});
+    	</script>';
+    	$result.='<h3 class="text-center">Динамика изменения кол-ва образовательных учреждений
+    	г. Душанбе в период с 2006 по 2013 гг.:</h3>
+    	<div id="xlnfrm4"></div>';
+		return $result;
     }
 
 }

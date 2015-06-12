@@ -149,6 +149,11 @@ body {
   height: 340px;
   margin: 20px auto 0 auto;
 }
+#xlnfrm4 {
+  width: 800px;
+  height: 400px;
+  margin: 20px auto 0 auto;
+}
 .form_sep_blue {
     color:#286090;
 }

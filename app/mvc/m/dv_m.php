@@ -278,4 +278,26 @@ class DV_M {
         return $result;
     }
 
+    public function lnfrm4(){
+        $result=''; $data=array();
+        $DB=\DB::init();
+        if($DB->connected()){
+            $sql = "SELECT * FROM `maktab_form4` ORDER BY `soli_tahsil`;";
+            $sth = $DB->dbh->prepare($sql);
+            $sth->execute();
+            $DB->query_count();
+            if($sth->rowCount()>0){
+                while($r=$sth->fetch()){
+                    $sol=$r['soli_tahsil'];
+                    $umumi=$r['miqdori_muassisaho_umumi'];
+                    $ruzona=$r['miqdori_muassisaho_ruzona'];
+                    $goibona=$r['miqdori_muassisaho_ghoibona'];
+                    $data[]=array('sol'=>$sol.'г.','umumi'=>$umumi,'ruzona'=>$ruzona,'goibona'=>$goibona);
+                }
+            }
+        }
+        $result=json_encode($data);
+        return $result;
+    }
+
 }
