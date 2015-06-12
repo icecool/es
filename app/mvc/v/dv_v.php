@@ -9,6 +9,7 @@ class DV_V {
     	<ul class="list-group">
 		    <li class="list-group-item"><a href="./?c=dv&act=donut">Соотношение мальчиков и девочек в школах (2013г.)</a></li>
 		    <li class="list-group-item"><a href="./?c=dv&act=bar">Количество учащихся в школах по районам г. Душанбе</a></li>        
+		    <li class="list-group-item"><a href="./?c=dv&act=lines">Динамика изменения количества мальчиков и девочек в школах г. Душанбе в период 2006-2013 гг.</a></li>        
 		</ul>
     	';
 		return $result;
@@ -109,12 +110,12 @@ class DV_V {
     	$UI->pos['js'].='<script>
     	$(document).ready(function(){
 
-	    	$.get("./?c=dv&act=linesx",function(data){
-	    		//var obj = jQuery.parseJSON( data );
-	    		console.log(data);
-			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+	    	$.get("./?c=dv&act=lines1",function(data){
+	    		var obj = jQuery.parseJSON( data );
+	    		//console.log(data);
+			//var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
 			var lineChartData = {
-				labels : ["2006","2007","2008","2009","2010","2011","2012","2013"],
+				labels : [obj[0]["year"],obj[1]["year"],obj[2]["year"],obj[3]["year"],obj[4]["year"],obj[5]["year"],obj[6]["year"],obj[7]["year"]],
 				datasets : [
 					{
 					label: "Девочки",
@@ -124,7 +125,7 @@ class DV_V {
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(220,220,220,1)",
-					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+					data : [obj[0]["girls"],obj[1]["girls"],obj[2]["girls"],obj[3]["girls"],obj[4]["girls"],obj[5]["girls"],obj[6]["girls"],obj[7]["girls"]]
 					},
 					{
 					label: "Мальчики",
@@ -134,7 +135,7 @@ class DV_V {
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(151,187,205,1)",
-					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+					data : [obj[0]["boys"],obj[1]["boys"],obj[2]["boys"],obj[3]["boys"],obj[4]["boys"],obj[5]["boys"],obj[6]["boys"],obj[7]["boys"]]
 					}
 				]
 
@@ -158,6 +159,19 @@ class DV_V {
     	<div id="canvas-holder2" style="margin-left:50px;">
 			<canvas id="chart-area2" width="900" height="400"/>
 		</div>
+		<table style="margin-left:240px;margin-top:20px;">
+		<tr>
+		<td>
+			<div style="border:1px solid #97bbcd;background-color:#eaf1f5;width:20px;height:15px;display:inline-block;"></div>
+			<small>- кол-во мальчиков;</small>
+		</td>
+		<td width="100"></td>
+		<td>
+			<div style="border:1px solid #cd4b4f;background-color:#e4d0d4;width:20px;height:15px;display:inline-block;"></div>
+			<small>- кол-во девочек;</small>
+		</td>
+		</tr>
+		</table>
 		';
 		return $result;
     }

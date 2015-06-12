@@ -222,7 +222,9 @@ class DV_M {
             if($sth->rowCount()>0){
                 while($r=$sth->fetch()){
                     $boys=$r['xonandagon_umumi']-$r['xonandagon_duxtar'];
-                    $data[$r['soli_tahsil']]=array($r['xonandagon_duxtar'],$boys);
+                    $girls=$r['xonandagon_duxtar'];
+                    $sol=$r['soli_tahsil'];
+                    $data[]=array('year'=>$sol.'г.','girls'=>$girls,'boys'=>$boys);
                 }
             }
         }
