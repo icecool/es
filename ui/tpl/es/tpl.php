@@ -50,8 +50,8 @@
             <div class="dtable hw100">
                 <div class="dtable-cell hw100">
                     <div class="container text-center">
-                        <h1 class="intro-title animated fadeInDown"> 
-                        Открытые данные общеобразовательных учреждений г. Душанбе</h1>
+                        <h1 class="intro-title animated fadeInDown">
+                        <?php echo lang('shapka_title','Открытые данные общеобразовательных учреждений г. Душанбе'); ?></h1>
                     </div>
                 </div>
             </div>

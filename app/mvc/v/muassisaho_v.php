@@ -9,9 +9,9 @@ class MUASSISAHO_V {
     	$muassisaho=$model->get_muassisaho();
     	$namudi_muassisa=$model->get_namudi_muassisa();
     	$result.='<div class="btn-group" role="group" aria-label="...">
-    		<h3>Список образовательных учреждений:</h3>
+    		<h3>'.lang("spisok_uch","Список образовательных учреждений").':</h3>
 			  <p><button id="new_muassisa" type="button" class="btn btn-default"
-			  data-toggle="modal" data-target="#myModal1">'.lang('add','Add').'</button>
+			  data-toggle="modal" data-target="#myModal1">'.lang('add','Добавить').'</button>
 			  </p>
 			</div>
 			<!-- Modal -->
@@ -21,7 +21,7 @@ class MUASSISAHO_V {
 		          <div class="modal-header">
 		            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		            <span aria-hidden="true">&times;</span></button>
-		            <h4 class="modal-title" id="myModal1Label">'.lang('newfac','New facility').':</h4>
+		            <h4 class="modal-title" id="myModal1Label">'.lang('newfac','Новое учреждение').':</h4>
 		          </div>
 		          <form id="frm_new_muassisa">
 		          <div id="myModal1Body" class="modal-body">
@@ -42,11 +42,11 @@ class MUASSISAHO_V {
 					    <input type="text" class="form-control" id="Director" placeholder="'.lang('fio','Ф.И.О.').'">
 					  </div>
 					  <div class="form-group">
-					    <label for="Address">'.lang('address','Адрес').'</label>
-					    <input type="text" class="form-control" id="Address" placeholder="'.lang('address','адрес').'">
+					    <label for="Address">'.lang('adres','Адрес').'</label>
+					    <input type="text" class="form-control" id="Address" placeholder="'.lang('adres','адрес').'">
 					  </div>
 					  <div class="form-group">
-					    <label for="Phone">'.lang('phone','Телефон').'</label>
+					    <label for="Phone">'.lang('telefon','Телефон').'</label>
 					    <input type="text" class="form-control" id="Phone" placeholder="'.lang('number','номер').'">
 					  </div>
 					  <div class="form-group">
@@ -79,8 +79,8 @@ class MUASSISAHO_V {
 	          <th>'.lang('facility','Учреждение').'</th>
 	          <th>'.lang('type','Тип').'</th>
 	          <th>'.lang('director','Директор').'</th>
-	          <th>'.lang('address','Адрес').'</th>
-	          <th>'.lang('phone','Телефон').'</th>
+	          <th>'.lang('adres','Адрес').'</th>
+	          <th>'.lang('telefon','Телефон').'</th>
 	          <th>'.lang('cellphone','Мобильный').'</th>
 	          <th>'.lang('action','Действие').'</th>
 	        </tr>

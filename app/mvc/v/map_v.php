@@ -135,10 +135,10 @@ class MAP_V {
                         }
                         var popupText = \'<p><img style="padding-right: 5px;" src="\'+photo+\'" align="left" /> \\
                         <strong>\'+markers[i][2]+\'</strong> \\
-                        <br/><strong>Директор: </strong>\'+markers[i][3]+\' \\
-                        <br/><strong>Адрес: </strong>\'+markers[i][4]+\' \\
-                        <br/><strong>Телефон: </strong>\'+markers[i][5]+\' \\
-                        <br/><strong class="pull-right"><a href="#\'+markers[i][5]+\'">Подробнее</a></p> \';
+                        <br/><strong>'.lang("director","Директор").': </strong>\'+markers[i][3]+\' \\
+                        <br/><strong>'.lang("adres","Адрес").': </strong>\'+markers[i][4]+\' \\
+                        <br/><strong>'.lang("telefon","Телефон").': </strong>\'+markers[i][5]+\' \\
+                        <br/><strong class="pull-right"><a href="#\'+markers[i][5]+\'">'.lang("more","Подробнее").'</a></p> \';
 
                         var markerLocation = new L.LatLng(lat, lon);
 
@@ -228,9 +228,9 @@ class MAP_V {
             $result.='</div>';
             if ($show_bar) {
                 $result .= '<div class="col-sm-2">
-                <h4>Поиск по учреждениям</h4>
+                <!--<h4>'.lang("poisk_po_uch","Поиск по учреждениям").'</h4>-->
                 <div style="height:540px; overflow: auto; max-height: 490px;">
-                <p>Фильтр по учреждениям</p>
+                <p><strong>'.lang("filtr_po_uch","Фильтр по учреждениям").'</strong></p>
                 <select id="namudi_muassisa" class="form-control">';
                 $namudho = $model->get_namudi_muassisa();
                 foreach ($namudho as $key => $v) {
@@ -241,7 +241,7 @@ class MAP_V {
                     }
                 }
                 $result .= '</select>
-                <p>Учереждения</p>
+                <p><strong>'.lang("facilities","Учреждения").'</strong></p>
                 <ul class="list-group" id="muassisa_list">';
                 $muassisaho = $model->get_muassisaho_by_type(2);
                 foreach ($muassisaho as $key => $v) {
