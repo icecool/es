@@ -53,13 +53,29 @@ $(document).ready(function(){
         var namud=$(this).val();
         $.post("./?c=map&act=getmuassisabynamud",{ namud: namud}, function(data){
             var data = jQuery.parseJSON(data);
+            console.log("data "+data.name_ru);
             $("#muassisa_list").empty();
             var html="";
+            var markers = new Array();
+            //$mks.='[ '.$v['geo_lng'].','.$v['geo_lat'].', "'.$v['name_ru'].'", "'.$v['director'].'", "'.$v['address'].'", "'.$v['phone'].'", "'.$v['namud'].'", "'.$v['muassisa_photo'].'"]';
             for(i=0;i<data.lat.length;i++) {
+                markers[i] = new Array(data.lng[i], data.lat[i], data.name[i], data.director[i], data.address[i], data.phone[i], data.namud[i], data.muassisa_photo[i]);
                 //console.log("name="+data.name[i]);
                 html=html+'<li class="list-group-item"><a class="jump_to_location" data='+data.lat[i]+'~'+data.lng[i]+' href="#">'+data.name[i]+'</a></li>';
             }
+            //console.log("our markerss :"+markers);
             $("#muassisa_list").html(html);
+
+            map.remove();
+
+
+
+                //[
+                //[ 68.7438154220581,38.5791881170775, "Гимназияи кафолат", "Комил Рачабов", "NULL", "+992 92 707 84 14", "2", ""],
+                //[ 68.75498414039612,38.526127656494396, "Гимназияи назди Донишгохи сохибкори ва хизмат", "", "NULL", "", "2", ""],
+                //]
+
+            init(markers, true);
         });
 
     });

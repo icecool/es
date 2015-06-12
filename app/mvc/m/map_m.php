@@ -60,6 +60,11 @@ class MAP_M {
                     $muassisaho['lat'][]=$r['geo_lat'];
                     $muassisaho['lng'][]=$r['geo_lng'];
                     $muassisaho['name'][]=$r['name_ru'];
+                    $muassisaho['director'][]=$r['director'];
+                    $muassisaho['address'][]=$r['address'];
+                    $muassisaho['phone'][]=$r['phone'];
+                    $muassisaho['namud'][]=$r['namud'];
+                    $muassisaho['muassisa_photo'][]=$r['muassisa_photo'];
                 }
             }
         }
