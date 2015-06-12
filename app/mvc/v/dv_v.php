@@ -262,7 +262,7 @@ class DV_V {
 
 		});
     	</script>';
-        $result.='<h4 style="text-align: center; font-weight: bold">Количество учащихся школ за 2013-2014 уч.год</h4>
+        $result.='<h4 class="text-center" style="color:#555;">Количество учащихся школ за 2013-2014 уч.год</h4>
     	<div id="canvas-holder3_2">
 			<canvas id="chart-area3" width="900" height="500"/>
 		</div>
