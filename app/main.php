@@ -33,6 +33,16 @@ if($USER->auth()){
 	    <li><a href="./?c=reg&act=check">'.lang('checkreg','Проверить статус заявки').'</a></li>
 	  </ul>
 	</li>
+
+	<li class="dropdown">
+	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+	  '.lang('aboutproject','О проекте').'
+	  <span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	    <li><a href="./?c=page&act=about">'.lang('projdescr','Описание проекта').'</a></li>
+	    <li><a href="./?c=page&act=team">'.lang('projteam','Команда проекта').'</a></li>
+	  </ul>
+	</li>
 	';
 } else {
 	$UI->pos['user2'].='
@@ -47,6 +57,16 @@ if($USER->auth()){
 	  <ul class="dropdown-menu" role="menu">
 	    <li><a href="./?c=reg">'.lang('regform','Форма регистрации').'</a></li>
 	    <li><a href="./?c=reg&act=check">'.lang('checkreg','Проверить статус заявки').'</a></li>
+	  </ul>
+	</li>
+
+	<li class="dropdown">
+	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+	  '.lang('aboutproject','О проекте').'
+	  <span class="caret"></span></a>
+	  <ul class="dropdown-menu" role="menu">
+	    <li><a href="./?c=page&act=about">'.lang('projdescr','Описание проекта').'</a></li>
+	    <li><a href="./?c=page&act=team">'.lang('projteam','Команда проекта').'</a></li>
 	  </ul>
 	</li>
 	';

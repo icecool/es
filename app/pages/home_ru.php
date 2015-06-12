@@ -31,8 +31,3 @@ $this->pos['main']='<br>
 <div class="col-md-6">'.$dv_v->dbar($dv_m,1).'</div>
 </div>
 ';
-// '.$map_v->main($map_m).'
-/*<div class="col-md-1">
-<button type="button" class="btn btn-default btn-lg btn-success">Подать заявку <span class="glyphicon glyphicon-menu-right"></span> </button><br/><br/>
-<button type="button" class="btn btn-default btn-lg btn-success">Проверить заявку <span class="glyphicon glyphicon-check"></span> </button>
-</div>*/

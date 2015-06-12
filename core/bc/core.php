@@ -3,7 +3,7 @@ class CORE {
 
 	private static $inst; // instance for singleton
     private $messages=array('error'=>'','info'=>'','debug'=>'');
-    private $modules=array('user'=>0);
+    private $modules=array('user'=>0,'page'=>0);
     public $dbcon=false;
     public $lang='en';
 	public $langfile=false;
@@ -242,7 +242,7 @@ class SEC {
         $uid=$USER->get('uid');
         $gid=$USER->get('gid');
         /* Open Data Hackathon */
-        if($c=='dv' || $c=='map' || $c=='dv' || $c='od' || $c='reg'){
+        if($c=='dv' || $c=='map' || $c=='dv' || $c='od' || $c='reg' || $c='page'){
              $result=true;
         }
         //dafault acl settings

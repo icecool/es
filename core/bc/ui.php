@@ -16,7 +16,7 @@ class UI {
         'user2'=>'',
         'main'=>'',
         );
-    private $pages=array('home'=>'home');
+    private $pages=array('home'=>'home','about'=>'about','team'=>'team');
 
     public static function init() {
         if(empty(self::$inst)) {
