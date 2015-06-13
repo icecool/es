@@ -202,30 +202,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="team_ru.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="team_ru.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/pages/team_ru.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.75" vertical-offset="0" max-vertical-offset="840">
-              <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.912" vertical-offset="0" max-vertical-offset="840">
+              <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
               <folding>
-                <marker date="1434169418713" expanded="true" signature="148:1041" placeholder="..." />
-                <marker date="1434169418713" expanded="true" signature="180:455" placeholder="..." />
-                <marker date="1434169418713" expanded="true" signature="487:748" placeholder="..." />
-                <marker date="1434169418713" expanded="true" signature="780:1027" placeholder="..." />
-                <marker date="1434169418713" expanded="true" signature="1115:2045" placeholder="..." />
-                <marker date="1434169418713" expanded="true" signature="1147:1503" placeholder="..." />
-                <marker date="1434169418713" expanded="true" signature="1535:1761" placeholder="..." />
-                <marker date="1434169418713" expanded="true" signature="1720:1755" placeholder="..." />
-                <marker date="1434169418713" expanded="true" signature="1793:2031" placeholder="..." />
+                <marker date="1434169571017" expanded="true" signature="148:1041" placeholder="..." />
+                <marker date="1434169571017" expanded="true" signature="180:455" placeholder="..." />
+                <marker date="1434169571017" expanded="true" signature="487:748" placeholder="..." />
+                <marker date="1434169571017" expanded="true" signature="780:1027" placeholder="..." />
+                <marker date="1434169571017" expanded="true" signature="1115:2046" placeholder="..." />
+                <marker date="1434169571017" expanded="true" signature="1147:1503" placeholder="..." />
+                <marker date="1434169571017" expanded="true" signature="1535:1762" placeholder="..." />
+                <marker date="1434169571017" expanded="true" signature="1794:2032" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="team_tj.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="team_tj.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/pages/team_tj.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.84" vertical-offset="45" max-vertical-offset="840">
+            <state vertical-scroll-proportion="-21.875" vertical-offset="45" max-vertical-offset="840">
               <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
               <folding>
                 <marker date="1434169440405" expanded="true" signature="148:1041" placeholder="..." />
@@ -312,8 +311,8 @@
         <option value="$PROJECT_DIR$/app/mvc/v/dv_v.php" />
         <option value="$PROJECT_DIR$/core/lng/ru.php" />
         <option value="$PROJECT_DIR$/core/lng/tj.php" />
-        <option value="$PROJECT_DIR$/app/pages/team_ru.php" />
         <option value="$PROJECT_DIR$/app/pages/team_tj.php" />
+        <option value="$PROJECT_DIR$/app/pages/team_ru.php" />
       </list>
     </option>
   </component>
@@ -1193,27 +1192,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/team_ru.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.75" vertical-offset="0" max-vertical-offset="840">
-          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-          <folding>
-            <marker date="1434169418713" expanded="true" signature="148:1041" placeholder="..." />
-            <marker date="1434169418713" expanded="true" signature="180:455" placeholder="..." />
-            <marker date="1434169418713" expanded="true" signature="487:748" placeholder="..." />
-            <marker date="1434169418713" expanded="true" signature="780:1027" placeholder="..." />
-            <marker date="1434169418713" expanded="true" signature="1115:2045" placeholder="..." />
-            <marker date="1434169418713" expanded="true" signature="1147:1503" placeholder="..." />
-            <marker date="1434169418713" expanded="true" signature="1535:1761" placeholder="..." />
-            <marker date="1434169418713" expanded="true" signature="1720:1755" placeholder="..." />
-            <marker date="1434169418713" expanded="true" signature="1793:2031" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/team_tj.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84" vertical-offset="45" max-vertical-offset="840">
+        <state vertical-scroll-proportion="-21.875" vertical-offset="45" max-vertical-offset="840">
           <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
           <folding>
             <marker date="1434169440405" expanded="true" signature="148:1041" placeholder="..." />
@@ -1224,6 +1205,23 @@
             <marker date="1434169440405" expanded="true" signature="1147:1503" placeholder="..." />
             <marker date="1434169440405" expanded="true" signature="1535:1762" placeholder="..." />
             <marker date="1434169440405" expanded="true" signature="1794:2032" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/team_ru.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.912" vertical-offset="0" max-vertical-offset="840">
+          <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
+          <folding>
+            <marker date="1434169571017" expanded="true" signature="148:1041" placeholder="..." />
+            <marker date="1434169571017" expanded="true" signature="180:455" placeholder="..." />
+            <marker date="1434169571017" expanded="true" signature="487:748" placeholder="..." />
+            <marker date="1434169571017" expanded="true" signature="780:1027" placeholder="..." />
+            <marker date="1434169571017" expanded="true" signature="1115:2046" placeholder="..." />
+            <marker date="1434169571017" expanded="true" signature="1147:1503" placeholder="..." />
+            <marker date="1434169571017" expanded="true" signature="1535:1762" placeholder="..." />
+            <marker date="1434169571017" expanded="true" signature="1794:2032" placeholder="..." />
           </folding>
         </state>
       </provider>
