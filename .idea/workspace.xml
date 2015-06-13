@@ -179,12 +179,64 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tj.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tj.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/lng/tj.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7794118" vertical-offset="543" max-vertical-offset="1170">
+            <state vertical-scroll-proportion="-19.875" vertical-offset="543" max-vertical-offset="1170">
               <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about_ru.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/about_ru.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="255">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1434132732177" expanded="false" signature="62:77" placeholder="..." />
+                <marker date="1434132732177" expanded="true" signature="78:698" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="team_ru.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/team_ru.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-23.75" vertical-offset="0" max-vertical-offset="840">
+              <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+              <folding>
+                <marker date="1434169418713" expanded="true" signature="148:1041" placeholder="..." />
+                <marker date="1434169418713" expanded="true" signature="180:455" placeholder="..." />
+                <marker date="1434169418713" expanded="true" signature="487:748" placeholder="..." />
+                <marker date="1434169418713" expanded="true" signature="780:1027" placeholder="..." />
+                <marker date="1434169418713" expanded="true" signature="1115:2045" placeholder="..." />
+                <marker date="1434169418713" expanded="true" signature="1147:1503" placeholder="..." />
+                <marker date="1434169418713" expanded="true" signature="1535:1761" placeholder="..." />
+                <marker date="1434169418713" expanded="true" signature="1720:1755" placeholder="..." />
+                <marker date="1434169418713" expanded="true" signature="1793:2031" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="team_tj.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/team_tj.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.84" vertical-offset="45" max-vertical-offset="840">
+              <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+              <folding>
+                <marker date="1434169440405" expanded="true" signature="148:1041" placeholder="..." />
+                <marker date="1434169440405" expanded="true" signature="180:455" placeholder="..." />
+                <marker date="1434169440405" expanded="true" signature="487:748" placeholder="..." />
+                <marker date="1434169440405" expanded="true" signature="780:1027" placeholder="..." />
+                <marker date="1434169440405" expanded="true" signature="1115:2046" placeholder="..." />
+                <marker date="1434169440405" expanded="true" signature="1147:1503" placeholder="..." />
+                <marker date="1434169440405" expanded="true" signature="1535:1762" placeholder="..." />
+                <marker date="1434169440405" expanded="true" signature="1794:2032" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -260,6 +312,8 @@
         <option value="$PROJECT_DIR$/app/mvc/v/dv_v.php" />
         <option value="$PROJECT_DIR$/core/lng/ru.php" />
         <option value="$PROJECT_DIR$/core/lng/tj.php" />
+        <option value="$PROJECT_DIR$/app/pages/team_ru.php" />
+        <option value="$PROJECT_DIR$/app/pages/team_tj.php" />
       </list>
     </option>
   </component>
@@ -589,26 +643,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/pages/home_ru.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="585">
-          <caret line="4" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <marker date="1434127541861" expanded="false" signature="174:192" placeholder="..." />
-            <marker date="1434127541861" expanded="true" signature="193:300" placeholder="..." />
-            <marker date="1434127541861" expanded="false" signature="341:359" placeholder="..." />
-            <marker date="1434127541861" expanded="true" signature="360:467" placeholder="..." />
-            <marker date="1434127541861" expanded="false" signature="508:526" placeholder="..." />
-            <marker date="1434127541861" expanded="true" signature="527:631" placeholder="..." />
-            <marker date="1434127541861" expanded="true" signature="672:756" placeholder="..." />
-            <marker date="1434127541861" expanded="true" signature="672:854" placeholder="..." />
-            <marker date="1434127541861" expanded="true" signature="696:756" placeholder="..." />
-            <marker date="1434127541861" expanded="true" signature="965:1079" placeholder="..." />
-            <marker date="1434127541861" expanded="true" signature="1067:1079" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/home_tj.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="585">
@@ -1142,9 +1176,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/lng/tj.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7794118" vertical-offset="543" max-vertical-offset="1170">
+        <state vertical-scroll-proportion="-19.875" vertical-offset="543" max-vertical-offset="1170">
           <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/about_ru.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="649">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1434132732177" expanded="false" signature="62:77" placeholder="..." />
+            <marker date="1434132732177" expanded="true" signature="78:698" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/team_ru.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.75" vertical-offset="0" max-vertical-offset="840">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+          <folding>
+            <marker date="1434169418713" expanded="true" signature="148:1041" placeholder="..." />
+            <marker date="1434169418713" expanded="true" signature="180:455" placeholder="..." />
+            <marker date="1434169418713" expanded="true" signature="487:748" placeholder="..." />
+            <marker date="1434169418713" expanded="true" signature="780:1027" placeholder="..." />
+            <marker date="1434169418713" expanded="true" signature="1115:2045" placeholder="..." />
+            <marker date="1434169418713" expanded="true" signature="1147:1503" placeholder="..." />
+            <marker date="1434169418713" expanded="true" signature="1535:1761" placeholder="..." />
+            <marker date="1434169418713" expanded="true" signature="1720:1755" placeholder="..." />
+            <marker date="1434169418713" expanded="true" signature="1793:2031" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/team_tj.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84" vertical-offset="45" max-vertical-offset="840">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+          <folding>
+            <marker date="1434169440405" expanded="true" signature="148:1041" placeholder="..." />
+            <marker date="1434169440405" expanded="true" signature="180:455" placeholder="..." />
+            <marker date="1434169440405" expanded="true" signature="487:748" placeholder="..." />
+            <marker date="1434169440405" expanded="true" signature="780:1027" placeholder="..." />
+            <marker date="1434169440405" expanded="true" signature="1115:2046" placeholder="..." />
+            <marker date="1434169440405" expanded="true" signature="1147:1503" placeholder="..." />
+            <marker date="1434169440405" expanded="true" signature="1535:1762" placeholder="..." />
+            <marker date="1434169440405" expanded="true" signature="1794:2032" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
