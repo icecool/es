@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 12 2015 г., 11:41
+-- Время создания: Июн 13 2015 г., 00:29
 -- Версия сервера: 5.5.43-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.9
 
@@ -1086,7 +1086,7 @@ CREATE TABLE IF NOT EXISTS `n-users` (
 --
 
 INSERT INTO `n-users` (`usr-uid`, `usr-gid`, `usr-pid`, `usr-login`, `usr-pwd`, `usr-salt`, `usr-hint`, `usr-status`, `usr-created`, `usr-lastlogin`) VALUES
-(1, 1, NULL, 'admin', '4e33559592d78056a7113ea23b92cc7d', 'j14', 'b3BlbmRhdGE=', 2, '2015-05-13 11:30:42', '2015-06-12 14:01:20');
+(1, 1, NULL, 'admin', '4e33559592d78056a7113ea23b92cc7d', 'j14', 'b3BlbmRhdGE=', 2, '2015-05-13 11:30:42', '2015-06-13 03:55:43');
 
 -- --------------------------------------------------------
 
