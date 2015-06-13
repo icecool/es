@@ -157,8 +157,7 @@ class DV_V {
     	// style="margin-left:auto;margin-right:auto;"
     	if($ver>0){
     		$result.='<h4 class="text-center" style="color:#555;">
-    	Динамика изменения кол-ва мальчиков и девочек 
-    	в школах г. Душанбе (2006-2013 гг.):</h4>
+    	'.lang('dynamica','Динамика изменения кол-ва мальчиков и девочек в школах г. Душанбе (2006-2013 гг.):').'</h4>
     	<div id="canvas-holder2'.$ver.'" style="margin-left:50px;">
 			<canvas id="chart-area2'.$ver.'" width="520" height="280"/>
 		</div>
@@ -455,7 +454,7 @@ class DV_V {
     	</script>';
     	if($ver>0){
     		$result.='<h4 class="text-center" style="color:#555;">
-    		Кол-во учащихся ср. школ по районам г. Душанбе (2010-2013гг.):</h4>
+    		'.lang('kolvo_uchashixsya','Кол-во учащихся ср. школ по районам г. Душанбе (2010-2013гг.):').'</h4>
 	    	<div id="xdbar'.$ver.'-holder" style="margin-left:50px;">
 				<canvas id="xdbar'.$ver.'" width="480" height="300"/>
 			</div>';
