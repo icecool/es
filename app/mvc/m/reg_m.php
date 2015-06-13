@@ -155,4 +155,10 @@ class REG_M {
     	return $result;
     }
 
+    public function reglist(){
+    	$reglist=array();
+    	
+    	return $reglist;
+    }
+
 }

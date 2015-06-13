@@ -26,6 +26,9 @@ class REG_C {
         		}
         		exit;
         	break;
+            case 'reglist':
+                $UI->pos['main'].=$view->reglist($model);
+            break;
             case 'check':
                 $UI->pos['main'].=$view->checkform();
 

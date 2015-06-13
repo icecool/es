@@ -193,4 +193,10 @@ class REG_V {
     	return $result;
     }
 
+    public function reglist($model){
+    	$result='';
+    	$result.='';
+    	return $result;
+    }
+
 }
